@@ -2108,9 +2108,8 @@ input, select, textarea {
 		letter-spacing: 0.125em;
 		text-align: center;
 		text-decoration: none;
-		text-transform: uppercase;
 		white-space: nowrap;
-		font-size: 0.75rem;
+		/* font-size: 0.75rem; */
 		max-width: 20rem;
 		height: 3.75em;
 		line-height: 3.75em;
