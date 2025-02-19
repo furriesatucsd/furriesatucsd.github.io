@@ -1,2 +1,2 @@
-# ucsd-furries.github.io
+# furriesatucsd.github.io
 Triton Tails Website
