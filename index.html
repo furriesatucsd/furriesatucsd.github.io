@@ -19,6 +19,14 @@
 		<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
 		<link rel="manifest" href="/favicon/site.webmanifest" />
 
+		<!-- Bootstrap CSS -->
+		<link href="./assets/css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+
 		<!-- GA4 -->
 		<!-- Google tag (gtag.js) -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-FL8NYH375F"></script>
@@ -32,18 +40,50 @@
 	</head>
 	<body class="is-preload">
 
+		<!-- Nav Bar -->
+		<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #00447A">
+			<img src="images/top-logo.gif" alt="Triton Tails Logo" class="mr-2" style="height: 2.5rem">
+			<a class="navbar-brand font-weight-bold" href="#">Triton Tails</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation" style="height: auto">
+			  <span class="navbar-toggler-icon"></span>
+			</button>
+	  
+			<div class="collapse navbar-collapse" id="navbarsExample04">
+			  <ul class="navbar-nav ml-auto">
+				<li class="nav-item active">
+				  	<a class="nav-link" href="/index.html">Home</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Major Upcoming Events</a>
+					<div class="dropdown-menu" aria-labelledby="dropdown04">
+					  <a class="dropdown-item" href="https://tinyurl.com/high-tide" target="_blank">High Tide - Rave Festival</a>
+					</div>
+				</li>
+				<li class="nav-item">
+				  	<a class="nav-link" href="/traditions.html">Past Events & Traditions</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/team.html">Our Team</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" target="_blank" href="https://linktr.ee/furriesatucsd">Links & Socials</a>
+				</li>
+			  </ul>
+			</div>
+		</nav>
+
 		<!-- Wrapper -->
 			<div id="wrapper" class="divided">
 
 				<!-- Landing Splash -->
 					<section class="banner style5 invert orient-left content-align-left image-position-center fullscreen onload-content-fade-right onload-image-fade-in">
 						<div class="content">
-							<h1><b>Triton Tails</b></h1>
-							<p class="major"><b>
+							<h1>Triton Tails</h1>
+							<p>
 								University-recognized furry community at UC San Diego!
 								<br>
 								400+ Members • 35 Board Members • Est. 2021
-							</b></p>
+							</p>
 							<ul class="actions">
 								<li><a href="#first" class="button primary big wide smooth-scroll-middle">Learn More</a></li>
 								<li><a href="https://linktr.ee/furriesatucsd" target="_blank" class="button big wide smooth-scroll-middle">Our Links & Socials</a></li>
@@ -214,79 +254,6 @@
 						</div>
 					</section>
 
-				<!-- Traditions -->
-					<section class="wrapper style1">
-						<div class="inner">
-							<div class="align-center">
-								<h2>Our Traditions</h2>
-								<p>The recurring events, activities, and other traditions of our furry community.</p>
-							</div>
-							<div class="table-wrapper">
-								<table>
-									<thead>
-										<tr>
-											<th>When</th>
-											<th>What</th>
-											<th>Since</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>Beginning of Qtr</td>
-											<td>Welcome Back Kickoffs, Tabling at Club Fairs, New Club Membership releases</td>
-											<td>Fall 2023</td>
-										</tr>
-										<tr>
-											<td>Daily</td>
-											<td>Casual hangouts and study jams</td>
-											<td>Fall 2023</td>
-										</tr>
-										<tr>
-											<td>Weekly</td>
-											<td>Fursuit Makerspace & Office Hours</td>
-											<td>Winter 2025</td>
-										</tr>
-										<tr>
-											<td>Biweekly</td>
-											<td>Club Meetups/GBMs/Collabs, Movie/Game/VR Nights</td>
-											<td>Fall 2023</td>
-										</tr>
-										<tr>
-											<td>Monthly</td>
-											<td>Large Meetups (San Diego + Itty Bitty Furmeets)</td>
-											<td>--</td>
-										</tr>
-										<tr>
-											<td>Quarterly</td>
-											<td>Fursuit Workshops, Camping + Stargazing Trip</td>
-											<td>Winter 2025</td>
-										</tr>
-										<tr>
-											<td>Fall, Spring</td>
-											<td>Large-scale Festivals w/ Artist Alleys, DJs, and New Club Merch releases</td>
-											<td>Fall 2024</td>
-										</tr>
-										<tr>
-											<td>End of Qtr</td>
-											<td>End of Quarter Celebrations and Finals Howl</td>
-											<td>Spring 2024</td>
-										</tr>
-										<tr>
-											<td>End of Year</td>
-											<td>Triton Tails Yearbook & Summer Sendoff</td>
-											<td>Spring 2024</td>
-										</tr>
-										<tr>
-											<td>Year-round</td>
-											<td>Furry Conventions</td>
-											<td>--</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
-					</section>
-
 				<!-- Footer -->
 					<footer class="wrapper style1 align-center">
 						<div class="inner">
@@ -308,5 +275,9 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 
+		<!-- Bootstrap JS -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script src="assets/js/popper.min.js"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
 	</body>
 </html>
