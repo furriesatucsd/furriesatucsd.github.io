@@ -1,0 +1,30 @@
+.store-area {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 48px;
+    align-self: stretch;
+}
+
+.store-aisle {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    align-self: stretch;
+}
+
+.store-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    align-self: stretch;
+}
+
+.store-item {
+    width: 200px;
+    height: 200px;
+    aspect-ratio: 1/1;
+    border-radius: 16px;
+    background: lightgray 50% / cover no-repeat, #DDD;
+}
