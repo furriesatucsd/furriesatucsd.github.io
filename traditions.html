@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Triton Tails • Past Events & Traditions</title>
+		<title>Triton Tails • Our Traditions</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -42,8 +42,8 @@
 
 		<!-- Nav Bar -->
 		<nav class="navbar navbar-expand-md navbar-dark" style="background-color: #00447A">
-			<img src="images/top-logo.gif" alt="Triton Tails Logo" class="mr-2" style="height: 2.5rem">
-			<a class="navbar-brand font-weight-bold" href="#">Triton Tails</a>
+			<a href="/index.html"><img src="images/top-logo.gif" alt="Triton Tails Logo" class="mr-2" style="height: 2.5rem"></a>
+			<a class="navbar-brand font-weight-bold" href="/index.html">Triton Tails</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation" style="height: auto">
 			  <span class="navbar-toggler-icon"></span>
 			</button>
@@ -54,19 +54,20 @@
 				  	<a class="nav-link" href="/index.html">Home</a>
 				</li>
 				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Upcoming Events</a>
-					<div class="dropdown-menu" aria-labelledby="dropdown04">
+					<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="gtag('event', 'click', {'event_category': 'Navigation', 'event_label': 'NavLink Upcoming Events'}); return true;">Upcoming Events</a>
+					<div class="dropdown-menu" aria-labelledby="dropdown02">
 					  <a class="dropdown-item" href="https://tinyurl.com/high-tide" target="_blank">High Tide - Rave Festival</a>
 					</div>
 				</li>
-				<li class="nav-item active">
-				  	<a class="nav-link" href="/traditions.html">Our Traditions</a>
+				<li class="nav-item dropdown active">
+					<a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="gtag('event', 'click', {'event_category': 'Navigation', 'event_label': 'NavLink About Us'}); return true;">About Us</a>
+					<div class="dropdown-menu" aria-labelledby="dropdown02">
+					  <a class="dropdown-item" href="/traditions.html">Our Traditions</a>
+					  <a class="dropdown-item" href="/team.html">Our Team</a>
+					</div>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="/team.html">Our Team</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" target="_blank" href="https://linktr.ee/furriesatucsd">Links & Socials</a>
+					<a class="nav-link" target="_blank" href="https://linktr.ee/furriesatucsd" onclick="gtag('event', 'click', {'event_category': 'Navigation', 'event_label': 'NavLink Links & Socials'}); return true;">Links & Socials</a>
 				</li>
 			  </ul>
 			</div>
