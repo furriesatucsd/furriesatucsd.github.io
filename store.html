@@ -79,6 +79,65 @@
 		<!-- Wrapper -->
 			<div id="wrapper" class="divided">
 
+				<!-- Cart Modal -->
+				<div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="cartModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-scrollable" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<div>
+									<h4 class="modal-title" id="cartModalLabel">Your Cart</h4>
+									<p>2 items</p>
+								</div>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close" style="box-shadow: none;">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<div class="cart-item">
+									<img src="images/store/beach_1.png">
+									<div class="cart-item-details">
+										<div class="cart-item-header">
+											<p style="flex-grow: 1">San Diego Beach Tee</p>
+											<p>$25</p>
+										</div>
+										<p>Size: L, Color: Blue</p>
+										<div class="cart-item-actions mt-2">
+											<button class="btn btn-sm btn-outline-secondary" onclick="decreaseQuantity(this)">–</button>
+											<span class="cart-item-quantity">1</span>
+											<button class="btn btn-sm btn-outline-secondary" onclick="increaseQuantity(this)">+</button>
+											<button class="btn btn-sm btn-link danger" style="color: gray" onclick="deleteItem(this)">Delete</button>
+										</div>
+									</div>
+								</div>
+								<div class="cart-item">
+									<img src="images/store/beach_1.png">
+									<div class="cart-item-details">
+										<div class="cart-item-header">
+											<p style="flex-grow: 1">San Diego Beach Tee</p>
+											<p>$25</p>
+										</div>
+										<p>Size: M, Color: Tan</p>
+										<div class="cart-item-actions mt-2">
+											<button class="btn btn-sm btn-outline-secondary" onclick="decreaseQuantity(this)">–</button>
+											<span class="cart-item-quantity">1</span>
+											<button class="btn btn-sm btn-outline-secondary" onclick="increaseQuantity(this)">+</button>
+											<button class="btn btn-sm btn-link danger" style="color: gray" onclick="deleteItem(this)">Delete</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<div style="flex-grow: 1">
+									<p>Total: $50</p>
+									<p style="font-size: small; opacity: 50%;">Sales tax already included</p>
+								</div>
+								<button class="btn btn-secondary" data-dismiss="modal">Continue Shopping</button>
+								<a class="btn btn-primary" href="/store-order-details.html">Checkout</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
 				<!-- Store Area -->
 					<section class="wrapper style1">
 						<div class="inner">
@@ -88,11 +147,11 @@
 										<h2>Club Store</h2>
 										<p>Get Triton Tails merch, membership, materials, and more!</p>
 									</div>
-									<a href="/store-order-details.html"><button class="button primary">Cart (0)</button></a>
+									<button class="button primary" data-toggle="modal" data-target="#cartModal">Cart (0)</button>
 								</div>
 								<div class="store-aisle">
 									<h4>Featured</h4>
-									<div class="scrollable-container">
+									<div class="scrollable-container-x">
 										<div class="store-row store-row-featured">
 											<div class="store-item">
 												<img src="images/store/featured_1.png">
@@ -115,7 +174,7 @@
 								</div>
 								<div class="store-aisle">
 									<h4>The Beach Vibes Collection</h4>
-									<div class="scrollable-container">
+									<div class="scrollable-container-x">
 										<div class="store-row">
 											<div class="store-item">
 												<img src="images/store/beach_1.png">
@@ -154,7 +213,7 @@
 								</div>
 								<div class="store-aisle">
 									<h4>The High Tide Collection</h4>
-									<div class="scrollable-container">
+									<div class="scrollable-container-x">
 										<div class="store-row">
 											<div class="store-item">
 												<img src="images/store/high_1.png">
@@ -209,7 +268,7 @@
 								</div>
 								<div class="store-aisle">
 									<h4>The Fursuit Workshop Collection</h4>
-									<div class="scrollable-container">
+									<div class="scrollable-container-x">
 										<div class="store-row">
 											<div class="store-item">
 												<img src="images/store/fur_1.png">
