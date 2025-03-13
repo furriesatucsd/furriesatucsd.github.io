@@ -21,10 +21,31 @@
     align-self: stretch;
 }
 
-.store-item {
-    width: 200px;
-    height: 200px;
+.store-item > img {
+    width: 150px;
+    height: 150px;
     aspect-ratio: 1/1;
     border-radius: 16px;
-    background: lightgray 50% / cover no-repeat, #DDD;
+    object-fit: cover;
+}
+
+.store-row-featured img {
+    width: 400px;
+    height: 200px;
+}
+
+@media (max-width: 768px) {
+    .store-item > img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .store-row-featured {
+        flex-direction: column;
+    }
+
+    .store-row-featured img {
+        width: 100%;
+        height: fit-content(100%);
+    }
 }
