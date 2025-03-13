@@ -80,6 +80,65 @@
 		<!-- Wrapper -->
 			<div id="wrapper" class="divided">
 
+				<!-- Item Modal -->
+				<div class="modal fade" id="itemModal" tabindex="-1" role="dialog" aria-labelledby="itemModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-scrollable" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<div>
+									<h4 class="modal-title" id="itemModalLabel">San Diego Beach Tee</h4>
+									<p>Surf the beachy vibes with this sick T-shirt!</p>
+								</div>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close" style="box-shadow: none;">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<img src="images/store/beach_1.png" style="width: 100%; aspect-ratio: 1/1; border-radius: 16px;">
+								
+								<!-- Options -->
+								<div class="mcq">
+									<div class="mcq-header">
+										<h6>Shirt Size</h6>
+									</div>
+									<div class="mcq-options">
+										<button class="btn btn-sm btn-light">S</button>
+										<button class="btn btn-sm btn-secondary">M</button>
+										<button class="btn btn-sm btn-light">L</button>
+										<button class="btn btn-sm btn-light">XL</button>
+										<button class="btn btn-sm btn-light">2XL</button>
+									</div>
+								</div>
+								<div class="mcq">
+									<div class="mcq-header">
+										<h6>Color</h6>
+									</div>
+									<div class="mcq-options">
+										<button class="btn btn-sm btn-light">Tan</button>
+										<button class="btn btn-sm btn-secondary">Blue</button>
+									</div>
+								</div>
+								<div class="mcq">
+									<div class="mcq-header">
+										<h6>Fur Length</h6>
+									</div>
+									<div class="mcq-options">
+										<button class="btn btn-sm btn-light">Half Yard</button>
+										<button class="btn btn-sm btn-secondary">Full Yard</button>
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<div style="flex-grow: 1">
+									<p>$25</p>
+									<p style="font-size: small; opacity: 50%;">Sales tax already included</p>
+								</div>
+								<button class="btn btn-primary" data-dismiss="modal">Add to Cart</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
 				<!-- Cart Modal -->
 				<div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="cartModalLabel" aria-hidden="true">
 					<div class="modal-dialog modal-dialog-scrollable" role="document">
@@ -154,22 +213,22 @@
 									<h4>Featured</h4>
 									<div class="scrollable-container-x">
 										<div class="store-row store-row-featured">
-											<div class="store-item">
+											<button class="store-item" data-toggle="modal" data-target="#itemModal">
 												<img src="images/store/featured_1.png">
 												<p>
 													<b>High Tide - Rave Festival</b>
 													<br>
 													Tickets starting at $--
 												</p>
-											</div>
-											<div class="store-item">
+											</button>
+											<button class="store-item" data-toggle="modal" data-target="#itemModal">
 												<img src="images/store/featured_2.png">
 												<p>
 													<b>Membership Cards</b>
 													<br>
 													$10
 												</p>
-											</div>
+											</button>
 										</div>
 									</div>
 								</div>
@@ -177,38 +236,38 @@
 									<h4>The Beach Vibes Collection</h4>
 									<div class="scrollable-container-x">
 										<div class="store-row">
-											<div class="store-item">
+											<button class="store-item" data-toggle="modal" data-target="#itemModal">
 												<img src="images/store/beach_1.png">
 												<p>
 													<b>San Diego Beach Tee</b>
 													<br>
 													$25
 												</p>
-											</div>
-											<div class="store-item">
+											</button>
+											<button class="store-item" data-toggle="modal" data-target="#itemModal">
 												<img src="images/store/beach_2.png">
 												<p>
 													<b>Tropical Drink Sticker</b>
 													<br>
 													$3
 												</p>
-											</div>
-											<div class="store-item">
+											</button>
+											<button class="store-item" data-toggle="modal" data-target="#itemModal">
 												<img src="images/store/beach_3.png">
 												<p>
 													<b>Tide Sticker</b>
 													<br>
 													$3
 												</p>
-											</div>
-											<div class="store-item">
+											</button>
+											<button class="store-item" data-toggle="modal" data-target="#itemModal">
 												<img src="images/store/beach_4.png">
 												<p>
 													<b>Ummm uhhhh</b>
 													<br>
 													$3
 												</p>
-											</div>
+											</button>
 										</div>
 									</div>
 								</div>
