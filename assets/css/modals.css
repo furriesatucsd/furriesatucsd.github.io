@@ -2,17 +2,12 @@
 .modal p {
     margin-bottom: 0;
 }
-/* Override default modal max-width restrictions, because text sizes up independently */
-@media (min-width: 576px) {
-    .modal-dialog {
-        max-width: 500px;
-    }
-}
 @media (min-width: 1024px) {
     .modal-dialog {
-        max-width: 1000px;
+        max-width: 800px;
     }
 }
+
 /* Expand footer when small */
 @media (max-width: 600px) {
     .modal-footer {
