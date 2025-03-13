@@ -87,22 +87,7 @@
     }
 }
 
-/* CART */
-.modal p {
-    margin-bottom: 0;
-}
-/* Override default modal max-width restrictions, because text sizes up independently */
-@media (min-width: 576px) {
-    .modal-dialog {
-        max-width: 500px;
-    }
-}
-@media (min-width: 1024px) {
-    .modal-dialog {
-        max-width: 1000px;
-    }
-}
-
+/* CART MODAL */
 /* List of cart items */
 #cartModal .modal-body {
     display: flex;
@@ -161,17 +146,5 @@
     /* Make cart item icons smaller */
     .cart-item > img {
         width: 80px;
-    }
-
-    /* Expand footer when small */
-    #cartModal .modal-footer {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-    }
-    #cartModal .modal-footer div,
-    #cartModal .modal-footer a,
-    #cartModal .modal-footer button {
-        width: 100%;
     }
 }
