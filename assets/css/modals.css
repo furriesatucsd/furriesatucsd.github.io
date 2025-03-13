@@ -3,6 +3,13 @@
     margin-bottom: 0;
 }
 
+/* Expand the modal on large screens */
+@media (min-width: 1024px) {
+    .modal-dialog {
+        max-width: 800px;
+    }
+}
+
 .modal-body {
     display: flex;
     flex-direction: column;

@@ -112,12 +112,6 @@
 }
 
 /* CART MODAL */
-/* Expand the cart modal on large screens */
-@media (min-width: 1024px) {
-    #cartModal .modal-dialog {
-        max-width: 800px;
-    }
-}
 
 /* Cart item */
 .cart-item {
