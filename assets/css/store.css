@@ -95,6 +95,20 @@
 }
 
 /* ITEM MODAL */
+
+@media (min-width: 1024px) {
+    #itemModal .modal-body {
+        flex-direction: row;
+    }
+}
+
+/* Options */
+.options-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-self: stretch;
+}
 .mcq {
     display: flex;
     flex-direction: column;

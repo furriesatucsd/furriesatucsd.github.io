@@ -6,7 +6,12 @@
 /* Expand the modal on large screens */
 @media (min-width: 1024px) {
     .modal-dialog {
-        max-width: 800px;
+        max-width: 1000px;
+    }
+}
+@media (min-width: 1680px) {
+    .modal-dialog {
+        max-width: 1280px;
     }
 }
 
