@@ -98,10 +98,10 @@
         display: none;
     }
 
-    .store-row-featured img {
+    .store-row-featured .store-item img {
         width: 100%;
     }
-    
+
     .store-item img {
         width: 150px;
     }
