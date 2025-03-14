@@ -21,11 +21,6 @@
     flex: 1 0 0;
 }
 
-.scrollable-container-x {
-    overflow-x: scroll;
-    width: 100%;
-}
-
 /* Aisles containing rows */
 .store-aisle {
     display: flex;
@@ -33,6 +28,12 @@
     align-items: flex-start;
     gap: 8px;
     align-self: stretch;
+    position: relative; /* Allows you to absolutely-position the scroll edge overlay */
+}
+
+.scrollable-container-x {
+    overflow-x: scroll;
+    width: 100%;
 }
 
 /* Rows of items */
@@ -41,6 +42,13 @@
     align-items: flex-start;
     gap: 16px;
     align-self: stretch;
+}
+.scroll-edge-overlay {
+    width: 50px;
+    height: 100%;
+    position: absolute;
+    right: 0px;
+    background: linear-gradient(270deg, #FFF 0%, rgba(255, 255, 255, 0.00) 100%);
 }
 
 /* Items */
@@ -82,16 +90,20 @@
 }
 
 @media (max-width: 600px) {
-    .store-item img {
-        width: 150px;
-    }
-
     .store-row-featured {
         flex-direction: column;
     }
 
+    .store-row-featured .scroll-edge-overlay {
+        display: none;
+    }
+
     .store-row-featured img {
         width: 100%;
+    }
+    
+    .store-item img {
+        width: 150px;
     }
 }
 
