@@ -1,63 +1,108 @@
 # Triton Tails - Furries at UCSD Website
 
-This is the official website for Triton Tails, the furry student organization at UC San Diego.
+The official website for Triton Tails, the furry student organization at UC San Diego.
 
-## Technology Stack
+## 🛠️ Technology Stack
 
-This website uses:
+- **[11ty](https://www.11ty.dev/)** - Static site generator for fast, secure web pages
+- **[Vite](https://vitejs.dev/)** - Next-generation frontend tooling
+- **[Bootstrap 5](https://getbootstrap.com/)** - Responsive CSS framework
+- **[GSAP](https://greensock.com/gsap/)** - Professional-grade animation library
+- **[Sass](https://sass-lang.com/)** - Feature-rich CSS preprocessor
 
-- [11ty](https://www.11ty.dev/) - Static site generator
-- [Vite](https://vitejs.dev/) - Modern frontend build tool
-- [Bootstrap 5](https://getbootstrap.com/) - CSS framework
-- [GSAP](https://greensock.com/gsap/) - Animation library
-- [Sass](https://sass-lang.com/) - CSS preprocessor
+## 📁 Project Structure
 
-## Development
+```
+src/
+├── _content/              # Content pages and data
+│   └── pages/            # Main site pages (.njk templates)
+├── _data/                # Site-wide data files
+├── _includes/            # Reusable components
+│   └── components/       # Nunjucks components
+├── _layouts/             # Page templates
+│   └── base.njk          # Base layout template
+└── assets/              # Static assets
+    ├── js/             # JavaScript files
+    ├── scss/           # SASS stylesheets
+    ├── images/         # Site images
+    └── favicon/        # Favicon files
+```
 
-To set up the project for development:
+The project uses Nunjucks (`.njk`) as the templating language for pages and layouts. Content is organized as follows:
 
-1. Clone the repository
+- **_content/pages/**: Contains the main site pages written in Nunjucks
+- **_includes/components/**: Reusable UI components
+- **_layouts/**: Base template that other pages extend from
+- **assets/**: Organized static assets including:
+  - JavaScript modules
+  - SCSS stylesheets for custom styling
+  - Images and favicon resources
 
-   ```
+## 🚀 Development
+
+### Prerequisites
+
+- Node.js (LTS version recommended)
+- npm or yarn
+
+### Getting Started
+
+1. Clone the repository:
+   ```bash
    git clone https://github.com/furriesatucsd/furriesatucsd.github.io.git
    cd furriesatucsd.github.io
    ```
 
-2. Install dependencies
-
-   ```
+2. Install dependencies:
+   ```bash
    npm install
    ```
 
-3. Run the development server
+3. Start the development server:
+   ```bash
+   npm run dev
    ```
-   npm run start
-   ```
+   This will:
+   - Clean the dist directory
+   - Start Vite in watch mode
+   - Run 11ty with hot-reloading
+   - Open your default browser to the local development server
 
-This will:
+## 🔧 Available Scripts
 
-- Build the site with Vite and 11ty
-- Start a local development server
+- `npm run dev` - Start development server with hot reloading
+- `npm run build` - Build the site for production
+- `npm run preview` - Build and preview the production site
+- `npm run lint` - Run ESLint to check code quality
+- `npm run lint:fix` - Fix ESLint issues automatically
+- `npm run format` - Format code using Prettier
+- `npm run test` - Run Jest tests
+- `npm run test:watch` - Run tests in watch mode
+- `npm run validate` - Validate HTML output
 
-## Build
+## 🏗️ Building for Production
 
 To build the site for production:
 
-```
+```bash
 npm run build
 ```
 
-The compiled site will be in the `dist` folder.
+The compiled site will be generated in the `dist` folder, ready for deployment.
 
-## Adding Content
+## 🤝 Contributing
 
-Content is written in Nunjucks templates and Markdown files. The site structure follows the 11ty conventions:
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-- `src/` - Source files
-  - `_includes/` - Reusable components
-  - `_layouts/` - Page templates
-  - `assets/` - Static assets (CSS, JS, images)
+## 📝 License
 
-## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-ISC
+## 🔗 Links
+
+- [Organization Website](https://furriesatucsd.github.io)
+- [GitHub Repository](https://github.com/furriesatucsd/furriesatucsd.github.io)
