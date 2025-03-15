@@ -4,11 +4,15 @@ The official website for Triton Tails, the furry student organization at UC San 
 
 ## 🛠️ Technology Stack
 
-- **[11ty](https://www.11ty.dev/)** - Static site generator for fast, secure web pages
-- **[Vite](https://vitejs.dev/)** - Next-generation frontend tooling
-- **[Bootstrap 5](https://getbootstrap.com/)** - Responsive CSS framework
-- **[GSAP](https://greensock.com/gsap/)** - Professional-grade animation library
-- **[Sass](https://sass-lang.com/)** - Feature-rich CSS preprocessor
+- **[11ty (Eleventy)](https://www.11ty.dev/)** - Static Site Generator
+- **[Vite](https://vitejs.dev/)** - Build Tool & Development Server
+- **[Bootstrap 5](https://getbootstrap.com/)** - Frontend Framework
+- **[Sass](https://sass-lang.com/)** - CSS Preprocessor
+- **[GSAP (GreenSock)](https://greensock.com/gsap/)** - Animation Library
+- **[ESLint](https://eslint.org/)** - JavaScript Linter
+- **[Prettier](https://prettier.io/)** - Code Formatter
+- **[Jest](https://jestjs.io/)** - Testing Framework
+- **[Nunjucks](https://mozilla.github.io/nunjucks/)** - Templating Language
 
 ## 📁 Project Structure
 
