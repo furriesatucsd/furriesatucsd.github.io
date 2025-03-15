@@ -142,19 +142,20 @@
 									<p>$25</p>
 									<p style="font-size: small; opacity: 50%;">Sales tax already included</p>
 								</div>
-								<button class="btn btn-primary" data-dismiss="modal">Add to Cart</button>
+								<div class="cart-item-actions">
+									<button class="btn btn-outline-secondary">–</button>
+									<span class="cart-item-quantity">1</span>
+									<button class="btn btn-outline-secondary">+</button>
+									<button class="btn btn-primary" data-dismiss="modal">Add to Cart</button>
+								</div>
 							</div>
 							<div class="modal-footer" style="display: none;">
 								<div style="flex-grow: 1">
 									<p>$25</p>
 									<p style="font-size: small; opacity: 50%;">Sales tax already included</p>
 								</div>
-								<div class="cart-item-actions mt-2">
-									<button class="btn btn-outline-secondary" onclick="decreaseQuantity(this)">–</button>
-									<span class="cart-item-quantity">1</span>
-									<button class="btn btn-outline-secondary" onclick="increaseQuantity(this)">+</button>
-									<button class="btn btn-secondary" data-dismiss="modal">View Cart</button>
-								</div>
+								<span class="mr-2">Added to cart!</span>
+								<button class="btn btn-secondary" data-dismiss="modal">View Cart</button>
 							</div>
 						</div>
 					</div>
