@@ -1,0 +1,16 @@
+@use '../abstracts/variables' as *;
+
+// Table styling improvements
+.table {
+  font-size: $font-size-base;
+
+  th {
+    font-weight: 600;
+    padding: 1rem;
+  }
+
+  td {
+    padding: 1rem;
+    vertical-align: middle;
+  }
+}

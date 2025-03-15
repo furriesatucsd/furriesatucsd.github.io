@@ -1,0 +1,52 @@
+{
+  "photos": [
+    {
+      "id": "01",
+      "title": "Howloween",
+      "description": "Our Halloween Fair and Festival with an Artist Alley, Costume Contest, Floor Wars, and 700+ attendees",
+      "image": "/assets/images/gallery/fulls/01.jpg",
+      "thumbnail": "/assets/images/gallery/thumbs/01.jpg",
+      "alt": "Howloween"
+    },
+    {
+      "id": "02",
+      "title": "Cinco de MAWyo",
+      "description": "Game Night and Furmeet in collaboration with San Diego Furries",
+      "image": "/assets/images/gallery/fulls/02.jpg",
+      "thumbnail": "/assets/images/gallery/thumbs/02.jpg",
+      "alt": "Cinco de MAWyo"
+    },
+    {
+      "id": "03",
+      "title": "Furries? at MY university!?",
+      "description": "It's more likely than you think!",
+      "image": "/assets/images/gallery/fulls/03.jpg",
+      "thumbnail": "/assets/images/gallery/thumbs/03.jpg",
+      "alt": "Furries at MY university"
+    },
+    {
+      "id": "04",
+      "title": "Itty Bitty Furmeet",
+      "description": "Local, newer furmeets in San Dieguito",
+      "image": "/assets/images/gallery/fulls/04.jpg",
+      "thumbnail": "/assets/images/gallery/thumbs/04.jpg",
+      "alt": "Itty Bitty Furmeet"
+    },
+    {
+      "id": "05",
+      "title": "San Diego Furmeet",
+      "description": "Furry meetups in Downtown San Diego",
+      "image": "/assets/images/gallery/fulls/05.jpg",
+      "thumbnail": "/assets/images/gallery/thumbs/05.jpg",
+      "alt": "San Diego Furmeet"
+    },
+    {
+      "id": "06",
+      "title": "Spring Kickoff",
+      "description": "Mario Kart, Minecraft, and more! Silly game night and fursuiting on campus",
+      "image": "/assets/images/gallery/fulls/06.jpg",
+      "thumbnail": "/assets/images/gallery/thumbs/06.jpg",
+      "alt": "Spring Kickoff"
+    }
+  ]
+}

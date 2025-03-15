@@ -1,0 +1,13 @@
+// Button styling
+.btn {
+  font-weight: 600;
+
+  &.btn-lg {
+    padding: 0.75rem 1.5rem;
+  }
+}
+
+// Utility classes
+.cursor-pointer {
+  cursor: pointer;
+}

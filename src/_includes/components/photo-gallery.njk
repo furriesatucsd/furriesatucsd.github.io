@@ -1,0 +1,83 @@
+<!-- Photo Gallery -->
+<section class="py-5 text-center">
+  <div class="container-fluid">
+    <h2 class="display-5 fw-bold mb-3">{{ galleryData.title | default('Photo Gallery') }}</h2>
+    <p class="lead mb-5">
+      {{ galleryData.description | default('Explore some of our past events and see what we\'ve been
+      up to.') }}
+    </p>
+
+    <div id="photoCarousel" class="carousel slide fade-in" data-bs-ride="carousel">
+      <!-- Indicators/dots -->
+      <div class="carousel-indicators">
+        {% for photo in galleryData.photos %}
+        <button
+          type="button"
+          data-bs-target="#photoCarousel"
+          data-bs-slide-to="{{ loop.index0 }}"
+          class="{% if loop.first %}active{% endif %}"
+          {%
+          if
+          loop.first
+          %}aria-current="true"
+          {%
+          endif
+          %}
+          aria-label="Slide {{ loop.index }}"
+        ></button>
+        {% endfor %}
+      </div>
+
+      <!-- The slideshow/carousel -->
+      <div class="carousel-inner rounded shadow">
+        {% for photo in galleryData.photos %}
+        <div class="carousel-item {% if loop.first %}active{% endif %}">
+          <img src="{{ photo.image }}" class="d-block w-100" alt="{{ photo.alt }}" />
+          <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
+            <h5>{{ photo.title }}</h5>
+            <p>{{ photo.description }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+      <!-- Left and right controls/icons -->
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#photoCarousel"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#photoCarousel"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+    <!-- Thumbnail navigation -->
+    <div
+      class="row mt-4 g-2 d-none d-md-flex justify-content-center"
+      style="max-width: 85%; margin: 0 auto"
+    >
+      {% for photo in galleryData.photos %}
+      <div class="col-2 col-md-2 col-lg-1">
+        <img
+          src="{{ photo.thumbnail }}"
+          class="img-fluid rounded cursor-pointer thumbnail-nav {% if loop.first %}active{% endif %}"
+          data-bs-target="#photoCarousel"
+          data-bs-slide-to="{{ loop.index0 }}"
+          alt="Thumbnail {{ loop.index }}"
+        />
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

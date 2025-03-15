@@ -1,0 +1,16 @@
+{
+  "title": "Our Team",
+  "description": "Meet the team behind Triton Tails - Furries at UC San Diego.",
+  "board": {
+    "image": "/assets/images/board-structure.png",
+    "alt": "Board Structure",
+    "style": {
+      "maxHeight": "80vh",
+      "objectFit": "contain"
+    }
+  },
+  "join": {
+    "title": "Want to join our team?",
+    "description": "Please apply on our Discord, in the #join-board channel!"
+  }
+}

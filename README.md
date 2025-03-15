@@ -5,6 +5,7 @@ This is the official website for Triton Tails, the furry student organization at
 ## Technology Stack
 
 This website uses:
+
 - [11ty](https://www.11ty.dev/) - Static site generator
 - [Vite](https://vitejs.dev/) - Modern frontend build tool
 - [Bootstrap 5](https://getbootstrap.com/) - CSS framework
@@ -16,12 +17,14 @@ This website uses:
 To set up the project for development:
 
 1. Clone the repository
+
    ```
    git clone https://github.com/furriesatucsd/furriesatucsd.github.io.git
    cd furriesatucsd.github.io
    ```
 
 2. Install dependencies
+
    ```
    npm install
    ```
@@ -32,6 +35,7 @@ To set up the project for development:
    ```
 
 This will:
+
 - Build the site with Vite and 11ty
 - Start a local development server
 
@@ -56,4 +60,4 @@ Content is written in Nunjucks templates and Markdown files. The site structure 
 
 ## License
 
-ISC 
+ISC

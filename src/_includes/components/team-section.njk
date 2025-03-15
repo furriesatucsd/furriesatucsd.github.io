@@ -1,0 +1,22 @@
+{% macro teamSection(data) %}
+<div class="container-fluid mt-4 mb-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-10">
+      <section class="text-center mb-5 fade-in">
+        <div class="board-structure mb-4">
+          <img
+            src="{{ data.board.image }}"
+            alt="{{ data.board.alt }}"
+            class="img-fluid w-100"
+            style="max-height: {{ data.board.style.maxHeight }}; object-fit: {{ data.board.style.objectFit }};"
+          />
+        </div>
+        <div class="mt-4">
+          <h2>{{ data.join.title }}</h2>
+          <p>{{ data.join.description }}</p>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+{% endmacro %}

@@ -37,6 +37,9 @@ Thumbs.db
 Desktop.ini
 $RECYCLE.BIN/
 
+# Vite cache
+.vite-cache/
+
 # Eleventy specific
 .eleventy.cache/
 

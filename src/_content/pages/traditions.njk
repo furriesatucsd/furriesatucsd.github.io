@@ -1,0 +1,17 @@
+---
+layout: base.njk
+title: { { traditionsPage.title } }
+description: { { traditionsPage.description } }
+googleAnalyticsId: { { site.googleAnalyticsId } }
+---
+
+<!-- Banner -->
+{% set bannerData = traditionsPage.banner %} {% include "components/page-banner.njk" %}
+
+<!-- Photo Gallery -->
+{% set galleryData = traditionsPage.gallery %} {% set galleryData = galleryData | merge({ photos:
+gallery.photos }) %} {% include "components/photo-gallery.njk" %}
+
+<!-- Traditions Table -->
+{% set perksData = traditionsPage.traditions_table %} {% set perksData = perksData | merge({
+headers: traditions.headers, data: traditions.data }) %} {% include "components/data-table.njk" %}

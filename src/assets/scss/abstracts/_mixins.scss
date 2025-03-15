@@ -1,0 +1,56 @@
+@use 'variables' as *;
+
+// Media query mixins
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == large {
+    @media (max-width: $breakpoint-lg) {
+      @content;
+    }
+  } @else if $breakpoint == medium {
+    @media (max-width: $breakpoint-md) {
+      @content;
+    }
+  } @else if $breakpoint == small {
+    @media (max-width: $breakpoint-sm) {
+      @content;
+    }
+  }
+}
+
+// Flexbox mixins
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// Animation mixins
+@mixin fade-in {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+
+  &.show {
+    opacity: 1;
+  }
+}
+
+// Image mixins
+@mixin img-cover {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+// Shadow mixins
+@mixin hover-shadow {
+  transition: $transition-standard;
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: $box-shadow-hover !important;
+  }
+}

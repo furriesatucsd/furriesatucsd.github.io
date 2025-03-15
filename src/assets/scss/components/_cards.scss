@@ -1,0 +1,27 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Card styling
+.card {
+  transition: $transition-standard;
+  border-radius: $border-radius-lg;
+  @include hover-shadow;
+
+  .card-img-top {
+    border-top-left-radius: $border-radius-lg;
+    border-top-right-radius: $border-radius-lg;
+  }
+}
+
+// Image styling
+img.rounded {
+  border-radius: $border-radius-lg !important;
+}
+
+.shadow {
+  box-shadow: $box-shadow-standard !important;
+}
+
+img.img-fluid {
+  @include img-cover;
+}

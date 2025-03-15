@@ -4,10 +4,15 @@
   "main": "index.js",
   "scripts": {
     "clean": "rimraf dist",
-    "build:eleventy": "eleventy",
-    "build:vite": "vite build",
-    "build": "npm run clean && npm run build:vite && npm run build:eleventy",
-    "start": "npm run build && eleventy --serve"
+    "dev": "npm run clean && vite build --watch & eleventy --serve",
+    "build": "npm run clean && vite build && eleventy",
+    "preview": "npm run build && eleventy --serve",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css,scss,njk}\"",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "validate": "html-validate dist/**/*.html"
   },
   "repository": {
     "type": "git",
@@ -24,6 +29,17 @@
   "description": "",
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
+    "@babel/core": "^7.24.0",
+    "@babel/preset-env": "^7.24.0",
+    "@types/jest": "^29.5.12",
+    "babel-jest": "^29.7.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-jest": "^27.9.0",
+    "html-validate": "^8.12.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "prettier": "^3.2.5",
     "rimraf": "^6.0.1",
     "sass": "^1.85.1",
     "terser": "^5.39.0",

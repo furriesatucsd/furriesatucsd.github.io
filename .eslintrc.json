@@ -1,0 +1,27 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true,
+    "jest": true
+  },
+  "extends": ["eslint:recommended", "plugin:jest/recommended", "prettier"],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["jest"],
+  "rules": {
+    "no-unused-vars": "warn",
+    "no-console": "warn",
+    "no-redeclare": ["error", { "builtinGlobals": false }]
+  },
+  "globals": {
+    "gsap": true,
+    "ScrollTrigger": true,
+    "bootstrap": true,
+    "simulatePageLoad": true,
+    "createModalEvent": true
+  },
+  "ignorePatterns": ["dist/**/*", "node_modules/**/*"]
+}

@@ -1,0 +1,41 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Base reset styles
+body {
+  background-color: $primary-color;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  @include flex-column;
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+}
+
+main {
+  flex: 1;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+// Enhanced text styling
+.display-1 {
+  margin-bottom: 1rem;
+}
+
+.display-5 {
+  margin-bottom: 1.25rem;
+}
+
+.lead {
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+}
+
+p {
+  margin-bottom: 1.25rem;
+}

@@ -1,0 +1,23 @@
+{
+  "headers": ["When", "What", "Since"],
+  "data": [
+    [
+      "Beginning of Qtr",
+      "Welcome Back Kickoffs, Tabling at Club Fairs, New Club Membership releases",
+      "Fall 2023"
+    ],
+    ["Daily", "Casual hangouts and study jams", "Fall 2023"],
+    ["Weekly", "Fursuit Makerspace & Office Hours", "Winter 2025"],
+    ["Biweekly", "Club Meetups/GBMs/Collabs, Movie/Game/VR Nights", "Fall 2023"],
+    ["Monthly", "Large Meetups (San Diego + Itty Bitty Furmeets)", "--"],
+    ["Quarterly", "Fursuit Workshops, Camping + Stargazing Trip", "Winter 2025"],
+    [
+      "Fall, Spring",
+      "Large-scale Festivals w/ Artist Alleys, DJs, and New Club Merch releases",
+      "Fall 2024"
+    ],
+    ["End of Qtr", "End of Quarter Celebrations and Finals Howl", "Spring 2024"],
+    ["End of Year", "Triton Tails Yearbook & Summer Sendoff", "Spring 2024"],
+    ["Year-round", "Furry Conventions", "--"]
+  ]
+}

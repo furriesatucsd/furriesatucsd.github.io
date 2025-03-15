@@ -1,0 +1,53 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Section styling
+section {
+  padding: $section-padding-y 0;
+  position: relative;
+
+  &.banner {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0;
+
+    .banner-image {
+      transition: transform 10s ease-out;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  .container-fluid {
+    position: relative;
+    z-index: 1;
+    max-width: 1600px;
+    padding-left: $container-padding-x;
+    padding-right: $container-padding-x;
+  }
+
+  @include respond-to(large) {
+    padding: 4rem 0;
+  }
+
+  @include respond-to(medium) {
+    padding: $section-padding-y-sm 0;
+
+    &.banner {
+      min-height: 70vh;
+    }
+  }
+}
+
+// Animation classes
+.fade-in {
+  @include fade-in;
+}
+
+// Custom animation to immediately show content
+.content-visible {
+  opacity: 1 !important;
+}

@@ -1,0 +1,21 @@
+{% macro spotlight(data) %}
+<section class="py-5 {% if data.background == 'light' %}bg-light{% endif %}">
+  <div class="container-fluid">
+    <div class="row align-items-center g-4 g-lg-5">
+      <div
+        class="col-lg-6 {% if data.image_position == 'right' %}order-lg-2{% endif %} mb-4 mb-lg-0 fade-in"
+      >
+        <img src="{{ data.image }}" alt="{{ data.alt }}" class="img-fluid rounded shadow w-100" />
+      </div>
+      <div class="col-lg-6 {% if data.image_position == 'right' %}order-lg-1{% endif %} fade-in">
+        <h2 class="display-5 fw-bold">{{ data.title | safe }}</h2>
+        {% if data.subtitle %}
+        <p class="lead {% if data.content %}mb-4{% endif %}">{{ data.subtitle }}</p>
+        {% endif %} {% for paragraph in data.content %}
+        <p>{{ paragraph }}</p>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endmacro %}

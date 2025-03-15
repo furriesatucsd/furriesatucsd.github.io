@@ -1,0 +1,15 @@
+{
+  "headers": ["With a Club Membership, you get:", "By joining Board, you get:"],
+  "data": [
+    [
+      "Membership Card, renewed quarterly",
+      "$8,000+ budget for supporting and growing the community"
+    ],
+    [
+      "10-20% off at Restaurants on-campus",
+      "Preferred hotel rooms, room blocks, and travel arrangements"
+    ],
+    ["10% off Club Merch", "Up to 20% off Merch and Membership"],
+    ["Priority for Fursuit Workshops", "Priority for Fursuit Workshops"]
+  ]
+}

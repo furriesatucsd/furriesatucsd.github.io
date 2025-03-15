@@ -1,0 +1,38 @@
+{
+  "main": [
+    {
+      "title": "Home",
+      "url": "/"
+    },
+    {
+      "title": "Upcoming Events",
+      "type": "dropdown",
+      "items": [
+        {
+          "title": "High Tide - Rave Festival",
+          "url": "https://tinyurl.com/high-tide",
+          "external": true
+        }
+      ]
+    },
+    {
+      "title": "About Us",
+      "type": "dropdown",
+      "items": [
+        {
+          "title": "Our Traditions",
+          "url": "/traditions/"
+        },
+        {
+          "title": "Our Team",
+          "url": "/team/"
+        }
+      ]
+    },
+    {
+      "title": "Links & Socials",
+      "url": "https://linktr.ee/furriesatucsd",
+      "external": true
+    }
+  ]
+}

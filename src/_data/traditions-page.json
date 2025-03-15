@@ -1,0 +1,19 @@
+{
+  "title": "Our Traditions",
+  "description": "Learn about the recurring events, activities, and traditions of Triton Tails - Furries at UC San Diego.",
+  "banner": {
+    "title": "Our Traditions",
+    "subtitle": "The recurring events, activities, and traditions of our furry community",
+    "background_image": "/assets/images/gallery/fulls/01.jpg",
+    "height": "50vh"
+  },
+  "gallery": {
+    "title": "Photo Gallery",
+    "description": "Explore some of our past events and see what we've been up to."
+  },
+  "traditions_table": {
+    "title": "Our Traditions",
+    "description": "The recurring events, activities, and other traditions of our furry community.",
+    "background_class": "bg-light"
+  }
+}

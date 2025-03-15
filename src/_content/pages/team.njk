@@ -1,0 +1,9 @@
+---
+layout: base.njk
+title: { { team.title } }
+description: { { team.description } }
+googleAnalyticsId: { { site.googleAnalyticsId } }
+---
+
+{# Import macros #} {% from "components/team-section.njk" import teamSection %} {{ teamSection(team)
+}}
