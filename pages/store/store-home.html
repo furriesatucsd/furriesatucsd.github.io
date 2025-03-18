@@ -84,6 +84,31 @@
 		<!-- Wrapper -->
 			<div id="wrapper" class="divided">
 
+				<!-- OnLoad Modal (when the user first lands on the page) -->
+				<div class="modal fade" id="onloadModal" tabindex="-1" role="dialog" aria-labelledby="onloadModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-scrollable" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<div>
+									<h4 class="modal-title" id="onloadModalLabel">Heads up!</h4>
+								</div>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close" style="box-shadow: none;">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<p>You can't purchase any items yet. This page is under construction. You can poke around this sneak peek, but please stay tuned while it's being set up.</p>
+							</div>
+							<div class="modal-footer">
+								<div class="cart-item-actions">
+									<button class="btn btn-primary" data-dismiss="modal">Ok</button>
+									<a class="btn btn-secondary" href="javascript:history.back()">Go back</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
 				<!-- Item Modal -->
 				<div class="modal fade" id="itemModal" tabindex="-1" role="dialog" aria-labelledby="itemModalLabel" aria-hidden="true">
 					<div class="modal-dialog modal-dialog-scrollable" role="document">
@@ -134,7 +159,7 @@
 
 									<!-- Description -->
 									<p>
-										Our San Diego Beach Tee is a must-have for any beach-loving furry! Made with 100% cotton, this shirt is perfect for a day out in the sun. The shirt features a beautiful beach scene with a sunset and serene waves.
+										Our San Diego Beach Tee is a must-have for the summer vibes! Made with 100% cotton, this shirt is perfect for a day out in the sun. The shirt features a beautiful beach scene with a sunset and serene waves.
 									</p>
 								</div>
 							</div>
@@ -302,7 +327,7 @@
 								<div class="store-aisle">
 									<div>
 										<h4 class="mb-1">The High Tide Collection</h4>
-										<p class="mb-1">Shop our exclusive collabs with furry brands like [???] and [???]!</p>
+										<p class="mb-1">Shop our exclusive collabs with popular brands like [???] and [???]!</p>
 									</div>
 									<div class="scrollable-container-x">
 										<div class="store-row">
@@ -505,5 +530,13 @@
 		<!-- Placed at the end of the document so the pages load faster -->
 		<script src="/assets/js/popper.min.js"></script>
 		<script src="/assets/js/bootstrap.min.js"></script>
+
+
+		<script>
+			$('#onloadModal').modal({
+				backdrop: 'static',
+				keyboard: false
+			})
+		</script>
 	</body>
 </html>
