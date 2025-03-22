@@ -1,4 +1,15 @@
-{% macro teamSection(data) %}
+---
+layout: base.njk
+title: Our Team
+description: Meet the team behind Triton Tails - Furries at UC San Diego.
+googleAnalyticsId: { { site.googleAnalyticsId } }
+---
+
+{% set teamData = { title: "Our Team", description: "Meet the team behind Triton Tails - Furries at
+UC San Diego.", board: { image: "/assets/images/board-structure.png", alt: "Board Structure", style:
+{ maxHeight: "80vh", objectFit: "contain" } }, join: { title: "Want to join our team?", description:
+"Please apply on our Discord, in the #join-board channel!" } } %} {{ teamSection(teamData) }} {%
+macro teamSection(data) %}
 <div class="container-fluid mt-4 mb-5">
   <div class="row justify-content-center">
     <div class="col-lg-10">

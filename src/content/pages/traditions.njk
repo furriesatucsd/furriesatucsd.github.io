@@ -1,0 +1,22 @@
+---
+layout: base.njk
+title: Traditions
+description: Learn about the traditions and customs of Triton Tails.
+googleAnalyticsId: { { site.googleAnalyticsId } }
+---
+
+<!-- Banner -->
+{% set bannerData = { title: "Our Traditions", subtitle: "The customs and practices that make our
+community unique", background_image: "/assets/images/traditions-banner.jpg", height: "50vh" } %} {%
+include "../components/page-banner.njk" %}
+
+<!-- Photo Gallery -->
+{% set galleryData = { title: "Photo Gallery", description: "Explore photos from our traditional
+events and gatherings" } %} {% set galleryData = galleryData | merge({ photos: gallery.photos }) %}
+{% include "../components/photo-gallery.njk" %}
+
+<!-- Traditions Table -->
+{% set perksData = { title: "Our Traditions", description: "A comprehensive list of our community
+traditions", background_class: "bg-light", container_fluid: "-fluid" } %} {% set perksData =
+perksData | merge({ headers: traditions.headers, data: traditions.data }) %} {% include
+"../components/data-table.njk" %}

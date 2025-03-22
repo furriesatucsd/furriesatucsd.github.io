@@ -34,9 +34,9 @@ src/
 
 The project uses Nunjucks (`.njk`) as the templating language for pages and layouts. Content is organized as follows:
 
-- **_content/pages/**: Contains the main site pages written in Nunjucks
-- **_includes/components/**: Reusable UI components
-- **_layouts/**: Base template that other pages extend from
+- **\_content/pages/**: Contains the main site pages written in Nunjucks
+- **\_includes/components/**: Reusable UI components
+- **\_layouts/**: Base template that other pages extend from
 - **assets/**: Organized static assets including:
   - JavaScript modules
   - SCSS stylesheets for custom styling
@@ -52,12 +52,14 @@ The project uses Nunjucks (`.njk`) as the templating language for pages and layo
 ### Getting Started
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/furriesatucsd/furriesatucsd.github.io.git
    cd furriesatucsd.github.io
    ```
 
 2. Install dependencies:
+
    ```bash
    npm install
    ```

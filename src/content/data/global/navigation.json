@@ -26,6 +26,10 @@
         {
           "title": "Our Team",
           "url": "/team/"
+        },
+        {
+          "title": "For Non-Furries",
+          "url": "/non-furries/"
         }
       ]
     },

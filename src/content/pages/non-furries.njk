@@ -1,0 +1,81 @@
+---
+layout: base.njk
+title: For Non-Furries
+description: New to the community, or just wondering what it's all about?
+googleAnalyticsId: { { site.googleAnalyticsId } }
+---
+
+<!-- Landing Splash -->
+{% set bannerData = { title: "For Non-Furries", subtitle: "New to the community, or just wondering
+what it's all about?", extra_content: "", background_image: "", height: "100vh", subtitle_margin:
+"3" } %} {% include "../components/page-banner.njk" %}
+
+<!-- Spotlights -->
+{% from "../components/spotlight.njk" import spotlight %} {% set spotlights = [ { title: "What is a
+furry?", subtitle: "", content: [ "A furry is someone who is interested in anthropomorphic animals,
+like characters from cartoons, video games, or books. Think of Disney's Zootopia, Sonic the
+Hedgehog, or even classic characters like Bugs Bunny. Furries often create their own original
+characters, called fursonas, which represent them in a fun and creative way.", "At its core, being a
+furry is about having fun, expressing yourself, and connecting with others who share an interest in
+cool animal characters!" ], image: "/assets/images/spotlight02.jpg", alt: "What is a furry?",
+image_position: "right", background: "light" }, { title: "What do furries do?", subtitle: "",
+content: [ "Our shared interests bring us together in many forms: art-making, sharing media,
+watching films/movies, and crafting costumes and cosplay. Our events include game nights, study
+jams, VR hangouts, and festivals with hundreds of attendees—taking place across San Diego, LA, and
+beyond.", "We hope to showcase the best of what the fandom has to offer: a place for community,
+belonging, and having fun, whether or not you're a furry." ], image:
+"/assets/images/spotlight01.jpg", alt: "What do furries do?", image_position: "left", background:
+"light" } ] %} {% for spotlight_data in spotlights %} {{ spotlight(spotlight_data) }} {% endfor %}
+
+<!-- Accordions -->
+<section class="wrapper style1">
+  <div class="inner">
+    <div class="align-center">
+      <h2>Common Myths & FAQs</h2>
+      <p>Here are some common questions we get from non-furries:</p>
+    </div>
+    <div class="accordion" id="nonFurryAccordion">
+      {% for faq in faqs %}
+      <div class="card">
+        <div class="card-header" id="heading{{ loop.index }}">
+          <h2 class="mb-0">
+            <button
+              class="btn btn-link btn-block text-left collapsed"
+              type="button"
+              data-toggle="collapse"
+              data-target="#collapse{{ loop.index }}"
+              aria-expanded="false"
+              aria-controls="collapse{{ loop.index }}"
+            >
+              {{ faq.question }}
+            </button>
+          </h2>
+        </div>
+        <div
+          id="collapse{{ loop.index }}"
+          class="collapse"
+          aria-labelledby="heading{{ loop.index }}"
+          data-parent="#nonFurryAccordion"
+        >
+          <div class="card-body">
+            {% for paragraph in faq.answer.split('\n\n') %}
+            <p>{{ paragraph }}</p>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Photo Gallery -->
+{% set galleryData = { title: "Photo Gallery", description: "Explore some of our past events and see
+what we've been up to." } %} {% set galleryData = galleryData | merge({ photos: gallery.photos }) %}
+{% include "../components/photo-gallery.njk" %}
+
+<!-- Perks -->
+{% set perksData = { title: "Membership Perks", description: "Triton Tails members get perks and
+discounts across campus, as well as travel and hotel benefits.", background_class: "bg-light",
+container_fluid: "-fluid" } %} {% set perksData = perksData | merge({ headers: perks.headers, data:
+perks.data }) %} {% include "../components/data-table.njk" %}

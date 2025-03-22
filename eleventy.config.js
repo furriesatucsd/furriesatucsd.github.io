@@ -1,3 +1,5 @@
+const path = require('path');
+
 // Export formatDate function for testing
 const formatDate = function (value, format) {
   if (format === 'year') {
@@ -6,9 +8,44 @@ const formatDate = function (value, format) {
   return value;
 };
 
+// Function to recursively get all JSON files from a directory
+const getAllJsonFiles = (dir) => {
+  const fs = require('fs');
+  const path = require('path');
+  const files = fs.readdirSync(dir);
+  const jsonFiles = {};
+
+  files.forEach((file) => {
+    const filePath = path.join(dir, file);
+    const stat = fs.statSync(filePath);
+
+    if (stat.isDirectory()) {
+      // Recursively get files from subdirectories
+      Object.assign(jsonFiles, getAllJsonFiles(filePath));
+    } else if (file.endsWith('.json')) {
+      // Get the key name from the file path relative to the data directory
+      const key = path
+        .relative(path.join(__dirname, 'src/content/data'), filePath)
+        .replace(/\.json$/, '')
+        .replace(/\\/g, '/')
+        .split('/')
+        .pop();
+
+      jsonFiles[key] = require(filePath);
+    }
+  });
+
+  return jsonFiles;
+};
+
 module.exports = function (eleventyConfig) {
   // Add formatDate filter
   eleventyConfig.addFilter('formatDate', formatDate);
+
+  // Add merge filter
+  eleventyConfig.addFilter('merge', function (obj1, obj2) {
+    return { ...obj1, ...obj2 };
+  });
 
   // Copy static assets that don't need processing
   eleventyConfig.addPassthroughCopy({
@@ -27,21 +64,30 @@ module.exports = function (eleventyConfig) {
   // Configure permalinks for content pages
   eleventyConfig.addGlobalData('eleventyComputed', {
     permalink: (data) => {
-      if (data.page.filePathStem.startsWith('/_content/pages/')) {
-        const path = data.page.filePathStem.replace(/^\/_content\/pages\//, '');
+      if (data.page.filePathStem.startsWith('/content/pages/')) {
+        const path = data.page.filePathStem.replace(/^\/content\/pages\//, '');
         return path === 'index' ? '/' : `/${path}/`;
       }
       return data.permalink;
     },
   });
 
+  // Automatically load all JSON files from the data directory
+  const dataDir = path.join(__dirname, 'src/content/data');
+  const jsonFiles = getAllJsonFiles(dataDir);
+
+  // Add each JSON file as global data
+  Object.entries(jsonFiles).forEach(([key, data]) => {
+    eleventyConfig.addGlobalData(key, data);
+  });
+
   return {
     dir: {
       input: 'src',
-      includes: '_includes',
-      layouts: '_layouts',
+      includes: 'content/components',
+      layouts: 'layouts',
       output: 'dist',
-      data: '_data',
+      data: 'content/data',
     },
     templateFormats: ['njk', 'md'],
     htmlTemplateEngine: 'njk',
