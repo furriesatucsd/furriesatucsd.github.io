@@ -7,8 +7,30 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
 
 <!-- Landing Splash -->
 {% set bannerData = { title: "For Non-Furries", subtitle: "New to the community, or just wondering
-what it's all about?", extra_content: "", background_image: "", height: "100vh", subtitle_margin:
-"3" } %} {% include "../components/page-banner.njk" %}
+what it's all about?"} %}
+
+<!-- Page Banner -->
+<section
+  class="banner text-black position-relative py-0"
+  style="min-height: 25vh; overflow: hidden"
+>
+  <!-- Content overlay -->
+  <div
+    class="container-fluid position-relative h-100 d-flex align-items-center justify-content-center"
+    style="z-index: 2; padding: 8rem 2rem"
+  >
+    <div class="row justify-content-center" style="max-width: 1200px">
+      <div class="col-12 text-center fade-in content-visible">
+        <h1 class="display-1 fw-bold mb-3">{{ bannerData.title }}</h1>
+        {% if bannerData.subtitle %}
+        <p class="lead fs-3 mb-{{ bannerData.subtitle_margin | default('0') }}">
+          {{ bannerData.subtitle }}
+        </p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- Spotlights -->
 {% from "../components/spotlight.njk" import spotlight %} {% set spotlights = [ { title: "What is a
@@ -24,47 +46,50 @@ watching films/movies, and crafting costumes and cosplay. Our events include gam
 jams, VR hangouts, and festivals with hundreds of attendees—taking place across San Diego, LA, and
 beyond.", "We hope to showcase the best of what the fandom has to offer: a place for community,
 belonging, and having fun, whether or not you're a furry." ], image:
-"/assets/images/spotlight01.jpg", alt: "What do furries do?", image_position: "left", background:
-"light" } ] %} {% for spotlight_data in spotlights %} {{ spotlight(spotlight_data) }} {% endfor %}
+"/assets/images/spotlight01.jpg", alt: "What do furries do?", image_position: "left" } ] %} {% for
+spotlight_data in spotlights %} {{ spotlight(spotlight_data) }} {% endfor %}
 
 <!-- Accordions -->
-<section class="wrapper style1">
-  <div class="inner">
-    <div class="align-center">
-      <h2>Common Myths & FAQs</h2>
-      <p>Here are some common questions we get from non-furries:</p>
-    </div>
-    <div class="accordion" id="nonFurryAccordion">
-      {% for faq in faqs %}
-      <div class="card">
-        <div class="card-header" id="heading{{ loop.index }}">
-          <h2 class="mb-0">
-            <button
-              class="btn btn-link btn-block text-left collapsed"
-              type="button"
-              data-toggle="collapse"
-              data-target="#collapse{{ loop.index }}"
-              aria-expanded="false"
-              aria-controls="collapse{{ loop.index }}"
-            >
-              {{ faq.question }}
-            </button>
-          </h2>
+<section class="wrapper style1 py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-12">
+        <div class="text-center mb-5">
+          <h2 class="display-5 fw-bold">Common Myths & FAQs</h2>
+          <p class="lead text-muted">Here are some common questions we get from non-furries:</p>
         </div>
-        <div
-          id="collapse{{ loop.index }}"
-          class="collapse"
-          aria-labelledby="heading{{ loop.index }}"
-          data-parent="#nonFurryAccordion"
-        >
-          <div class="card-body">
-            {% for paragraph in faq.answer.split('\n\n') %}
-            <p>{{ paragraph }}</p>
-            {% endfor %}
+        <div class="accordion custom-accordion" id="nonFurryAccordion">
+          {% for faq in nonfurries.faqs %}
+          <div class="accordion-item border-0 mb-3 shadow-sm">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed rounded-3"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapse{{ loop.index }}"
+                aria-expanded="false"
+                aria-controls="collapse{{ loop.index }}"
+              >
+                <span class="fw-bold">{{ faq.question }}</span>
+                <i class="bi bi-chevron-down ms-auto"></i>
+              </button>
+            </h2>
+            <div
+              id="collapse{{ loop.index }}"
+              class="accordion-collapse collapse"
+              aria-labelledby="heading{{ loop.index }}"
+              data-bs-parent="#nonFurryAccordion"
+            >
+              <div class="accordion-body bg-light rounded-bottom-3">
+                {% for paragraph in faq.answer.split('\n\n') %}
+                <p class="mb-3">{{ paragraph }}</p>
+                {% endfor %}
+              </div>
+            </div>
           </div>
+          {% endfor %}
         </div>
       </div>
-      {% endfor %}
     </div>
   </div>
 </section>
@@ -75,7 +100,7 @@ what we've been up to." } %} {% set galleryData = galleryData | merge({ photos: 
 {% include "../components/photo-gallery.njk" %}
 
 <!-- Perks -->
-{% set perksData = { title: "Membership Perks", description: "Triton Tails members get perks and
+{% set tableData = { title: "Membership Perks", description: "Triton Tails members get perks and
 discounts across campus, as well as travel and hotel benefits.", background_class: "bg-light",
-container_fluid: "-fluid" } %} {% set perksData = perksData | merge({ headers: perks.headers, data:
+container_fluid: "-fluid" } %} {% set tableData = tableData | merge({ headers: perks.headers, data:
 perks.data }) %} {% include "../components/data-table.njk" %}

@@ -8,8 +8,45 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
 <!-- Landing Splash -->
 {% set bannerData = { title: "Triton Tails", subtitle: "University-recognized furry community at UC
 San Diego!", extra_content: "400+ Members • 40 Board Members • Est. 2021", background_image:
-"/assets/images/banner.jpg", height: "100vh", subtitle_margin: "3" } %} {% include
-"../components/page-banner.njk" %}
+"/assets/images/banner.jpg", height: "100vh", subtitle_margin: "3" } %}
+
+<!-- Page Banner -->
+<section
+  class="banner text-white position-relative py-0"
+  style="min-height: {{ bannerData.height | default('50vh') }}; overflow: hidden;"
+>
+  <!-- Full-width background image -->
+  <div
+    class="banner-image position-absolute w-100 h-100"
+    style="background: url('{{ bannerData.background_image }}') center/cover no-repeat; filter: brightness(0.45);"
+  ></div>
+
+  <!-- Content overlay -->
+  <div
+    class="container-fluid position-relative h-100 d-flex align-items-center justify-content-center"
+    style="z-index: 2; padding: 8rem 2rem"
+  >
+    <div class="row justify-content-center" style="max-width: 1200px">
+      <div class="col-lg-10 col-xl-8 text-center fade-in content-visible">
+        <h1 class="display-1 fw-bolder mb-3" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5)">
+          {{ bannerData.title }}
+        </h1>
+        {% if bannerData.subtitle %}
+        <p
+          class="lead fs-3 mb-{{ bannerData.subtitle_margin | default('0') }}"
+          style="text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5)"
+        >
+          {{ bannerData.subtitle }}
+        </p>
+        {% endif %} {% if bannerData.extra_content %}
+        <p class="fs-5 mb-0" style="text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5)">
+          {{ bannerData.extra_content | safe }}
+        </p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- Spotlights -->
 {% from "../components/spotlight.njk" import spotlight %} {% set spotlights = [ { title: "Furries?
@@ -42,7 +79,7 @@ what we've been up to." } %} {% set galleryData = galleryData | merge({photos: g
 {% include "../components/photo-gallery.njk" %}
 
 <!-- Perks -->
-{% set perksData = { title: "Membership Perks", description: "Triton Tails members get perks and
+{% set tableData = { title: "Membership Perks", description: "Triton Tails members get perks and
 discounts across campus, as well as travel and hotel benefits.", background_class: "bg-light",
-container_fluid: "-fluid" } %} {% set perksData = perksData | merge({headers: perks.headers, data:
+container_fluid: "-fluid" } %} {% set tableData = tableData | merge({headers: perks.headers, data:
 perks.data}) %} {% include "../components/data-table.njk" %}
