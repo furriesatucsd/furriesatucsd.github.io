@@ -18,27 +18,33 @@ The official website for Triton Tails, the furry student organization at UC San 
 
 ```
 src/
-├── _content/              # Content pages and data
-│   └── pages/            # Main site pages (.njk templates)
-├── _data/                # Site-wide data files
-├── _includes/            # Reusable components
-│   └── components/       # Nunjucks components
-├── _layouts/             # Page templates
-│   └── base.njk          # Base layout template
-└── assets/              # Static assets
-    ├── js/             # JavaScript files
-    ├── scss/           # SASS stylesheets
-    ├── images/         # Site images
-    └── favicon/        # Favicon files
+├── content/              # Content and data
+│   ├── components/      # Reusable content components
+│   ├── data/           # Site-wide data files
+│   └── pages/          # Main site pages (.njk templates)
+├── layouts/             # Page templates
+│   └── base.njk        # Base layout template
+├── utils/              # Utility functions and helpers
+│   └── date.test.js    # Date formatting utilities
+└── assets/            # Static assets
+    ├── js/           # JavaScript modules
+    ├── scss/         # SASS stylesheets
+    ├── images/       # Site images
+    └── favicon/      # Favicon files
 ```
 
 The project uses Nunjucks (`.njk`) as the templating language for pages and layouts. Content is organized as follows:
 
-- **\_content/pages/**: Contains the main site pages written in Nunjucks
-- **\_includes/components/**: Reusable UI components
-- **\_layouts/**: Base template that other pages extend from
+- **content/**: Contains all content-related files
+  - **components/**: Reusable content components
+  - **data/**: Site-wide data files and configurations
+  - **pages/**: Main site pages written in Nunjucks
+- **layouts/**: Page templates and layouts
+  - **base.njk**: Base layout template that other pages extend from
+- **utils/**: Utility functions and helpers
+  - Contains date formatting and other helper functions
 - **assets/**: Organized static assets including:
-  - JavaScript modules
+  - JavaScript modules for interactivity
   - SCSS stylesheets for custom styling
   - Images and favicon resources
 
@@ -76,15 +82,17 @@ The project uses Nunjucks (`.njk`) as the templating language for pages and layo
 
 ## 🔧 Available Scripts
 
-- `npm run dev` - Start development server with hot reloading
-- `npm run build` - Build the site for production
-- `npm run preview` - Build and preview the production site
-- `npm run lint` - Run ESLint to check code quality
+- `npm run clean` - Clean the dist directory
+- `npm run dev` - Start development server with hot reloading (cleans dist, runs Vite in watch mode, and starts 11ty server)
+- `npm run build` - Build the site for production (cleans dist, builds with Vite, and runs 11ty)
+- `npm run preview` - Build and preview the production site locally
+- `npm run lint` - Run ESLint to check code quality in JavaScript/TypeScript files
 - `npm run lint:fix` - Fix ESLint issues automatically
-- `npm run format` - Format code using Prettier
+- `npm run format` - Format code using Prettier (JS, TS, JSON, MD, CSS, SCSS, NJK)
+- `npm run format:check` - Check if files are properly formatted without making changes
 - `npm run test` - Run Jest tests
 - `npm run test:watch` - Run tests in watch mode
-- `npm run validate` - Validate HTML output
+- `npm run validate` - Validate HTML output in the dist directory
 
 ## 🏗️ Building for Production
 

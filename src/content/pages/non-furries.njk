@@ -5,10 +5,6 @@ description: New to the community, or just wondering what it's all about?
 googleAnalyticsId: { { site.googleAnalyticsId } }
 ---
 
-<!-- Landing Splash -->
-{% set bannerData = { title: "For Non-Furries", subtitle: "New to the community, or just wondering
-what it's all about?"} %}
-
 <!-- Page Banner -->
 <section
   class="banner text-black position-relative py-0"
@@ -21,12 +17,8 @@ what it's all about?"} %}
   >
     <div class="row justify-content-center" style="max-width: 1200px">
       <div class="col-12 text-center fade-in content-visible">
-        <h1 class="display-1 fw-bold mb-3">{{ bannerData.title }}</h1>
-        {% if bannerData.subtitle %}
-        <p class="lead fs-3 mb-{{ bannerData.subtitle_margin | default('0') }}">
-          {{ bannerData.subtitle }}
-        </p>
-        {% endif %}
+        <h1 class="display-1 fw-bold mb-3">For Non-Furries</h1>
+        <p class="lead fs-3 mb-0">New to the community, or just wondering what it's all about?</p>
       </div>
     </div>
   </div>

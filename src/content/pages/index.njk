@@ -5,20 +5,18 @@ description: Triton Tails (Furries at UCSD) is a student organization focused on
 googleAnalyticsId: { { site.googleAnalyticsId } }
 ---
 
-<!-- Landing Splash -->
-{% set bannerData = { title: "Triton Tails", subtitle: "University-recognized furry community at UC
-San Diego!", extra_content: "400+ Members • 40 Board Members • Est. 2021", background_image:
-"/assets/images/banner.jpg", height: "100vh", subtitle_margin: "3" } %}
-
 <!-- Page Banner -->
 <section
   class="banner text-white position-relative py-0"
-  style="min-height: {{ bannerData.height | default('50vh') }}; overflow: hidden;"
+  style="min-height: 100vh; overflow: hidden"
 >
   <!-- Full-width background image -->
   <div
     class="banner-image position-absolute w-100 h-100"
-    style="background: url('{{ bannerData.background_image }}') center/cover no-repeat; filter: brightness(0.45);"
+    style="
+      background: url('/assets/images/banner.jpg') center/cover no-repeat;
+      filter: brightness(0.45);
+    "
   ></div>
 
   <!-- Content overlay -->
@@ -29,20 +27,14 @@ San Diego!", extra_content: "400+ Members • 40 Board Members • Est. 2021", b
     <div class="row justify-content-center" style="max-width: 1200px">
       <div class="col-lg-10 col-xl-8 text-center fade-in content-visible">
         <h1 class="display-1 fw-bolder mb-3" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5)">
-          {{ bannerData.title }}
+          Triton Tails
         </h1>
-        {% if bannerData.subtitle %}
-        <p
-          class="lead fs-3 mb-{{ bannerData.subtitle_margin | default('0') }}"
-          style="text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5)"
-        >
-          {{ bannerData.subtitle }}
+        <p class="lead fs-3 mb-3" style="text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5)">
+          University-recognized furry community at UC San Diego!
         </p>
-        {% endif %} {% if bannerData.extra_content %}
         <p class="fs-5 mb-0" style="text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5)">
-          {{ bannerData.extra_content | safe }}
+          400+ Members • 40 Board Members • Est. 2021
         </p>
-        {% endif %}
       </div>
     </div>
   </div>
