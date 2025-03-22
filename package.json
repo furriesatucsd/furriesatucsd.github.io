@@ -10,6 +10,7 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css,scss,njk}\"",
+    "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,md,css,scss,njk}\"",
     "test": "jest",
     "test:watch": "jest --watch",
     "validate": "html-validate dist/**/*.html"
