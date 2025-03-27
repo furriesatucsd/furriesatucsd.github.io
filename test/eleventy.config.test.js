@@ -17,10 +17,10 @@ describe('Eleventy Configuration', () => {
     it('should have correct directory structure', () => {
       expect(config.dir).toEqual({
         input: 'src',
-        includes: '_includes',
-        layouts: '_layouts',
+        includes: 'content/components',
+        layouts: 'layouts',
         output: 'dist',
-        data: '_data',
+        data: 'content/data',
       });
     });
 
@@ -71,7 +71,7 @@ describe('Eleventy Configuration', () => {
       expect(
         permalink({
           page: {
-            filePathStem: '/_content/pages/index',
+            filePathStem: '/content/pages/index',
           },
         })
       ).toBe('/');
@@ -80,7 +80,7 @@ describe('Eleventy Configuration', () => {
       expect(
         permalink({
           page: {
-            filePathStem: '/_content/pages/about',
+            filePathStem: '/content/pages/about',
           },
         })
       ).toBe('/about/');
