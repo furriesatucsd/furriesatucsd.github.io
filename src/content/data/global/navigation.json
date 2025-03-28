@@ -20,16 +20,16 @@
       "type": "dropdown",
       "items": [
         {
+          "title": "For Non-Furries",
+          "url": "/non-furries/"
+        },
+        {
           "title": "Our Traditions",
           "url": "/traditions/"
         },
         {
           "title": "Our Team",
           "url": "/team/"
-        },
-        {
-          "title": "For Non-Furries",
-          "url": "/non-furries/"
         }
       ]
     },

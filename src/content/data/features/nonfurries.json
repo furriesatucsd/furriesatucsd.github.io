@@ -1,16 +1,8 @@
 {
   "faqs": [
     {
-      "question": "Do I have to be a furry to join?",
-      "answer": "Nope -- Many of our attendees are furry-adjacent, non-furries, or just curious about the fandom. You can come to most of our events even if you are not a furry."
-    },
-    {
-      "question": "Do I need to be a student at UCSD to join?",
-      "answer": "Nope -- Many of our attendees are from the greater San Diego area or beyond! You can come to most of our events even if you are not a student."
-    },
-    {
       "question": "How much is a fursuit? Do I need one?",
-      "answer": "Furries often cosplay as their character to be silly, but you definitely don't need one!\n\nFursuits are considered a luxury item -- Only about 25% of furries have a fursuit. Partial suits are at least $1,000-$2,000, while full suits are at least $3,000-$5,000."
+      "answer": "Furries often cosplay as their character to be silly, but you definitely don't need one!\n\nFursuits are considered a luxury item -- Only about 25% of furries have a fursuit, and they often take months of craftsmanship. Partial suits are at least $1,000-$2,000, while fullsuits are at least $3,000-$5,000, and can even go upwards of $50,000.\n\nFursuits can be incredibly creative and high-tech! Many fullsuits have custom cooling systems that involve a lot of engineering to dispel heat. Some include electronics like sensors, LED displays, and animatronics for facial expressions."
     },
     {
       "question": "Why are furries the way they are?",
@@ -19,6 +11,14 @@
     {
       "question": "Does this community have anything to do with NSFW content?",
       "answer": "Furries are not inherently NSFW — This is a common misconception and fictional portrayal of the fandom.\n\nTriton Tails does not and will not allow such content or conduct in the community, as it is completely out of line with our values and not representative of what we stand for."
+    },
+    {
+      "question": "Do I have to be a furry to join?",
+      "answer": "Nope -- Many of our attendees are furry-adjacent, non-furries, or just curious about the fandom. You can come to most of our events even if you are not a furry."
+    },
+    {
+      "question": "Do I need to be a student at UCSD to join?",
+      "answer": "Nope -- Many of our attendees are from the greater San Diego area or beyond! You can come to most of our events even if you are not a student."
     },
     {
       "question": "Is this furry club exclusive to UCSD?",
