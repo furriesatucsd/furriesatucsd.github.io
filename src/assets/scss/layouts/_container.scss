@@ -1,0 +1,9 @@
+@use '../abstracts/variables' as *;
+
+.container-fluid {
+  position: relative;
+  z-index: 1;
+  max-width: 1600px;
+  padding-left: $container-padding-x;
+  padding-right: $container-padding-x;
+}

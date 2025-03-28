@@ -1,0 +1,62 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Banner component styling
+.banner {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  overflow: hidden;
+
+  // Non-furries page banner
+  &.text-black {
+    min-height: 25vh;
+  }
+
+  .banner-image {
+    transition: transform 10s ease-out;
+    background: url('/assets/images/banner.jpg') center/cover no-repeat;
+    filter: brightness(0.45);
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  .container-fluid {
+    z-index: 2;
+    padding: 8rem 2rem;
+  }
+
+  .row {
+    max-width: 1200px;
+  }
+
+  h1,
+  p {
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  }
+
+  h1 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  @include respond-to(medium) {
+    min-height: 70vh;
+
+    &.text-black {
+      min-height: 20vh;
+    }
+  }
+}
+
+// Animation classes
+.fade-in {
+  @include fade-in;
+}
+
+// Custom animation to immediately show content
+.content-visible {
+  opacity: 1 !important;
+}
