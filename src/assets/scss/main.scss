@@ -11,7 +11,9 @@
 @use './components/tables';
 @use './components/cards';
 @use './components/accordion';
+@use './components/navbar';
+@use './components/banner';
+@use './components/team';
 
 // Layouts
-@use './layouts/navigation';
-@use './layouts/sections';
+@use './layouts/container';
