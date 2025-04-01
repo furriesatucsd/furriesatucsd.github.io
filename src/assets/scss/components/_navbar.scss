@@ -1,6 +1,7 @@
 // Navbar component styling
 .navbar {
   background-color: #00447a;
+  z-index: 1030;
 }
 
 .navbar-brand {
@@ -13,4 +14,8 @@
 
 .nav-link {
   font-weight: 500;
+}
+
+.dropdown-menu {
+  z-index: 1031;
 }
