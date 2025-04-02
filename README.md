@@ -24,8 +24,6 @@ src/
 │   └── pages/          # Main site pages (.njk templates)
 ├── layouts/             # Page templates
 │   └── base.njk        # Base layout template
-├── utils/              # Utility functions and helpers
-│   └── date.test.js    # Date formatting utilities
 └── assets/            # Static assets
     ├── js/           # JavaScript modules
     ├── scss/         # SASS stylesheets
