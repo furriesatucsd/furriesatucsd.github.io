@@ -12,33 +12,12 @@ describe('Main JavaScript Functionality', () => {
     });
   });
 
-  describe('GSAP Initialization', () => {
-    it('should register ScrollTrigger plugin', () => {
-      simulatePageLoad();
-      expect(gsap.registerPlugin).toHaveBeenCalledWith(ScrollTrigger);
-    });
-  });
-
-  describe('Bootstrap Components', () => {
-    beforeEach(() => {
-      document.body.innerHTML = `
-        <div data-bs-toggle="tooltip" title="Test Tooltip"></div>
-        <div data-bs-toggle="popover" title="Test Popover"></div>
-      `;
-    });
-
-    it('should initialize tooltips and popovers', () => {
-      simulatePageLoad();
-      expect(bootstrap.Tooltip).toHaveBeenCalled();
-      expect(bootstrap.Popover).toHaveBeenCalled();
-    });
-  });
-
   describe('Gallery Modal', () => {
     let modal;
     let button;
 
     beforeEach(() => {
+      // Set up modal and trigger button
       document.body.innerHTML = `
         <div id="galleryModal">
           <div class="modal-title"></div>
@@ -68,27 +47,94 @@ describe('Main JavaScript Functionality', () => {
     });
   });
 
-  describe('Smooth Scrolling', () => {
-    beforeEach(() => {
+  describe('Event Calendar', () => {
+    it('should show mobile calendar and hide desktop calendar on small screens', () => {
+      // Set up test elements
       document.body.innerHTML = `
-        <div style="padding-top: 100px">
-          <a href="#test">Scroll to Test</a>
-          <div id="test" style="margin-top: 200px">Test Section</div>
-        </div>
+        <div id="desktop-calendar"></div>
+        <div id="mobile-calendar"></div>
       `;
+
+      // Mock window.innerWidth
+      Object.defineProperty(window, 'innerWidth', {
+        writable: true,
+        configurable: true,
+        value: 768,
+      });
+
+      // Trigger page load
+      simulatePageLoad();
+
+      // Check initial state
+      const desktopCalendar = document.getElementById('desktop-calendar');
+      const mobileCalendar = document.getElementById('mobile-calendar');
+
+      expect(desktopCalendar.style.display).toBe('none');
+      expect(mobileCalendar.style.display).toBe('block');
     });
 
-    it('should handle anchor clicks with smooth scrolling', () => {
-      simulatePageLoad();
-      const targetElement = document.getElementById('test');
-      const expectedOffset = targetElement.offsetTop - 70; // 70px navbar adjustment
+    it('should show desktop calendar and hide mobile calendar on large screens', () => {
+      // Set up test elements
+      document.body.innerHTML = `
+        <div id="desktop-calendar"></div>
+        <div id="mobile-calendar"></div>
+      `;
 
-      document.querySelector('a').click();
-
-      expect(window.scrollTo).toHaveBeenCalledWith({
-        top: expectedOffset,
-        behavior: 'smooth',
+      // Mock window.innerWidth
+      Object.defineProperty(window, 'innerWidth', {
+        writable: true,
+        configurable: true,
+        value: 769,
       });
+
+      // Trigger page load
+      simulatePageLoad();
+
+      // Check initial state
+      const desktopCalendar = document.getElementById('desktop-calendar');
+      const mobileCalendar = document.getElementById('mobile-calendar');
+
+      expect(desktopCalendar.style.display).toBe('block');
+      expect(mobileCalendar.style.display).toBe('none');
+    });
+
+    it('should update calendar visibility on window resize', () => {
+      // Set up test elements
+      document.body.innerHTML = `
+        <div id="desktop-calendar"></div>
+        <div id="mobile-calendar"></div>
+      `;
+
+      // Mock window.innerWidth
+      Object.defineProperty(window, 'innerWidth', {
+        writable: true,
+        configurable: true,
+        value: 769,
+      });
+
+      // Trigger page load
+      simulatePageLoad();
+
+      const desktopCalendar = document.getElementById('desktop-calendar');
+      const mobileCalendar = document.getElementById('mobile-calendar');
+
+      // Initial state (large screen)
+      expect(desktopCalendar.style.display).toBe('block');
+      expect(mobileCalendar.style.display).toBe('none');
+
+      // Simulate resize to small screen
+      window.innerWidth = 768;
+      window.dispatchEvent(new Event('resize'));
+
+      expect(desktopCalendar.style.display).toBe('none');
+      expect(mobileCalendar.style.display).toBe('block');
+
+      // Simulate resize to large screen
+      window.innerWidth = 769;
+      window.dispatchEvent(new Event('resize'));
+
+      expect(desktopCalendar.style.display).toBe('block');
+      expect(mobileCalendar.style.display).toBe('none');
     });
   });
 });

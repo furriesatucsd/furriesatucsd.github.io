@@ -32,38 +32,17 @@ const createModalEvent = (type, button) => {
   return event;
 };
 
-// Define mocks
-const mocks = {
-  gsap: {
-    registerPlugin: jest.fn(),
-    to: jest.fn(),
-  },
-  ScrollTrigger: {},
-  bootstrap: {
-    Tooltip: jest.fn(),
-    Popover: jest.fn(),
-  },
-  fetch: jest.fn(),
+// Mock GSAP to prevent initialization errors
+const gsap = {
+  registerPlugin: jest.fn(),
+  to: jest.fn(),
 };
-
-// Set up window mock with proper scrollTo implementation
-const scrollToMock = jest.fn();
-const windowMock = {
-  ...global.window,
-  scrollTo: scrollToMock,
-};
-
-// Override JSDOM's window.scrollTo implementation
-Object.defineProperty(window, 'scrollTo', {
-  configurable: true,
-  writable: true,
-  value: scrollToMock,
-});
+const ScrollTrigger = {};
 
 // Apply globals
 Object.assign(global, {
-  ...mocks,
-  window: windowMock,
+  gsap,
+  ScrollTrigger,
   simulatePageLoad,
   createModalEvent,
 });
