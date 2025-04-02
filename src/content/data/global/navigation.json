@@ -12,6 +12,10 @@
           "title": "High Tide - Rave Festival",
           "url": "https://tinyurl.com/high-tide",
           "external": true
+        },
+        {
+          "title": "Event Calendar",
+          "url": "/event-calendar/"
         }
       ]
     },
