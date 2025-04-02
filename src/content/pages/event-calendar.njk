@@ -5,27 +5,6 @@ description: Check out our upcoming events!
 googleAnalyticsId: { { site.googleAnalyticsId } }
 ---
 
-<script>
-  // Show the desktop calendar on larger screens and the mobile calendar on smaller screens
-  document.addEventListener('DOMContentLoaded', function () {
-    const desktopCalendar = document.getElementById('desktop-calendar');
-    const mobileCalendar = document.getElementById('mobile-calendar');
-
-    function updateCalendarVisibility() {
-      if (window.innerWidth <= 768) {
-        desktopCalendar.style.display = 'none';
-        mobileCalendar.style.display = 'block';
-      } else {
-        desktopCalendar.style.display = 'block';
-        mobileCalendar.style.display = 'none';
-      }
-    }
-
-    updateCalendarVisibility();
-    window.addEventListener('resize', updateCalendarVisibility);
-  });
-</script>
-
 <section class="wrapper style1 align-center">
   <div class="inner">
     <h1>Event Calendar</h1>

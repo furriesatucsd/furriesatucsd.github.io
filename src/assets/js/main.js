@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initGalleryModal();
   initCarouselThumbnails();
   initSmoothScrolling();
+  initEventCalendar();
 });
 
 /**
@@ -132,4 +133,26 @@ function initSmoothScrolling() {
       }
     });
   });
+}
+
+/**
+ * Initialize event calendar for desktop and mobile
+ */
+function initEventCalendar() {
+  const desktopCalendar = document.getElementById('desktop-calendar');
+  const mobileCalendar = document.getElementById('mobile-calendar');
+  if (!desktopCalendar || !mobileCalendar) return;
+
+  function updateCalendarVisibility() {
+    if (window.innerWidth <= 768) {
+      desktopCalendar.style.display = 'none';
+      mobileCalendar.style.display = 'block';
+    } else {
+      desktopCalendar.style.display = 'block';
+      mobileCalendar.style.display = 'none';
+    }
+  }
+
+  updateCalendarVisibility();
+  window.addEventListener('resize', updateCalendarVisibility);
 }
