@@ -6,33 +6,49 @@ permalink: /6bf7b19211df47b4b4ea2270b7ef4b97567006e72acec2512f135f8997a828a7.htm
 ---
 
 <script>
-    // Show the desktop calendar on larger screens and the mobile calendar on smaller screens
-    document.addEventListener("DOMContentLoaded", function () {
-        const desktopCalendar = document.getElementById("desktop-calendar");
-        const mobileCalendar = document.getElementById("mobile-calendar");
+  // Show the desktop calendar on larger screens and the mobile calendar on smaller screens
+  document.addEventListener('DOMContentLoaded', function () {
+    const desktopCalendar = document.getElementById('desktop-calendar');
+    const mobileCalendar = document.getElementById('mobile-calendar');
 
-        function updateCalendarVisibility() {
-            if (window.innerWidth <= 768) {
-            desktopCalendar.style.display = "none";
-            mobileCalendar.style.display = "block";
-            } else {
-            desktopCalendar.style.display = "block";
-            mobileCalendar.style.display = "none";
-            }
-        }
+    function updateCalendarVisibility() {
+      if (window.innerWidth <= 768) {
+        desktopCalendar.style.display = 'none';
+        mobileCalendar.style.display = 'block';
+      } else {
+        desktopCalendar.style.display = 'block';
+        mobileCalendar.style.display = 'none';
+      }
+    }
 
-        updateCalendarVisibility();
-        window.addEventListener("resize", updateCalendarVisibility);
-    });
+    updateCalendarVisibility();
+    window.addEventListener('resize', updateCalendarVisibility);
+  });
 </script>
 
 <section class="wrapper style1 align-center">
   <div class="inner">
     <h1>Event Calendar</h1>
     <p>Check out our upcoming events!</p>
-    
-    <iframe id="desktop-calendar" src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FLos_Angeles&showPrint=0&showCalendars=0&title=Triton%20Tails%20Calendar&showTitle=0&src=Y19hNWQxZjdkZjAxM2RjNDMyYmM3ZDViMzcxZTVmNzQ1YWQxZTA1ZThlNjJiZjcwNTY4MjY0NWJiZTNhNTBkMjJjQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&src=Y182ZGU1NTNlNDliY2E5OGIzMDEzNjdhNmYyNjk5NTQ5NjE1NmI4ZmZiNGYyYmYyNmJjNDI0MmUyNzZmMzRiMTMxQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&src=Y19lNjFhODNmMzI3ZTc1MzhkMWFkZTY5OTgwMTNhOGRhYmU0YjUyNDM4MDRjZDY5NGZhZjFkOTg0NjU1YmNkZTYxQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23039BE5&color=%2333B679&color=%23616161" style="border-width:0; border-radius:16px;" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
 
-    <iframe id="mobile-calendar" src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FLos_Angeles&showPrint=0&showCalendars=0&title=Triton%20Tails%20Calendar&showTitle=0&mode=AGENDA&src=Y19hNWQxZjdkZjAxM2RjNDMyYmM3ZDViMzcxZTVmNzQ1YWQxZTA1ZThlNjJiZjcwNTY4MjY0NWJiZTNhNTBkMjJjQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&src=Y182ZGU1NTNlNDliY2E5OGIzMDEzNjdhNmYyNjk5NTQ5NjE1NmI4ZmZiNGYyYmYyNmJjNDI0MmUyNzZmMzRiMTMxQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&src=Y19lNjFhODNmMzI3ZTc1MzhkMWFkZTY5OTgwMTNhOGRhYmU0YjUyNDM4MDRjZDY5NGZhZjFkOTg0NjU1YmNkZTYxQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23039BE5&color=%2333B679&color=%23616161" style="border-width:0; border-radius:16px;" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
+    <iframe
+      id="desktop-calendar"
+      src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FLos_Angeles&showPrint=0&showCalendars=0&title=Triton%20Tails%20Calendar&showTitle=0&src=Y19hNWQxZjdkZjAxM2RjNDMyYmM3ZDViMzcxZTVmNzQ1YWQxZTA1ZThlNjJiZjcwNTY4MjY0NWJiZTNhNTBkMjJjQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&src=Y182ZGU1NTNlNDliY2E5OGIzMDEzNjdhNmYyNjk5NTQ5NjE1NmI4ZmZiNGYyYmYyNmJjNDI0MmUyNzZmMzRiMTMxQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&src=Y19lNjFhODNmMzI3ZTc1MzhkMWFkZTY5OTgwMTNhOGRhYmU0YjUyNDM4MDRjZDY5NGZhZjFkOTg0NjU1YmNkZTYxQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23039BE5&color=%2333B679&color=%23616161"
+      style="border-width: 0; border-radius: 16px"
+      width="100%"
+      height="600"
+      frameborder="0"
+      scrolling="no"
+    ></iframe>
+
+    <iframe
+      id="mobile-calendar"
+      src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FLos_Angeles&showPrint=0&showCalendars=0&title=Triton%20Tails%20Calendar&showTitle=0&mode=AGENDA&src=Y19hNWQxZjdkZjAxM2RjNDMyYmM3ZDViMzcxZTVmNzQ1YWQxZTA1ZThlNjJiZjcwNTY4MjY0NWJiZTNhNTBkMjJjQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&src=Y182ZGU1NTNlNDliY2E5OGIzMDEzNjdhNmYyNjk5NTQ5NjE1NmI4ZmZiNGYyYmYyNmJjNDI0MmUyNzZmMzRiMTMxQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&src=Y19lNjFhODNmMzI3ZTc1MzhkMWFkZTY5OTgwMTNhOGRhYmU0YjUyNDM4MDRjZDY5NGZhZjFkOTg0NjU1YmNkZTYxQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23039BE5&color=%2333B679&color=%23616161"
+      style="border-width: 0; border-radius: 16px"
+      width="100%"
+      height="600"
+      frameborder="0"
+      scrolling="no"
+    ></iframe>
   </div>
 </section>
