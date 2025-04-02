@@ -1,0 +1,76 @@
+---
+layout: base.njk
+title: Members Only
+description: This page is for Triton Tails Members only, please enter the password to view.
+googleAnalyticsId: { { site.googleAnalyticsId } }
+permalink: /locked.html
+---
+
+<script>
+  async function hash(input) {
+    // Hash the input using SHA-256
+    const encoder = new TextEncoder();
+    const data = encoder.encode(input);
+    const buffer = await crypto.subtle.digest('SHA-256', data);
+    const result = Array.from(new Uint8Array(buffer))
+      .map((b) => b.toString(16).padStart(2, '0'))
+      .join('');
+
+    console.log(result);
+    return result;
+  }
+  async function checkIfPasswordCorrect() {
+    // Get the input value
+    const input = document.getElementById('password-input-box').value;
+    // Hash the input
+    const hashedInput = await hash(input);
+    // Using an http request, check if /[the hashed input].html is a valid website and returns 200 OK
+    fetch('/' + hashedInput + '.html')
+      .then((response) => {
+        if (response.ok) {
+          // If the response is OK, redirect to the page
+          window.location.href = '/' + hashedInput + '.html';
+        } else {
+          // If the response is not OK, show an error message
+          alert("Oops, that's not right. Please try again or ask an officer.");
+        }
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        alert('An error occurred. Please try again later.');
+      });
+  }
+</script>
+
+<section class="wrapper style1 align-center">
+  <div class="inner">
+    <h1>Members Only</h1>
+    <p>
+      This page is for Triton Tails Members only. To access it, please enter the name &amp; species
+      of our mascot (e.g. "tony tiger"). If you're a new member, you should join our Discord to stay
+      updated on events!
+    </p>
+    <form onsubmit="event.preventDefault(); checkIfPasswordCorrect();">
+      <ul class="actions justify-content-center">
+        <li>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter password"
+            id="password-input-box"
+          />
+        </li>
+      </ul>
+      <ul class="actions justify-content-center">
+        <li>
+          <button type="button" class="button secondary" onclick="history.back()">Go Back</button>
+        </li>
+        <li>
+          <button type="submit" class="button primary">Submit</button>
+        </li>
+      </ul>
+    </form>
+    <br />
+    <img src="/assets/images/stickers/oops.webp" alt="404" class="error-image" />
+  </div>
+</section>
