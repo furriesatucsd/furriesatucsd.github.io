@@ -126,28 +126,10 @@ function initSmoothScrolling() {
 
       const targetElement = document.querySelector(targetId);
       if (targetElement) {
-        const scrollDuration = 1000; // Duration in milliseconds
-        const startPosition = window.pageYOffset;
-        const targetPosition = targetElement.offsetTop - 70; // Adjust for navbar height
-        const distance = targetPosition - startPosition;
-        let startTime = null;
-
-        function animation(currentTime) {
-          if (!startTime) startTime = currentTime;
-          const timeElapsed = currentTime - startTime;
-          const run = easeInOutQuad(timeElapsed, startPosition, distance, scrollDuration);
-          window.scrollTo(0, run);
-          if (timeElapsed < scrollDuration) requestAnimationFrame(animation);
-        }
-
-        function easeInOutQuad(t, b, c, d) {
-          t /= d / 2;
-          if (t < 1) return (c / 2) * t * t + b;
-          t--;
-          return (-c / 2) * (t * (t - 2) - 1) + b;
-        }
-
-        requestAnimationFrame(animation);
+        window.scrollTo({
+          top: targetElement.offsetTop - 70, // Adjust for navbar height
+          behavior: 'smooth',
+        });
       }
     });
   });
