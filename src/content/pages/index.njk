@@ -68,3 +68,48 @@ what we've been up to." } %} {% set galleryData = galleryData | merge({photos: g
 discounts across campus, as well as travel and hotel benefits.", background_class: "bg-light",
 container_fluid: "-fluid" } %} {% set tableData = tableData | merge({headers: perks.headers, data:
 perks.data}) %} {% include "../components/data-table.njk" %}
+
+<!-- Accordions -->
+<section class="wrapper style1 py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-12">
+        <div class="text-center mb-5">
+          <h2 class="display-5 fw-bold">Common Myths &amp; FAQs</h2>
+          <p class="lead text-muted">Here are some common questions we get from non-furries:</p>
+        </div>
+        <div class="accordion custom-accordion" id="nonFurryAccordion">
+          {% for faq in nonfurries.faqs %}
+          <div class="accordion-item border-0 mb-3 shadow-sm">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed rounded-3"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapse{{ loop.index }}"
+                aria-expanded="false"
+                aria-controls="collapse{{ loop.index }}"
+              >
+                <span class="fw-bold">{{ faq.question }}</span>
+                <i class="bi bi-chevron-down ms-auto"></i>
+              </button>
+            </h2>
+            <div
+              id="collapse{{ loop.index }}"
+              class="accordion-collapse collapse"
+              aria-labelledby="heading{{ loop.index }}"
+              data-bs-parent="#nonFurryAccordion"
+            >
+              <div class="accordion-body bg-light rounded-bottom-3">
+                {% for paragraph in faq.answer.split('\n\n') %}
+                <p class="mb-3">{{ paragraph }}</p>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
