@@ -21,21 +21,41 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
 </section>
 
 <!-- Spotlights -->
-{% from "../components/spotlight.njk" import spotlight %} {% set spotlights = [ { title: "What is a
-furry?", subtitle: "", content: [ "Furries are anyone who is interested in cool animal
-characters—like from video games, books, or shows. Think of Disney's Zootopia, Puss in Boots, and
-Sonic the Hedgehog. Furries often create their own original characters, called fursonas, which
-represent them in a fun and creative way.", "At its core, being a furry is about having fun,
-expressing yourself, and connecting with others who share an interest in cool animal characters!" ],
-image: "/assets/images/spotlight02.jpg", alt: "What is a furry?", image_position: "right",
-background: "light" }, { title: "What do furries do?", subtitle: "", content: [ "Our shared
-interests bring us together in many forms: art-making, sharing media, watching films/movies, and
-crafting costumes and cosplay. Our events include game nights, study jams, VR hangouts, and
-festivals with hundreds of attendees—taking place across San Diego, LA, and beyond.", "We hope to
-showcase the best of what the fandom has to offer: a place for community, belonging, and having fun,
-whether or not you're a furry." ], image: "/assets/images/spotlight01.jpg", alt: "What do furries
-do?", image_position: "left" } ] %} {% for spotlight_data in spotlights %} {{
+{% from "../components/spotlight.njk" import spotlight %}
+{% set spotlights = [ { title: "Furries?
+at <b><i>MY</i></b> university!?", subtitle: "It's more likely than you think!", content: [ "Triton
+Tails (est. 2021) is a social club with over 400 members, devoted to appreciating and engaging with
+furry culture and media through a positive and lighthearted lens.", "Our shared interests bring us
+together in many forms: art-making, sharing media, watching films/movies, and crafting costumes and
+cosplay. Our events include game nights, study jams, VR hangouts, and festivals with hundreds of
+attendees—taking place across San Diego, LA, and beyond.", "We hope to showcase the best of what the fandom has to offer: a place for community, belonging, and having fun, whether or not you're a furry." ], image:
+"/assets/images/spotlight01.jpg", alt: "Furries at UCSD", image_position: "right", background:
+"light" }, { title: "What is a furry?", subtitle: "", content: [ "Furries are anyone who is
+interested in cool animal characters—like from video games, books, or shows. Think of Disney's
+Zootopia, Puss in Boots, and Sonic the Hedgehog. Furries often create their own original characters,
+called fursonas, which represent them in a fun and creative way.", "At its core, being a furry is
+about having fun, expressing yourself, and connecting with others who share an interest in cool
+animal characters!" ], image: "/assets/images/spotlight02.jpg", alt: "What is a furry",
+image_position: "left" }, { title: "How do I get involved?", subtitle: "Join our community and
+participate in our regular events!", content: [ "We have casual hangouts and study jams almost every
+day, and club meetups every week. Join our Discord to stay updated and sign-up for events.", "For
+our most active members: We also have club merch and membership cards available, which give you
+perks and discounts across campus!" ], image: "/assets/images/spotlight03.jpg", alt: "Get involved",
+image_position: "right", background: "light" }, { title: "Careers & Alumni Network", subtitle: "", content: [ "Our alumni network connects students with professionals and employers across various industries and academia worldwide. Our community includes top-performing furries in STEM, and we foster connections nationwide to create opportunities and collaborations for our members.", "We maintain a resume database to assist companies and recruiters in finding exceptional talent. If you're interested in sponsoring our organization or discovering talent within our community, reach out to us!" ], image: "/assets/images/spotlight04.jpg", alt: "Alumni Network",
+image_position: "left", background: "dark" } ] %}
+{% for spotlight_data in spotlights %} {{
 spotlight(spotlight_data) }} {% endfor %}
+
+<!-- Photo Gallery -->
+{% set galleryData = { title: "Photo Gallery", description: "Explore some of our past events and see
+what we've been up to." } %} {% set galleryData = galleryData | merge({ photos: gallery.photos }) %}
+{% include "../components/photo-gallery.njk" %}
+
+<!-- Perks -->
+{% set tableData = { title: "Membership Perks", description: "Triton Tails members get perks and
+discounts across campus, as well as travel and hotel benefits.", background_class: "bg-light",
+container_fluid: "-fluid" } %} {% set tableData = tableData | merge({ headers: perks.headers, data:
+perks.data }) %} {% include "../components/data-table.njk" %}
 
 <!-- Accordions -->
 <section class="wrapper style1 py-5">
@@ -81,14 +101,3 @@ spotlight(spotlight_data) }} {% endfor %}
     </div>
   </div>
 </section>
-
-<!-- Photo Gallery -->
-{% set galleryData = { title: "Photo Gallery", description: "Explore some of our past events and see
-what we've been up to." } %} {% set galleryData = galleryData | merge({ photos: gallery.photos }) %}
-{% include "../components/photo-gallery.njk" %}
-
-<!-- Perks -->
-{% set tableData = { title: "Membership Perks", description: "Triton Tails members get perks and
-discounts across campus, as well as travel and hotel benefits.", background_class: "bg-light",
-container_fluid: "-fluid" } %} {% set tableData = tableData | merge({ headers: perks.headers, data:
-perks.data }) %} {% include "../components/data-table.njk" %}

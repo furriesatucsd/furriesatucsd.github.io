@@ -20,7 +20,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
         <p class="lead fs-3 mb-3">University-recognized furry community at UC San Diego!</p>
         <p class="fs-5 mb-4">400+ Members • 40 Board Members • Est. 2021</p>
         <div class="d-flex gap-3 justify-content-center">
-          <a href="/non-furries" class="btn btn-light btn-lg">Learn More</a>
+          <a href="#learnmore" class="btn btn-light btn-lg">Learn More</a>
           <a
             href="https://linktr.ee/furriesatucsd"
             class="btn btn-outline-light btn-lg"
@@ -35,6 +35,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
 </section>
 
 <!-- Spotlights -->
+<span id="learnmore"></span>
 {% from "../components/spotlight.njk" import spotlight %}
 {% set spotlights = [ { title: "Furries?
 at <b><i>MY</i></b> university!?", subtitle: "It's more likely than you think!", content: [ "Triton
