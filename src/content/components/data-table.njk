@@ -21,9 +21,14 @@
             <tbody>
               {% for row in tableData.data %}
               <tr>
-                {% for cell in row %}
-                <td>{{ cell }}</td>
-                {% endfor %}
+                <!-- If there is only one cell in the row, make it span all cols -->
+                {% if row | length == 1 %}
+                  <td colspan="{{ tableData.headers | length }}">{{ row[0] }}</td>
+                {% else %}
+                  {% for cell in row %}
+                    <td>{{ cell }}</td>
+                  {% endfor %}
+                {% endif %}
               </tr>
               {% endfor %}
             </tbody>
