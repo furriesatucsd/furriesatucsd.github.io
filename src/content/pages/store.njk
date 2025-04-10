@@ -8,6 +8,26 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
 <!-- Wrapper -->
 <div id="wrapper" class="divided">
 
+  <!-- OnLoad Modal (when the user first lands on the page) -->
+  <div class="modal fade onload-modal" tabindex="-1" aria-labelledby="onloadModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div>
+            <h4 class="modal-title" id="onloadModalLabel">Heads up!</h4>
+          </div>
+        </div>
+        <div class="modal-body">
+          <p>You can't purchase any items yet. This page is under construction. You can poke around this sneak peek, but please stay tuned while it's being set up.</p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-danger" data-bs-dismiss="modal">Continue anyway</button>
+          <a class="btn btn-secondary" href="javascript:history.back()">Go back</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Item Modal -->
   <div class="modal fade" id="itemModal" tabindex="-1" aria-labelledby="itemModalLabel" aria-hidden="true">
     <div class="modal-dialog">
