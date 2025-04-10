@@ -10,8 +10,8 @@
                     "shortDesc": "Get tickets for our massive rave festival on May 25!",
                     "image": "/assets/images/store/featured_1.png",
                     "product_ids": {
-                        "Student": null,
                         "Non-Student": null,
+                        "Student": null,
                         "VIP/Sponsor": null
                     }
                 },
@@ -20,7 +20,8 @@
                     "shortDesc": "Get exclusive perks and discounts across campus!",
                     "image": "/assets/images/store/featured_2.png",
                     "product_ids": {
-                        "default": null
+                        "Spring (current)": null,
+                        "Winter 2025": null
                     }
                 }
             ]
