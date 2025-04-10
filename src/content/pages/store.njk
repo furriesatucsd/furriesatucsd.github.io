@@ -9,17 +9,15 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
 <div id="wrapper" class="divided">
 
   <!-- Item Modal -->
-  <div class="modal fade" id="itemModal" tabindex="-1" role="dialog" aria-labelledby="itemModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable" role="document">
+  <div class="modal fade" id="itemModal" tabindex="-1" aria-labelledby="itemModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <div>
             <h4 class="modal-title" id="itemModalLabel">San Diego Beach Tee</h4>
             <p>Surf the beachy vibes with this sick T-shirt!</p>
           </div>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="box-shadow: none;">
-            <span aria-hidden="true">&times;</span>
-          </button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="box-shadow: none;"></button>
         </div>
         <div class="modal-body">
           <img src="/images/store/beach_1.png" style="width: 100%; aspect-ratio: 1/1; border-radius: 16px; max-width: 500px;">
@@ -71,7 +69,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
             <button class="btn btn-outline-secondary">–</button>
             <span class="cart-item-quantity">1</span>
             <button class="btn btn-outline-secondary">+</button>
-            <button class="btn btn-primary" data-dismiss="modal">Add to Cart</button>
+            <button class="btn btn-primary" data-bs-dismiss="modal">Add to Cart</button>
           </div>
         </div>
         <div class="modal-footer" style="display: none;">
@@ -79,25 +77,23 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
             <p>$25</p>
             <p style="font-size: small; opacity: 50%;">Sales tax already included</p>
           </div>
-          <span class="mr-2">Added to cart!</span>
-          <button class="btn btn-secondary" data-dismiss="modal">View Cart</button>
+          <span class="me-2">Added to cart!</span>
+          <button class="btn btn-secondary" data-bs-dismiss="modal">View Cart</button>
         </div>
       </div>
     </div>
   </div>
 
   <!-- Cart Modal -->
-  <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="cartModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable" role="document">
+  <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <div>
             <h4 class="modal-title" id="cartModalLabel">Your Cart</h4>
             <p>2 items</p>
           </div>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="box-shadow: none;">
-            <span aria-hidden="true">&times;</span>
-          </button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="box-shadow: none;"></button>
         </div>
         <div class="modal-body">
           <div class="cart-item">
@@ -138,7 +134,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
             <p>Total: $50</p>
             <p style="font-size: small; opacity: 50%;">Sales tax already included</p>
           </div>
-          <button class="btn btn-secondary" data-dismiss="modal">Continue Shopping</button>
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Continue Shopping</button>
           <a class="btn btn-primary" href="/pages/store/store-order-details.html">Checkout</a>
         </div>
       </div>
@@ -154,14 +150,14 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
             <h2>Club Store</h2>
             <p>Get exclusive merch, membership, materials, and more!</p>
           </div>
-          <button class="button primary" data-toggle="modal" data-target="#cartModal">Cart (0)</button>
+          <button class="button primary" data-bs-toggle="modal" data-bs-target="#cartModal">Cart (0)</button>
         </div>
         <div class="store-aisle">
           <h4>Featured</h4>
           <div class="scrollable-container-x">
             <div class="store-row store-row-featured">
               <div class="scroll-edge-overlay"></div>
-              <button class="store-item" data-toggle="modal" data-target="#itemModal">
+              <button class="store-item" data-bs-toggle="modal" data-bs-target="#itemModal">
                 <img src="/images/store/featured_1.png">
                 <p>
                   <b>High Tide - Rave Festival</b>
@@ -169,7 +165,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
                   Tickets starting at $--
                 </p>
               </button>
-              <button class="store-item" data-toggle="modal" data-target="#itemModal">
+              <button class="store-item" data-bs-toggle="modal" data-bs-target="#itemModal">
                 <img src="/images/store/featured_2.png">
                 <p>
                   <b>Membership Cards</b>
@@ -188,7 +184,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
           <div class="scrollable-container-x">
             <div class="store-row">
               <div class="scroll-edge-overlay"></div>
-              <button class="store-item" data-toggle="modal" data-target="#itemModal">
+              <button class="store-item" data-bs-toggle="modal" data-bs-target="#itemModal">
                 <img src="/images/store/beach_1.png">
                 <p>
                   <b>San Diego Beach Tee</b>
@@ -196,7 +192,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
                   $25
                 </p>
               </button>
-              <button class="store-item" data-toggle="modal" data-target="#itemModal">
+              <button class="store-item" data-bs-toggle="modal" data-bs-target="#itemModal">
                 <img src="/images/store/beach_2.png">
                 <p>
                   <b>Tropical Drink Sticker</b>
@@ -204,7 +200,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
                   $3
                 </p>
               </button>
-              <button class="store-item" data-toggle="modal" data-target="#itemModal">
+              <button class="store-item" data-bs-toggle="modal" data-bs-target="#itemModal">
                 <img src="/images/store/beach_3.png">
                 <p>
                   <b>Tide Sticker</b>
@@ -212,7 +208,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
                   $3
                 </p>
               </button>
-              <button class="store-item" data-toggle="modal" data-target="#itemModal">
+              <button class="store-item" data-bs-toggle="modal" data-bs-target="#itemModal">
                 <img src="/images/store/beach_4.png">
                 <p>
                   <b>Ummm uhhhh</b>
