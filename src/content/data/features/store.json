@@ -1,1 +1,169 @@
-{}
+{
+    "collections": [
+        {
+            "title": "Featured",
+            "description": "Our latest releases and most popular items.",
+            "isFeatured": true,
+            "items": [
+                {
+                    "name": "High Tide - Rave Festival",
+                    "shortDesc": "Get tickets for our massive rave festival on May 25!",
+                    "image": "/assets/images/store/featured_1.png",
+                    "product_ids": {
+                        "Student": null,
+                        "Non-Student": null,
+                        "VIP/Sponsor": null
+                    }
+                },
+                {
+                    "name": "Membership Cards",
+                    "shortDesc": "Get exclusive perks and discounts across campus!",
+                    "image": "/assets/images/store/featured_2.png",
+                    "product_ids": {
+                        "default": null
+                    }
+                }
+            ]
+        },
+        {
+            "title": "The Beach Vibes Collection",
+            "description": "Catch the waves with our mascot -- Tide the Raccoon!",
+            "isFeatured": false,
+            "items": [
+                {
+                    "name": "San Diego Beach Tee",
+                    "shortDesc": null,
+                    "image": "/assets/images/store/beach_1.png",
+                    "product_ids": {
+                        "default": null
+                    }
+                },
+                {
+                    "name": "Tropical Drink Sticker",
+                    "shortDesc": null,
+                    "image": "/assets/images/store/beach_2.png",
+                    "product_ids": {
+                        "default": null
+                    }
+                },
+                {
+                    "name": "Tide Sticker",
+                    "shortDesc": null,
+                    "image": "/assets/images/store/beach_3.png",
+                    "product_ids": {
+                        "default": null
+                    }
+                },
+                {
+                    "name": "Ummm uhhhh",
+                    "shortDesc": null,
+                    "image": "/assets/images/store/beach_4.png",
+                    "product_ids": {
+                        "default": null
+                    }
+                }
+            ]
+        },
+        {
+            "title": "The High Tide Collection",
+            "description": "Shop our exclusive collabs with our friends at FurFlux!",
+            "isFeatured": false,
+            "items": [
+                {
+                    "name": "Coming soon...",
+                    "shortDesc": null,
+                    "image": "/assets/images/store/high_1.png",
+                    "product_ids": {
+                        "default": null
+                    }
+                },
+                {
+                    "name": "Coming soon...",
+                    "shortDesc": null,
+                    "image": "/assets/images/store/high_2.png",
+                    "product_ids": {
+                        "default": null
+                    }
+                },
+                {
+                    "name": "Coming soon...",
+                    "shortDesc": null,
+                    "image": "/assets/images/store/high_3.png",
+                    "product_ids": {
+                        "default": null
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Wolf Sanctuary Collection",
+            "description": "Awoo! Proceeds go toward supporting the California Wolf Center, to help save endangered wolf populations in the U.S.",
+            "isFeatured": false,
+            "items": [
+                {
+                    "name": "Coming soon...",
+                    "shortDesc": null,
+                    "image": "/assets/images/store/wolf_1.png",
+                    "product_ids": {
+                        "default": null
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Fursuit Workshop Collection",
+            "description": "Get materials and learn to make your own fursuit at our workshops!",
+            "isFeatured": false,
+            "items": [
+                {
+                    "name": "Coming soon...",
+                    "shortDesc": null,
+                    "image": "/assets/images/store/fur_1.png",
+                    "product_ids": {
+                        "default": null
+                    }
+                },
+                {
+                    "name": "Coming soon...",
+                    "shortDesc": null,
+                    "image": "/assets/images/store/fur_2.png",
+                    "product_ids": {
+                        "default": null
+                    }
+                },
+                {
+                    "name": "Coming soon...",
+                    "shortDesc": null,
+                    "image": "/assets/images/store/fur_3.png",
+                    "product_ids": {
+                        "default": null
+                    }
+                },
+                {
+                    "name": "Coming soon...",
+                    "shortDesc": null,
+                    "image": "/assets/images/store/fur_4.png",
+                    "product_ids": {
+                        "default": null
+                    }
+                },
+                {
+                    "name": "Coming soon...",
+                    "shortDesc": null,
+                    "image": "/assets/images/store/fur_5.png",
+                    "product_ids": {
+                        "default": null
+                    }
+                },
+                {
+                    "name": "Coming soon...",
+                    "shortDesc": null,
+                    "image": "/assets/images/store/fur_6.png",
+                    "product_ids": {
+                        "default": null
+                    }
+                }
+            ]
+        }
+    ]
+}
