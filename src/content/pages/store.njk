@@ -5,260 +5,403 @@ description: Get exclusive merch, membership, materials, and more!
 googleAnalyticsId: { { site.googleAnalyticsId } }
 ---
 
-<section class="wrapper style1">
-  <div class="inner">
-    <div class="store-area">
-      <div class="store-header">
-        <div class="store-header-text">
-          <h2>Club Store</h2>
-          <p>Get exclusive merch, membership, materials, and more!</p>
+<!-- Wrapper -->
+<div id="wrapper" class="divided">
+
+  <!-- Item Modal -->
+  <div class="modal fade" id="itemModal" tabindex="-1" role="dialog" aria-labelledby="itemModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div>
+            <h4 class="modal-title" id="itemModalLabel">San Diego Beach Tee</h4>
+            <p>Surf the beachy vibes with this sick T-shirt!</p>
+          </div>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="box-shadow: none;">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
-        <button class="button primary" data-toggle="modal" data-target="#cartModal">Cart (0)</button>
-      </div>
-      <div class="store-aisle">
-        <h4>Featured</h4>
-        <div class="scrollable-container-x">
-          <div class="store-row store-row-featured">
-            <div class="scroll-edge-overlay"></div>
-            <button class="store-item" data-toggle="modal" data-target="#itemModal">
-              <img src="/images/store/featured_1.png">
-              <p>
-                <b>High Tide - Rave Festival</b>
-                <br>
-                Tickets starting at $--
-              </p>
-            </button>
-            <button class="store-item" data-toggle="modal" data-target="#itemModal">
-              <img src="/images/store/featured_2.png">
-              <p>
-                <b>Membership Cards</b>
-                <br>
-                $10
-              </p>
-            </button>
+        <div class="modal-body">
+          <img src="/images/store/beach_1.png" style="width: 100%; aspect-ratio: 1/1; border-radius: 16px; max-width: 500px;">
+          <div class="options-list">
+            <!-- Options -->
+            <div class="mcq">
+              <div class="mcq-header">
+                <h6>Shirt Size</h6>
+              </div>
+              <div class="mcq-options">
+                <button class="btn btn-sm btn-light">S</button>
+                <button class="btn btn-sm btn-secondary">M</button>
+                <button class="btn btn-sm btn-light">L</button>
+                <button class="btn btn-sm btn-light">XL</button>
+                <button class="btn btn-sm btn-light">2XL</button>
+              </div>
+            </div>
+            <div class="mcq">
+              <div class="mcq-header">
+                <h6>Color</h6>
+              </div>
+              <div class="mcq-options">
+                <button class="btn btn-sm btn-light">Tan</button>
+                <button class="btn btn-sm btn-secondary">Blue</button>
+              </div>
+            </div>
+            <div class="mcq">
+              <div class="mcq-header">
+                <h6>Fur Length</h6>
+              </div>
+              <div class="mcq-options">
+                <button class="btn btn-sm btn-light">Half Yard</button>
+                <button class="btn btn-sm btn-secondary">Full Yard</button>
+              </div>
+            </div>
+
+            <!-- Description -->
+            <p>
+              Our San Diego Beach Tee is a must-have for the summer vibes! Made with 100% cotton, this shirt is perfect for a day out in the sun. The shirt features a beautiful beach scene with a sunset and serene waves.
+            </p>
           </div>
         </div>
-      </div>
-      <div class="store-aisle">
-        <div>
-          <h4 class="mb-1">The Beach Vibes Collection</h4>
-          <p class="mb-1">Catch the waves with our mascot -- Tide the Raccoon!</p>
-        </div>
-        <div class="scrollable-container-x">
-          <div class="store-row">
-            <div class="scroll-edge-overlay"></div>
-            <button class="store-item" data-toggle="modal" data-target="#itemModal">
-              <img src="/images/store/beach_1.png">
-              <p>
-                <b>San Diego Beach Tee</b>
-                <br>
-                $25
-              </p>
-            </button>
-            <button class="store-item" data-toggle="modal" data-target="#itemModal">
-              <img src="/images/store/beach_2.png">
-              <p>
-                <b>Tropical Drink Sticker</b>
-                <br>
-                $3
-              </p>
-            </button>
-            <button class="store-item" data-toggle="modal" data-target="#itemModal">
-              <img src="/images/store/beach_3.png">
-              <p>
-                <b>Tide Sticker</b>
-                <br>
-                $3
-              </p>
-            </button>
-            <button class="store-item" data-toggle="modal" data-target="#itemModal">
-              <img src="/images/store/beach_4.png">
-              <p>
-                <b>Ummm uhhhh</b>
-                <br>
-                $3
-              </p>
-            </button>
+        <div class="modal-footer">
+          <div style="flex-grow: 1">
+            <p>$25</p>
+            <p style="font-size: small; opacity: 50%;">Sales tax already included</p>
+          </div>
+          <div class="cart-item-actions">
+            <button class="btn btn-outline-secondary">–</button>
+            <span class="cart-item-quantity">1</span>
+            <button class="btn btn-outline-secondary">+</button>
+            <button class="btn btn-primary" data-dismiss="modal">Add to Cart</button>
           </div>
         </div>
-      </div>
-      <div class="store-aisle">
-        <div>
-          <h4 class="mb-1">The High Tide Collection</h4>
-          <p class="mb-1">Shop our exclusive collabs with popular brands like [???] and [???]!</p>
+        <div class="modal-footer" style="display: none;">
+          <div style="flex-grow: 1">
+            <p>$25</p>
+            <p style="font-size: small; opacity: 50%;">Sales tax already included</p>
+          </div>
+          <span class="mr-2">Added to cart!</span>
+          <button class="btn btn-secondary" data-dismiss="modal">View Cart</button>
         </div>
-        <div class="scrollable-container-x">
-          <div class="store-row">
-            <div class="scroll-edge-overlay"></div>
-            <div class="store-item">
-              <img src="/images/store/high_1.png">
-              <p>
-                <b>Coming soon...</b>
-                <br>
-                $--
-              </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cart Modal -->
+  <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="cartModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div>
+            <h4 class="modal-title" id="cartModalLabel">Your Cart</h4>
+            <p>2 items</p>
+          </div>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="box-shadow: none;">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="cart-item">
+            <img src="/images/store/beach_1.png">
+            <div class="cart-item-details">
+              <div class="cart-item-header">
+                <p style="flex-grow: 1">San Diego Beach Tee</p>
+                <p>$25</p>
+              </div>
+              <p>Size: L, Color: Blue</p>
+              <div class="cart-item-actions mt-2">
+                <button class="btn btn-sm btn-outline-secondary">–</button>
+                <span class="cart-item-quantity">1</span>
+                <button class="btn btn-sm btn-outline-secondary">+</button>
+                <button class="btn btn-sm btn-link" style="color: gray">Delete</button>
+              </div>
             </div>
-            <div class="store-item">
-              <img src="/images/store/high_2.png">
-              <p>
-                <b>Coming soon...</b>
-                <br>
-                $--
-              </p>
-            </div>
-            <div class="store-item">
-              <img src="/images/store/high_3.png">
-              <p>
-                <b>Coming soon...</b>
-                <br>
-                $--
-              </p>
-            </div>
-            <div class="store-item">
-              <img src="/images/store/high_1.png">
-              <p>
-                <b>Coming soon...</b>
-                <br>
-                $--
-              </p>
-            </div>
-            <div class="store-item">
-              <img src="/images/store/high_2.png">
-              <p>
-                <b>Coming soon...</b>
-                <br>
-                $--
-              </p>
-            </div>
-            <div class="store-item">
-              <img src="/images/store/high_3.png">
-              <p>
-                <b>Coming soon...</b>
-                <br>
-                $--
-              </p>
+          </div>
+          <div class="cart-item">
+            <img src="/images/store/beach_1.png">
+            <div class="cart-item-details">
+              <div class="cart-item-header">
+                <p style="flex-grow: 1">San Diego Beach Tee</p>
+                <p>$25</p>
+              </div>
+              <p>Size: M, Color: Tan</p>
+              <div class="cart-item-actions mt-2">
+                <button class="btn btn-sm btn-outline-secondary">–</button>
+                <span class="cart-item-quantity">1</span>
+                <button class="btn btn-sm btn-outline-secondary">+</button>
+                <button class="btn btn-sm btn-link danger" style="color: gray">Delete</button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="store-aisle">
-        <div>
-          <h4 class="mb-1">The Wolf Sanctuary Collection</h4>
-          <p class="mb-1">Awoo! Proceeds go toward supporting the California Wolf Center, to help save endangered wolf populations in the U.S.</p>
+        <div class="modal-footer">
+          <div style="flex-grow: 1">
+            <p>Total: $50</p>
+            <p style="font-size: small; opacity: 50%;">Sales tax already included</p>
+          </div>
+          <button class="btn btn-secondary" data-dismiss="modal">Continue Shopping</button>
+          <a class="btn btn-primary" href="/pages/store/store-order-details.html">Checkout</a>
         </div>
-        <div class="scrollable-container-x">
-          <div class="store-row">
-            <div class="scroll-edge-overlay"></div>
-            <div class="store-item">
-              <img src="/images/store/wolf_1.png">
-              <p>
-                <b>Coming soon...</b>
-                <br>
-                $--
-              </p>
-            </div>
-            <div class="store-item">
-              <img src="/images/store/wolf_1.png">
-              <p>
-                <b>Coming soon...</b>
-                <br>
-                $--
-              </p>
-            </div>
-            <div class="store-item">
-              <img src="/images/store/wolf_1.png">
-              <p>
-                <b>Coming soon...</b>
-                <br>
-                $--
-              </p>
-            </div>
-            <div class="store-item">
-              <img src="/images/store/wolf_1.png">
-              <p>
-                <b>Coming soon...</b>
-                <br>
-                $--
-              </p>
-            </div>
-            <div class="store-item">
-              <img src="/images/store/wolf_1.png">
-              <p>
-                <b>Coming soon...</b>
-                <br>
-                $--
-              </p>
-            </div>
-            <div class="store-item">
-              <img src="/images/store/wolf_1.png">
-              <p>
-                <b>Coming soon...</b>
-                <br>
-                $--
-              </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Store Area -->
+  <section class="wrapper style1">
+    <div class="inner">
+      <div class="store-area">
+        <div class="store-header">
+          <div class="store-header-text">
+            <h2>Club Store</h2>
+            <p>Get exclusive merch, membership, materials, and more!</p>
+          </div>
+          <button class="button primary" data-toggle="modal" data-target="#cartModal">Cart (0)</button>
+        </div>
+        <div class="store-aisle">
+          <h4>Featured</h4>
+          <div class="scrollable-container-x">
+            <div class="store-row store-row-featured">
+              <div class="scroll-edge-overlay"></div>
+              <button class="store-item" data-toggle="modal" data-target="#itemModal">
+                <img src="/images/store/featured_1.png">
+                <p>
+                  <b>High Tide - Rave Festival</b>
+                  <br>
+                  Tickets starting at $--
+                </p>
+              </button>
+              <button class="store-item" data-toggle="modal" data-target="#itemModal">
+                <img src="/images/store/featured_2.png">
+                <p>
+                  <b>Membership Cards</b>
+                  <br>
+                  $10
+                </p>
+              </button>
             </div>
           </div>
         </div>
-      </div>
-      <div class="store-aisle">
-        <div>
-          <h4 class="mb-1">The Fursuit Workshop Collection</h4>
-          <p class="mb-1">Buy materials and learn to make your own fursuit at our workshops!</p>
+        <div class="store-aisle">
+          <div>
+            <h4 class="mb-1">The Beach Vibes Collection</h4>
+            <p class="mb-1">Catch the waves with our mascot -- Tide the Raccoon!</p>
+          </div>
+          <div class="scrollable-container-x">
+            <div class="store-row">
+              <div class="scroll-edge-overlay"></div>
+              <button class="store-item" data-toggle="modal" data-target="#itemModal">
+                <img src="/images/store/beach_1.png">
+                <p>
+                  <b>San Diego Beach Tee</b>
+                  <br>
+                  $25
+                </p>
+              </button>
+              <button class="store-item" data-toggle="modal" data-target="#itemModal">
+                <img src="/images/store/beach_2.png">
+                <p>
+                  <b>Tropical Drink Sticker</b>
+                  <br>
+                  $3
+                </p>
+              </button>
+              <button class="store-item" data-toggle="modal" data-target="#itemModal">
+                <img src="/images/store/beach_3.png">
+                <p>
+                  <b>Tide Sticker</b>
+                  <br>
+                  $3
+                </p>
+              </button>
+              <button class="store-item" data-toggle="modal" data-target="#itemModal">
+                <img src="/images/store/beach_4.png">
+                <p>
+                  <b>Ummm uhhhh</b>
+                  <br>
+                  $3
+                </p>
+              </button>
+            </div>
+          </div>
         </div>
-        <div class="scrollable-container-x">
-          <div class="store-row">
-            <div class="scroll-edge-overlay"></div>
-            <div class="store-item">
-              <img src="/images/store/fur_1.png">
-              <p>
-                <b>Coming soon...</b>
-                <br>
-                $--
-              </p>
+        <div class="store-aisle">
+          <div>
+            <h4 class="mb-1">The High Tide Collection</h4>
+            <p class="mb-1">Shop our exclusive collabs with popular brands like [???] and [???]!</p>
+          </div>
+          <div class="scrollable-container-x">
+            <div class="store-row">
+              <div class="scroll-edge-overlay"></div>
+              <div class="store-item">
+                <img src="/images/store/high_1.png">
+                <p>
+                  <b>Coming soon...</b>
+                  <br>
+                  $--
+                </p>
+              </div>
+              <div class="store-item">
+                <img src="/images/store/high_2.png">
+                <p>
+                  <b>Coming soon...</b>
+                  <br>
+                  $--
+                </p>
+              </div>
+              <div class="store-item">
+                <img src="/images/store/high_3.png">
+                <p>
+                  <b>Coming soon...</b>
+                  <br>
+                  $--
+                </p>
+              </div>
+              <div class="store-item">
+                <img src="/images/store/high_1.png">
+                <p>
+                  <b>Coming soon...</b>
+                  <br>
+                  $--
+                </p>
+              </div>
+              <div class="store-item">
+                <img src="/images/store/high_2.png">
+                <p>
+                  <b>Coming soon...</b>
+                  <br>
+                  $--
+                </p>
+              </div>
+              <div class="store-item">
+                <img src="/images/store/high_3.png">
+                <p>
+                  <b>Coming soon...</b>
+                  <br>
+                  $--
+                </p>
+              </div>
             </div>
-            <div class="store-item">
-              <img src="/images/store/fur_2.png">
-              <p>
-                <b>Coming soon...</b>
-                <br>
-                $--
-              </p>
+          </div>
+        </div>
+        <div class="store-aisle">
+          <div>
+            <h4 class="mb-1">The Wolf Sanctuary Collection</h4>
+            <p class="mb-1">Awoo! Proceeds go toward supporting the California Wolf Center, to help save endangered wolf populations in the U.S.</p>
+          </div>
+          <div class="scrollable-container-x">
+            <div class="store-row">
+              <div class="scroll-edge-overlay"></div>
+              <div class="store-item">
+                <img src="/images/store/wolf_1.png">
+                <p>
+                  <b>Coming soon...</b>
+                  <br>
+                  $--
+                </p>
+              </div>
+              <div class="store-item">
+                <img src="/images/store/wolf_1.png">
+                <p>
+                  <b>Coming soon...</b>
+                  <br>
+                  $--
+                </p>
+              </div>
+              <div class="store-item">
+                <img src="/images/store/wolf_1.png">
+                <p>
+                  <b>Coming soon...</b>
+                  <br>
+                  $--
+                </p>
+              </div>
+              <div class="store-item">
+                <img src="/images/store/wolf_1.png">
+                <p>
+                  <b>Coming soon...</b>
+                  <br>
+                  $--
+                </p>
+              </div>
+              <div class="store-item">
+                <img src="/images/store/wolf_1.png">
+                <p>
+                  <b>Coming soon...</b>
+                  <br>
+                  $--
+                </p>
+              </div>
+              <div class="store-item">
+                <img src="/images/store/wolf_1.png">
+                <p>
+                  <b>Coming soon...</b>
+                  <br>
+                  $--
+                </p>
+              </div>
             </div>
-            <div class="store-item">
-              <img src="/images/store/fur_3.png">
-              <p>
-                <b>Coming soon...</b>
-                <br>
-                $--
-              </p>
-            </div>
-            <div class="store-item">
-              <img src="/images/store/fur_4.png">
-              <p>
-                <b>Coming soon...</b>
-                <br>
-                $--
-              </p>
-            </div>
-            <div class="store-item">
-              <img src="/images/store/fur_5.png">
-              <p>
-                <b>Coming soon...</b>
-                <br>
-                $--
-              </p>
-            </div>
-            <div class="store-item">
-              <img src="/images/store/fur_6.png">
-              <p>
-                <b>Coming soon...</b>
-                <br>
-                $--
-              </p>
+          </div>
+        </div>
+        <div class="store-aisle">
+          <div>
+            <h4 class="mb-1">The Fursuit Workshop Collection</h4>
+            <p class="mb-1">Buy materials and learn to make your own fursuit at our workshops!</p>
+          </div>
+          <div class="scrollable-container-x">
+            <div class="store-row">
+              <div class="scroll-edge-overlay"></div>
+              <div class="store-item">
+                <img src="/images/store/fur_1.png">
+                <p>
+                  <b>Coming soon...</b>
+                  <br>
+                  $--
+                </p>
+              </div>
+              <div class="store-item">
+                <img src="/images/store/fur_2.png">
+                <p>
+                  <b>Coming soon...</b>
+                  <br>
+                  $--
+                </p>
+              </div>
+              <div class="store-item">
+                <img src="/images/store/fur_3.png">
+                <p>
+                  <b>Coming soon...</b>
+                  <br>
+                  $--
+                </p>
+              </div>
+              <div class="store-item">
+                <img src="/images/store/fur_4.png">
+                <p>
+                  <b>Coming soon...</b>
+                  <br>
+                  $--
+                </p>
+              </div>
+              <div class="store-item">
+                <img src="/images/store/fur_5.png">
+                <p>
+                  <b>Coming soon...</b>
+                  <br>
+                  $--
+                </p>
+              </div>
+              <div class="store-item">
+                <img src="/images/store/fur_6.png">
+                <p>
+                  <b>Coming soon...</b>
+                  <br>
+                  $--
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+</div>
