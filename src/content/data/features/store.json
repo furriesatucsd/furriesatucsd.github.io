@@ -10,19 +10,19 @@
                     "shortDesc": "Get tickets for our massive rave festival on May 25!",
                     "image": "/assets/images/store/featured_1.png",
                     "variants": [
-                        {"name":"Non-Student", "price":25, "sku":"", "description":""},
-                        {"name":"Student", "price":25, "sku":"", "description":""},
-                        {"name":"Vip/Sponsor", "price":25, "sku":"", "description":""}
+                        {"name":"Non-Student", "price":25, "sku":"", "description":"Non-Student Badge for High Tide - the premier rave festival happening at UC San Diego!"},
+                        {"name":"Student", "price":15, "sku":"", "description":"Student Badge for High Tide - the premier rave festival happening at UC San Diego!"},
+                        {"name":"VIP/Sponsor", "price":50, "sku":"", "description":"Exclusive VIP/Sponsor badge with additional perks! Deck out with exclusive merch from our friends at FurFlux: Get a Sponsor Badge, custom High Tide x Russelbuck Shirt, sticker pack, and hand-crafted kandi bracelets."}
                     ]
                 },
                 {
                     "name": "Membership Cards",
                     "shortDesc": "Get exclusive perks and discounts across campus!",
                     "image": "/assets/images/store/featured_2.png",
-                    "variants": {
-                        "Spring (current)": null,
-                        "Winter 2025": null
-                    }
+                    "variants": [
+                        {"name": "Spring (current)", "price": 10, "sku": "", "description": "Get a membership card to score exclusive discounts and perks this season! Perks include: 10% off at most restaurants on-campus, 10% off all Club Merch, and Priority for Fursuit Workshops."},
+                        {"name": "Winter 2025", "price": 3, "sku": "", "description": "Missed our previous membership card? No worries! You can still get this previous card and keep the art as a souvenir, and show your support for the club. (The card will not be valid for discounts.)"}
+                    ]
                 }
             ]
         },
@@ -36,7 +36,7 @@
                     "shortDesc": null,
                     "image": "/assets/images/store/beach_1.png",
                     "variants": [
-                        {"name":"default", "price":25, "priceId":"price_1RCfuZPQmYquuuIRcUWDDCSp", "description":""}
+                        {"name":"default", "price":25, "priceId":"price_1RCfuZPQmYquuuIRcUWDDCSp", "description":"Ride the waves in style with our San Diego Beach Tee! Featuring Tide the Raccoon, this shirt is perfect for sunny days and coastal vibes."}
                     ]
                 },
                 {
