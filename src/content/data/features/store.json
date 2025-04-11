@@ -9,17 +9,17 @@
                     "name": "High Tide - Rave Festival",
                     "shortDesc": "Get tickets for our massive rave festival on May 25!",
                     "image": "/assets/images/store/featured_1.png",
-                    "product_ids": {
-                        "Non-Student": null,
-                        "Student": null,
-                        "VIP/Sponsor": null
-                    }
+                    "variants": [
+                        {"name":"Non-Student", "price":25, "sku":"", "description":""},
+                        {"name":"Student", "price":25, "sku":"", "description":""},
+                        {"name":"Vip/Sponsor", "price":25, "sku":"", "description":""}
+                    ]
                 },
                 {
                     "name": "Membership Cards",
                     "shortDesc": "Get exclusive perks and discounts across campus!",
                     "image": "/assets/images/store/featured_2.png",
-                    "product_ids": {
+                    "variants": {
                         "Spring (current)": null,
                         "Winter 2025": null
                     }
@@ -35,15 +35,15 @@
                     "name": "San Diego Beach Tee",
                     "shortDesc": null,
                     "image": "/assets/images/store/beach_1.png",
-                    "product_ids": {
-                        "default": "sku_shirt-sdbeachtee"
-                    }
+                    "variants": [
+                        {"name":"default", "price":25, "priceId":"price_1RCfuZPQmYquuuIRcUWDDCSp", "description":""}
+                    ]
                 },
                 {
                     "name": "Tropical Drink Sticker",
                     "shortDesc": null,
                     "image": "/assets/images/store/beach_2.png",
-                    "product_ids": {
+                    "variants": {
                         "default": null
                     }
                 },
@@ -51,7 +51,7 @@
                     "name": "Tide Sticker",
                     "shortDesc": null,
                     "image": "/assets/images/store/beach_3.png",
-                    "product_ids": {
+                    "variants": {
                         "default": null
                     }
                 },
@@ -59,7 +59,7 @@
                     "name": "Ummm uhhhh",
                     "shortDesc": null,
                     "image": "/assets/images/store/beach_4.png",
-                    "product_ids": {
+                    "variants": {
                         "default": null
                     }
                 }
@@ -74,7 +74,7 @@
                     "name": "Coming soon...",
                     "shortDesc": null,
                     "image": "/assets/images/store/high_1.png",
-                    "product_ids": {
+                    "variants": {
                         "default": null
                     }
                 },
@@ -82,7 +82,7 @@
                     "name": "Coming soon...",
                     "shortDesc": null,
                     "image": "/assets/images/store/high_2.png",
-                    "product_ids": {
+                    "variants": {
                         "default": null
                     }
                 },
@@ -90,7 +90,7 @@
                     "name": "Coming soon...",
                     "shortDesc": null,
                     "image": "/assets/images/store/high_3.png",
-                    "product_ids": {
+                    "variants": {
                         "default": null
                     }
                 }
@@ -105,7 +105,7 @@
                     "name": "Coming soon...",
                     "shortDesc": null,
                     "image": "/assets/images/store/wolf_1.png",
-                    "product_ids": {
+                    "variants": {
                         "default": null
                     }
                 }
@@ -120,7 +120,7 @@
                     "name": "Coming soon...",
                     "shortDesc": null,
                     "image": "/assets/images/store/fur_1.png",
-                    "product_ids": {
+                    "variants": {
                         "default": null
                     }
                 },
@@ -128,7 +128,7 @@
                     "name": "Coming soon...",
                     "shortDesc": null,
                     "image": "/assets/images/store/fur_2.png",
-                    "product_ids": {
+                    "variants": {
                         "default": null
                     }
                 },
@@ -136,7 +136,7 @@
                     "name": "Coming soon...",
                     "shortDesc": null,
                     "image": "/assets/images/store/fur_3.png",
-                    "product_ids": {
+                    "variants": {
                         "default": null
                     }
                 },
@@ -144,7 +144,7 @@
                     "name": "Coming soon...",
                     "shortDesc": null,
                     "image": "/assets/images/store/fur_4.png",
-                    "product_ids": {
+                    "variants": {
                         "default": null
                     }
                 },
@@ -152,7 +152,7 @@
                     "name": "Coming soon...",
                     "shortDesc": null,
                     "image": "/assets/images/store/fur_5.png",
-                    "product_ids": {
+                    "variants": {
                         "default": null
                     }
                 },
@@ -160,7 +160,7 @@
                     "name": "Coming soon...",
                     "shortDesc": null,
                     "image": "/assets/images/store/fur_6.png",
-                    "product_ids": {
+                    "variants": {
                         "default": null
                     }
                 }

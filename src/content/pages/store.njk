@@ -9,7 +9,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
 <div id="wrapper" class="divided">
 
   <!-- OnLoad Modal (when the user first lands on the page) -->
-  <div class="modal fade onload-modal" tabindex="-1" aria-labelledby="onloadModalLabel" aria-hidden="true">
+  {# <div class="modal fade onload-modal" tabindex="-1" aria-labelledby="onloadModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -26,7 +26,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
         </div>
       </div>
     </div>
-  </div>
+  </div> #}
 
   <!-- Item Modal -->
   <div class="modal fade" id="itemModal" tabindex="-1" aria-labelledby="itemModalLabel" aria-hidden="true">
@@ -35,17 +35,17 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
         <div class="modal-header">
           <div>
             <h4 class="modal-title" id="itemModalLabel">Title</h4>
-            <p>Short Description</p>
+            {# <p>Short Description</p> #}
           </div>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="box-shadow: none;"></button>
         </div>
         <div class="modal-body">
-          <img src="/assets/images/store/beach_1.png" style="width: 100%; aspect-ratio: 1/1; border-radius: 16px; max-width: 500px;">
+            <img id="item-modal-image" src="/assets/images/store/beach_1.png" style="width: 100%; aspect-ratio: 1/1; border-radius: 16px; max-width: 500px; object-fit: contain;">
           <div class="options-list">
             <!-- Options -->
             <div class="mcq">
               <div class="mcq-header">
-                <h6>Item Options</h6>
+                <h6>Item options:</h6>
               </div>
               <div class="mcq-options">
                 <button class="btn btn-sm btn-secondary">Option A</button>
@@ -54,21 +54,21 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
             </div>
 
             <!-- Description -->
-            <p>
+            <p id="item-modal-description">
               Full item description
             </p>
           </div>
         </div>
         <div class="modal-footer">
           <div style="flex-grow: 1">
-            <p>$Price</p>
+            <p id="item-modal-price">$Price</p>
             <p style="font-size: small; opacity: 50%;">Sales tax already included</p>
           </div>
           <div class="cart-item-actions">
-            <button class="btn btn-outline-secondary">–</button>
-            <span class="cart-item-quantity">1</span>
-            <button class="btn btn-outline-secondary">+</button>
-            <button class="btn btn-primary" data-bs-dismiss="modal" data-sku-id="sku_PLACEHOLDER">Place Order</button>
+            <button class="btn btn-outline-secondary" id="item-modal-quantity-down">–</button>
+            <span class="cart-item-quantity" id="item-modal-quantity">1</span>
+            <button class="btn btn-outline-secondary" id="item-modal-quantity-up">+</button>
+            <button id="item-modal-purchase" class="btn btn-primary" data-bs-dismiss="modal" data-price-id="price_PLACEHOLDER">Buy Now</button>
           </div>
         </div>
         <!-- Different footer state for when item is added to cart:
@@ -153,16 +153,24 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
               >
                 <div class="scroll-edge-overlay"></div>
                 {% for item in collection.items %}
-                  <button class="store-item" data-bs-toggle="modal" data-bs-target="#itemModal" data-sku-id={{ item.skuId }}>
-                    <img src={{ item.image }}>
+                    <button class="store-item"
+                      data-bs-toggle="modal"
+                      data-bs-target="#itemModal"
+                      data-item-info="{{ item | dump }}"
+                    >
+                    <img src="{{ item.image }}">
                     <p>
                       <b>{{ item.name }}</b>
+                      <br>
                       {% if item.shortDesc %}
-                        <br>
+                        <!-- Display the short description, if there is one -->
                         {{ item.shortDesc }}
+                      {% elif item.variants and item.variants|length > 0 and item.variants[0].price %}
+                        <!-- Display the price, if there is one -->
+                        ${{ item.variants[0].price }}
                       {% endif %}
                     </p>
-                  </button>
+                    </button>
                 {% endfor %}
               </div>
             </div>
@@ -178,7 +186,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
 <script src="https://js.stripe.com/v3/"></script>
 <script>
   // Replace with your own publishable key: https://dashboard.stripe.com/test/apikeys
-  var PUBLISHABLE_KEY = "pk_test_Tr8olTkdFnnJVywwhNPHwnHK00HkHV4tnP";
+  var PUBLISHABLE_KEY = "pk_test_51RCftNPQmYquuuIRN5HV3rb461GA119I3cb4PSgXE2iM2ObtvdkpkpAhBSyHknEvRTo22y2vAUcdJrwKiPCQ221f00CuHKc72G";
   // Replace with the domain you want your users to be redirected back to after payment
   var DOMAIN = location.href.replace(/[^/]*$/, "");
 
@@ -192,25 +200,126 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
     }
   };
 
-  document.querySelectorAll("button").forEach(function(button) {
-    button.addEventListener("click", function(e) {
-      var skuId = e.target.dataset.skuId;
-      var planId = e.target.dataset.planId;
-      var items = skuId
-        ? [{ sku: skuId, quantity: 1 }]
-        : [{ plan: planId, quantity: 1 }];
+  // Update the Item Modal with a given Variant
+  function selectVariant(item, selectedVariant) {
+    var itemModal = document.getElementById("itemModal");
 
-      // Make the call to Stripe.js to redirect to the checkout page
-      // with the sku or plan ID.
-      stripe
-        .redirectToCheckout({
-          items: items,
-          successUrl:
-            DOMAIN + "success.html?session_id={CHECKOUT_SESSION_ID}",
-          cancelUrl:
-            DOMAIN + "canceled.html?session_id={CHECKOUT_SESSION_ID}"
-        })
-        .then(handleResult);
+    // Update the details from the selected variant: Price, PriceId, and description
+    itemModal.querySelector("#item-modal-price").textContent = "$" + selectedVariant.price + " each";
+    itemModal.querySelector("#item-modal-purchase").dataset.priceId = selectedVariant.priceId;
+    itemModal.querySelector("#item-modal-description").textContent = selectedVariant.description;
+
+    // Check if there is more than one variant
+    if (item.variants.length <= 1) {
+      // Hide the options list
+      itemModal.querySelector(".mcq").style.display = "none";
+    } else {
+      // Show the options list
+      itemModal.querySelector(".mcq").style.display = "block";
+
+      // Populate the options list (mcq-options) with the variants
+      var optionsList = itemModal.querySelector(".mcq-options");
+      optionsList.innerHTML = ""; // Clear previous options
+      for (let variant of item.variants) {
+        var button = document.createElement("button");
+        button.className = "btn btn-sm btn-secondary me-2";
+        button.textContent = variant.name;
+        optionsList.appendChild(button);
+
+        // If this is the currently selected variant, replace the btn-secondary class with btn-primary
+        if (variant.name === selectedVariant.name) {
+          button.classList.remove("btn-secondary");
+          button.classList.add("btn-primary");
+        }
+
+        // Clicking the button should switch to that variant
+        button.addEventListener("click", function() { selectVariant(item, variant) });
+      }
+    }  
+  }
+
+  // When a shop item is clicked, fill the Item Modal with the details of the item.
+  document.querySelectorAll(".store-item").forEach(function(button) {
+    button.addEventListener("click", function(e) {
+      
+      // Get the item info
+      var item = JSON.parse(button.dataset.itemInfo);
+
+      // Set up the basic item details
+      var itemModal = document.getElementById("itemModal");
+      itemModal.querySelector("#itemModalLabel").textContent = item.name;
+      itemModal.querySelector("#item-modal-image").src = item.image;
+      itemModal.querySelector("#item-modal-image").alt = item.name;
+
+      // Update the item modal with the variant details
+      var firstVariant = item.variants[Object.keys(item.variants)[0]];
+      selectVariant(item, firstVariant);
+      
     });
   });
+
+  // Cart Item Quantity
+  var quantity = document.querySelector("#item-modal-quantity");
+  var quantityUp = document.querySelector("#item-modal-quantity-up");
+  var quantityDown = document.querySelector("#item-modal-quantity-down");
+  quantityUp.addEventListener("click", function() {
+    var currentQuantity = parseInt(quantity.textContent);
+    quantity.textContent = currentQuantity + 1;
+  });
+  quantityDown.addEventListener("click", function() {
+    var currentQuantity = parseInt(quantity.textContent);
+    if (currentQuantity > 1) {
+      quantity.textContent = currentQuantity - 1;
+    }
+  });
+
+  // Purchase Button
+  var purchaseButton = document.querySelector("#item-modal-purchase");
+  purchaseButton.addEventListener("click", function(e) {
+
+    // Read the price ID
+    var priceId = purchaseButton.dataset.priceId;
+
+    // Read the desired quantity
+    var quantity = parseInt(document.querySelector("#item-modal-quantity").textContent, 10);
+
+    // Here is the cart:
+    var items = [{ price: priceId, quantity: quantity }];
+
+    // Run sanity checks on the cart
+    if (items.length === 0) {
+      alert("Please add an item to your cart before checking out.");
+      return;
+    }
+    if (items[0].quantity === null || items[0].quantity < 1) {
+      alert("Please select a quantity of at least 1.");
+      return;
+    }
+
+    // Make the call to Stripe.js to redirect to the checkout page
+    stripe
+      .redirectToCheckout({
+      lineItems: items,
+      mode: "payment",
+      successUrl:
+        DOMAIN + "?result=success&session_id={CHECKOUT_SESSION_ID}",
+      cancelUrl:
+        DOMAIN + "?result=canceled&session_id={CHECKOUT_SESSION_ID}"
+      })
+      .then(handleResult)
+      .catch(function(error) {
+        console.error("Unexpected error:", error.type, error.message);
+        alert("Oops -- Please try again and let us know if this error keeps happening. (" + error.type + ": " + error.message + ")");
+      });
+  });
+
+  // Handle Success and Failure
+  const urlParams = new URLSearchParams(window.location.search);
+  const result = urlParams.get('result');
+
+  if (result === 'success') {
+    alert('Payment was successful! Thank you for your purchase.');
+  } else if (result === 'canceled') {
+    alert('Looks like you canceled the payment. No worries, you can try again later.');
+  }
 </script>
