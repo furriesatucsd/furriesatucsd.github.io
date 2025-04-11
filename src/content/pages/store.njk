@@ -200,6 +200,16 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
     }
   };
 
+  // Clear the Item Modal data that would be populated from a variant
+  function resetVariant() {
+    var itemModal = document.getElementById("itemModal");
+    itemModal.querySelector(".mcq").style.display = "none";
+
+    itemModal.querySelector("#item-modal-price").textContent = "$-- each";
+    itemModal.querySelector("#item-modal-purchase").dataset.priceId = "Item is not yet for sale";
+    itemModal.querySelector("#item-modal-description").textContent = "Item is not yet for sale";
+  }
+
   // Update the Item Modal with a given Variant
   function selectVariant(item, selectedVariant) {
     var itemModal = document.getElementById("itemModal");
@@ -209,11 +219,14 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
     itemModal.querySelector("#item-modal-purchase").dataset.priceId = selectedVariant.priceId;
     itemModal.querySelector("#item-modal-description").textContent = selectedVariant.description;
 
+    // If there is an item-specific image, use it
+    itemModal.querySelector("#item-modal-image").src = item.image;
+    if (selectedVariant.image) {
+      itemModal.querySelector("#item-modal-image").src = selectedVariant.image;
+    }
+
     // Check if there is more than one variant
-    if (item.variants.length <= 1) {
-      // Hide the options list
-      itemModal.querySelector(".mcq").style.display = "none";
-    } else {
+    if (item.variants.length > 1) {
       // Show the options list
       itemModal.querySelector(".mcq").style.display = "block";
 
@@ -248,8 +261,13 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
       // Set up the basic item details
       var itemModal = document.getElementById("itemModal");
       itemModal.querySelector("#itemModalLabel").textContent = item.name;
-      itemModal.querySelector("#item-modal-image").src = item.image;
       itemModal.querySelector("#item-modal-image").alt = item.name;
+
+      // Reset the item modal
+      resetVariant();
+
+      // Put an initial image into the item modal
+      itemModal.querySelector("#item-modal-image").src = item.image;
 
       // Update the item modal with the variant details
       var firstVariant = item.variants[Object.keys(item.variants)[0]];
