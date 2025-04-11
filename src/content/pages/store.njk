@@ -137,8 +137,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
           </div>
           <!-- <button class="button primary" data-bs-toggle="modal" data-bs-target="#cartModal">Cart (0)</button> -->
         </div>
-        {% set storeCollections = store.collections %}
-        {% for collection in storeCollections %}  
+        {% for collection in store.collections %}  
           <div class="store-aisle">
             <div>
               <h4 class="mb-1">{{ collection.title }}</h4>
