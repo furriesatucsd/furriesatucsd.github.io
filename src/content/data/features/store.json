@@ -33,10 +33,10 @@
             "items": [
                 {
                     "name": "San Diego Beach Tee",
-                    "shortDesc": null,
+                    "shortDesc": "Surf the beachy vibes with this sick T-shirt!",
                     "image": "/assets/images/store/beach_1.png",
                     "product_ids": {
-                        "default": null
+                        "default": "sku_shirt-sdbeachtee"
                     }
                 },
                 {

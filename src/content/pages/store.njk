@@ -34,8 +34,8 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
       <div class="modal-content">
         <div class="modal-header">
           <div>
-            <h4 class="modal-title" id="itemModalLabel">San Diego Beach Tee</h4>
-            <p>Surf the beachy vibes with this sick T-shirt!</p>
+            <h4 class="modal-title" id="itemModalLabel">Title</h4>
+            <p>Short Description</p>
           </div>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="box-shadow: none;"></button>
         </div>
@@ -45,53 +45,33 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
             <!-- Options -->
             <div class="mcq">
               <div class="mcq-header">
-                <h6>Shirt Size</h6>
+                <h6>Item Options</h6>
               </div>
               <div class="mcq-options">
-                <button class="btn btn-sm btn-light">S</button>
-                <button class="btn btn-sm btn-secondary">M</button>
-                <button class="btn btn-sm btn-light">L</button>
-                <button class="btn btn-sm btn-light">XL</button>
-                <button class="btn btn-sm btn-light">2XL</button>
-              </div>
-            </div>
-            <div class="mcq">
-              <div class="mcq-header">
-                <h6>Color</h6>
-              </div>
-              <div class="mcq-options">
-                <button class="btn btn-sm btn-light">Tan</button>
-                <button class="btn btn-sm btn-secondary">Blue</button>
-              </div>
-            </div>
-            <div class="mcq">
-              <div class="mcq-header">
-                <h6>Fur Length</h6>
-              </div>
-              <div class="mcq-options">
-                <button class="btn btn-sm btn-light">Half Yard</button>
-                <button class="btn btn-sm btn-secondary">Full Yard</button>
+                <button class="btn btn-sm btn-secondary">Option A</button>
+                <button class="btn btn-sm btn-light">Option B</button>
               </div>
             </div>
 
             <!-- Description -->
             <p>
-              Our San Diego Beach Tee is a must-have for the summer vibes! Made with 100% cotton, this shirt is perfect for a day out in the sun. The shirt features a beautiful beach scene with a sunset and serene waves.
+              Full item description
             </p>
           </div>
         </div>
         <div class="modal-footer">
           <div style="flex-grow: 1">
-            <p>$25</p>
+            <p>$Price</p>
             <p style="font-size: small; opacity: 50%;">Sales tax already included</p>
           </div>
           <div class="cart-item-actions">
             <button class="btn btn-outline-secondary">–</button>
             <span class="cart-item-quantity">1</span>
             <button class="btn btn-outline-secondary">+</button>
-            <button class="btn btn-primary" data-bs-dismiss="modal">Add to Cart</button>
+            <button class="btn btn-primary" data-bs-dismiss="modal" data-sku-id="sku_PLACEHOLDER">Place Order</button>
           </div>
         </div>
+        <!-- Different footer state for when item is added to cart:
         <div class="modal-footer" style="display: none;">
           <div style="flex-grow: 1">
             <p>$25</p>
@@ -100,6 +80,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
           <span class="me-2">Added to cart!</span>
           <button class="btn btn-secondary" data-bs-dismiss="modal">View Cart</button>
         </div>
+        -->
       </div>
     </div>
   </div>
@@ -111,7 +92,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
         <div class="modal-header">
           <div>
             <h4 class="modal-title" id="cartModalLabel">Your Cart</h4>
-            <p>2 items</p>
+            <p>Item Count</p>
           </div>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="box-shadow: none;"></button>
         </div>
@@ -120,10 +101,10 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
             <img src="/assets/images/store/beach_1.png">
             <div class="cart-item-details">
               <div class="cart-item-header">
-                <p style="flex-grow: 1">San Diego Beach Tee</p>
-                <p>$25</p>
+                <p style="flex-grow: 1">Item Title</p>
+                <p>$Price</p>
               </div>
-              <p>Size: L, Color: Blue</p>
+              <p>Item Options</p>
               <div class="cart-item-actions mt-2">
                 <button class="btn btn-sm btn-outline-secondary">–</button>
                 <span class="cart-item-quantity">1</span>
@@ -132,26 +113,10 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
               </div>
             </div>
           </div>
-          <div class="cart-item">
-            <img src="/assets/images/store/beach_1.png">
-            <div class="cart-item-details">
-              <div class="cart-item-header">
-                <p style="flex-grow: 1">San Diego Beach Tee</p>
-                <p>$25</p>
-              </div>
-              <p>Size: M, Color: Tan</p>
-              <div class="cart-item-actions mt-2">
-                <button class="btn btn-sm btn-outline-secondary">–</button>
-                <span class="cart-item-quantity">1</span>
-                <button class="btn btn-sm btn-outline-secondary">+</button>
-                <button class="btn btn-sm btn-link danger" style="color: gray">Delete</button>
-              </div>
-            </div>
-          </div>
         </div>
         <div class="modal-footer">
           <div style="flex-grow: 1">
-            <p>Total: $50</p>
+            <p>Total: $Price</p>
             <p style="font-size: small; opacity: 50%;">Sales tax already included</p>
           </div>
           <button class="btn btn-secondary" data-bs-dismiss="modal">Continue Shopping</button>
@@ -170,7 +135,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
             <h2>Club Store</h2>
             <p>Get exclusive merch, membership, materials, and more!</p>
           </div>
-          <button class="button primary" data-bs-toggle="modal" data-bs-target="#cartModal">Cart (0)</button>
+          <!-- <button class="button primary" data-bs-toggle="modal" data-bs-target="#cartModal">Cart (0)</button> -->
         </div>
         <div class="store-aisle">
           <h4>Featured</h4>
