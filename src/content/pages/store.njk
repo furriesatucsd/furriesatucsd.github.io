@@ -197,14 +197,6 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
 
   var stripe = Stripe(PUBLISHABLE_KEY);
 
-  // Handle any errors from Checkout
-  var handleResult = function(result) {
-    if (result.error) {
-      var displayError = document.getElementById("error-message");
-      displayError.textContent = result.error.message;
-    }
-  };
-
   // Clear the Item Modal data that would be populated from a variant
   function resetVariant() {
     var itemModal = document.getElementById("itemModal");
@@ -329,7 +321,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
       cancelUrl:
         DOMAIN + "?result=canceled&session_id={CHECKOUT_SESSION_ID}"
       })
-      .then(handleResult)
+      .then()
       .catch(function(error) {
         console.error("Unexpected error:", error.type, error.message);
         alert("Oops -- Please try again and let us know if this error keeps happening. (" + error.type + ": " + error.message + ")");
