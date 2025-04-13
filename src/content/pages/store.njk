@@ -9,7 +9,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
 <div id="wrapper" class="divided">
 
   <!-- OnLoad Modal (when the user first lands on the page) -->
-  <div class="modal fade onload-modal" tabindex="-1" aria-labelledby="onloadModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal fade" id="terms-modal" tabindex="-1" aria-labelledby="onloadModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -27,7 +27,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
           <p>If you have any questions, please don't hesitate to ask :3</p>
         </div>
         <div class="modal-footer">
-          <button class="btn btn-primary" data-bs-dismiss="modal">Agree and continue</button>
+          <button class="btn btn-primary" data-bs-dismiss="modal" onclick="saveAcknowledgementOfTerms()">Agree and continue</button>
           <a class="btn btn-secondary" href="javascript:history.back()">Go back</a>
         </div>
       </div>
@@ -197,6 +197,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
   var PUBLISHABLE_KEY = "pk_test_51RCftNPQmYquuuIRN5HV3rb461GA119I3cb4PSgXE2iM2ObtvdkpkpAhBSyHknEvRTo22y2vAUcdJrwKiPCQ221f00CuHKc72G"; // Your own publishable key: https://dashboard.stripe.com/test/apikeys
   var DOMAIN = location.href.replace(/[^/]*$/, ""); // The domain you want your users to be redirected back to after payment
   var NOT_FOR_SALE_DESCRIPTION = "Item is not yet for sale"; // The ID and description to show when an item is not for sale
+  var CURRENT_TERMS_VERSION = "2025-04-13"; // The current version of the terms of service. This is used to check if the user has acknowledged the most current terms.
 
   // VARIABLES
   var stripe = Stripe(PUBLISHABLE_KEY);
@@ -334,6 +335,12 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
       selectVariant(item, firstVariant);
     });
   });
+
+  function saveAcknowledgementOfTerms() {
+    // Save the user's acknowledgement of the terms to localStorage
+    localStorage.setItem("acknowledgedTerms", CURRENT_TERMS_VERSION);
+    console.log("User has acknowledged the terms. (Saved)");
+  }
 
   // ITEM MODAL ACTIONS
   // Item Modal: Quantity
@@ -577,8 +584,20 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
   }
   window.addEventListener("beforeunload", saveCart);
 
-  // Load the cart (if the user has a saved cart) when the page is first loaded
+  // When the page is first loaded
   window.addEventListener("load", function (event) {
+    // Check if the user has acknowledged the terms
+    var acknowledgedTerms = localStorage.getItem("acknowledgedTerms");
+    if (acknowledgedTerms !== CURRENT_TERMS_VERSION) {
+      // Show the onload modal
+      var onloadModal = new bootstrap.Modal(document.querySelector("#terms-modal"));
+      onloadModal.show();
+    } else {
+      // If the user has already acknowledged the terms, save it again
+      saveAcknowledgementOfTerms();
+      console.log("User has already acknowledged the terms, no need to show them again.");
+    }
+
     // Load the cart from localStorage
     var savedCart = localStorage.getItem("userShoppingCart");
     if (savedCart) {
