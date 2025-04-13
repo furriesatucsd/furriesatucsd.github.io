@@ -117,6 +117,19 @@
     }
 }
 
+.left-price-display {
+    flex-grow: 1;
+    text-align: right;
+    margin-right: 8px;
+}
+
+#item-modal-image {
+    width: 100%;
+    border-radius: 16px;
+    max-width: 500px;
+    object-fit: contain;
+}
+
 /* Options */
 .options-list {
     display: flex;
@@ -156,6 +169,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 8px;
+    object-fit: cover;
 }
 
 /* Cart item details and actions */

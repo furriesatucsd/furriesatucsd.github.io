@@ -2,7 +2,7 @@
     "collections": [
         {
             "title": "Featured",
-            "description": "Our latest releases and most popular items.",
+            "description": "Our latest releases and most popular items!",
             "isFeatured": true,
             "items": [
                 {
@@ -18,10 +18,10 @@
                 {
                     "name": "Membership Cards",
                     "shortDesc": "Get exclusive perks and discounts across campus!",
-                    "image": "/assets/images/store/featured_2.png",
+                    "image": "/assets/images/store/card_spring2025.png",
                     "variants": [
-                        {"name": "Spring (current)", "price": 10, "priceId": "", "description": "Get a membership card to score exclusive discounts and perks this season! Perks include: 10% off at most restaurants on-campus, 10% off all Club Merch, and Priority for Fursuit Workshops."},
-                        {"name": "Winter 2025", "price": 3, "priceId": "", "description": "Missed our previous membership card? No worries! You can still get this previous card and keep the art as a souvenir, and show your support for the club. (The card will not be valid for discounts.)"}
+                        {"name": "Spring (current)", "price": 10, "priceId": "price_1RDLVmPQmYquuuIR916fm2HM", "description": "Get a membership card to score exclusive discounts and perks this season! Perks include: 10% off at most restaurants on-campus, 10% off all Club Merch, and Priority for Fursuit Workshops."},
+                        {"name": "Winter 2025", "price": 3, "priceId": "price_1RDLnxPQmYquuuIRbo6HR8NY", "description": "Missed our previous membership card? No worries! You can still get this previous card and keep the art as a souvenir, and show your support for the club. (The card will not be valid for discounts.)", "image": "/assets/images/store/card_winter2025.png"}
                     ]
                 }
             ]

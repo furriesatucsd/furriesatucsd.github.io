@@ -22,7 +22,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
           <ul>
             <li>Physical items are usually only for in-person pickup at UCSD, SDF, or IBFM.</li>
             <li>Order turnaround and pickup times are subject to change.</li>
-            <li>All sales are final (No refunds, but we allow some changes.)</li>
+            <li>All sales are final (No refunds, but we allow some exchanges.)</li>
           </ul>
           <p>If you have any questions, please don't hesitate to ask :3</p>
         </div>
@@ -46,7 +46,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="box-shadow: none;"></button>
         </div>
         <div class="modal-body">
-            <img id="item-modal-image" src="/assets/images/store/beach_1.png" style="width: 100%; aspect-ratio: 1/1; border-radius: 16px; max-width: 500px; object-fit: contain;">
+            <img id="item-modal-image" src="/assets/images/store/beach_1.png">
           <div class="options-list">
             <!-- Options -->
             <div class="mcq">
@@ -65,25 +65,25 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
             </p>
           </div>
         </div>
-        <div class="modal-footer">
-          <div style="flex-grow: 1">
+        <div class="modal-footer" id="item-modal-footer-standard">
+          <div class="left-price-display">
             <p id="item-modal-price">$Price</p>
-            <p style="font-size: small; opacity: 50%;">Taxes &amp; fees already included</p>
+            <p style="font-size: small; opacity: 50%;">Taxes already included</p>
           </div>
           <div class="cart-item-actions">
             <button class="btn btn-outline-secondary" id="item-modal-quantity-down">–</button>
             <span class="cart-item-quantity" id="item-modal-quantity">1</span>
             <button class="btn btn-outline-secondary" id="item-modal-quantity-up">+</button>
-            <button id="item-modal-addtocart" class="btn btn-primary" data-bs-dismiss="modal" data-price-id="price_PLACEHOLDER">Add to Cart</button>
+            <button id="item-modal-addtocart" class="btn btn-primary">Add to Cart</button>
           </div>
         </div>
         <!-- Different footer state for when item is added to cart: -->
-        <div class="modal-footer">
-          <div style="flex-grow: 1">
+        <div class="modal-footer" id="item-modal-footer-addedtocart">
+          <div class="left-price-display">
             <span class="text-success font-weight-bold">Added to cart!</span>
           </div>
           <button class="btn btn-primary" data-bs-dismiss="modal">Continue Shopping</button>
-          <button class="btn btn-secondary" data-bs-dismiss="modal">View Cart</button>
+            <button class="btn btn-secondary" data-bs-dismiss="modal" onclick="openCartModal()">View Cart</button>
         </div>
       </div>
     </div>
@@ -96,11 +96,11 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
         <div class="modal-header">
           <div>
             <h4 class="modal-title" id="cartModalLabel">Your Cart</h4>
-            <p>Item Count</p>
+            <p id="cart-modal-item-count">Item Count</p>
           </div>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="box-shadow: none;"></button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body" id="cart-modal-item-list">
           <div class="cart-item">
             <img src="/assets/images/store/beach_1.png">
             <div class="cart-item-details">
@@ -119,9 +119,9 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
           </div>
         </div>
         <div class="modal-footer">
-          <div style="flex-grow: 1">
-            <p>Total: $Price</p>
-            <p style="font-size: small; opacity: 50%;">Taxes &amp; fees already included</p>
+          <div class="left-price-display">
+            <p id="cart-modal-total-price">Total: $Price</p>
+            <p style="font-size: small; opacity: 50%;">Taxes already included</p>
           </div>
           <button class="btn btn-secondary" data-bs-dismiss="modal">Continue Shopping</button>
           <button class="btn btn-primary" id="cart-modal-checkout" data-bs-dismiss="modal">Checkout</button>
@@ -139,7 +139,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
             <h2>Club Store</h2>
             <p>Get exclusive merch, membership, materials, and more!</p>
           </div>
-          <button class="button primary" data-bs-toggle="modal" data-bs-target="#cartModal">Cart (0)</button>
+          <button class="button primary" onclick="openCartModal()">Cart</button>
         </div>
         {% for collection in store.collections %}  
           <div class="store-aisle">
@@ -171,7 +171,11 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
                         {{ item.shortDesc }}
                       {% elif item.variants and item.variants|length > 0 and item.variants[0].price %}
                         <!-- Display the price, if there is one -->
-                        ${{ item.variants[0].price }}
+                        {% if item.variants[0].priceId and item.variants[0].priceId != "" %}
+                          ${{ item.variants[0].price }}
+                        {% else %}
+                          ${{ item.variants[0].price }} • Offsale
+                        {% endif %}
                       {% endif %}
                     </p>
                     </button>
@@ -189,33 +193,99 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
 <!-- Stripe Code -->
 <script src="https://js.stripe.com/v3/"></script>
 <script>
-  // Your own publishable key: https://dashboard.stripe.com/test/apikeys
-  var PUBLISHABLE_KEY = "pk_test_51RCftNPQmYquuuIRN5HV3rb461GA119I3cb4PSgXE2iM2ObtvdkpkpAhBSyHknEvRTo22y2vAUcdJrwKiPCQ221f00CuHKc72G";
-  // The domain you want your users to be redirected back to after payment
-  var DOMAIN = location.href.replace(/[^/]*$/, "");
+  // SETTINGS
+  var PUBLISHABLE_KEY = "pk_test_51RCftNPQmYquuuIRN5HV3rb461GA119I3cb4PSgXE2iM2ObtvdkpkpAhBSyHknEvRTo22y2vAUcdJrwKiPCQ221f00CuHKc72G"; // Your own publishable key: https://dashboard.stripe.com/test/apikeys
+  var DOMAIN = location.href.replace(/[^/]*$/, ""); // The domain you want your users to be redirected back to after payment
+  var NOT_FOR_SALE_DESCRIPTION = "Item is not yet for sale"; // The ID and description to show when an item is not for sale
 
+  // VARIABLES
   var stripe = Stripe(PUBLISHABLE_KEY);
+  var userShoppingCart = []; // The cart is an array of items, each with a priceId and quantity
+
+  // HELPER FUNCTIONS
+  // Check if a priceId is valid
+  function isValidPriceId(priceId) {
+    return priceId !== null && priceId !== "" && priceId !== NOT_FOR_SALE_DESCRIPTION;
+  }
+
+  // Run sanity checks for a given cart item
+  function validateCartItem(cartItem) {
+    // Check if the item is valid
+    if (!cartItem) {
+      return {isValid:false, reason:"Cart item is invalid"};
+    }
+
+    // Check if the item has a valid priceId
+    if (!isValidPriceId(cartItem.price)) {
+      return {isValid: false, reason: "Item is offsale or Invalid priceId "+cartItem.price};
+    }
+
+    // Check if the item has a valid quantity
+    if (cartItem.quantity === null || cartItem.quantity < 1) {
+      return {isValid: false, reason: "Invalid quantity "+cartItem.quantity};
+    }
+
+    // Make sure it has a valid itemInfo and variantInfo
+    if (!cartItem.itemInfo || !cartItem.variantInfo) {
+      return {isValid: false, reason: "Missing itemInfo or variantInfo"};
+    }
+
+    return {isValid: true, reason: "Valid cart item"};
+  }
 
   // Clear the Item Modal data that would be populated from a variant
-  function resetVariant() {
+  function resetItemModal() {
     var itemModal = document.getElementById("itemModal");
+
+    // Clear variant buttons
     itemModal.querySelector(".mcq").style.display = "none";
-    itemModal.querySelector("#item-modal-price").textContent = "$-- each";
-    itemModal.querySelector("#item-modal-purchase").dataset.priceId = "Item is not yet for sale";
-    itemModal.querySelector("#item-modal-description").textContent = "Item is not yet for sale";
+    itemModal.querySelector(".mcq-options").innerHTML = "";
+
+    // Reset all text
+    itemModal.querySelector("#item-modal-price").textContent = NOT_FOR_SALE_DESCRIPTION;
+    itemModal.querySelector("#item-modal-description").textContent = NOT_FOR_SALE_DESCRIPTION;
+    itemModal.querySelector("#item-modal-quantity").textContent = "1";
+
+    // Reset the Price ID
+    itemModal.querySelector("#item-modal-addtocart").dataset.priceId = NOT_FOR_SALE_DESCRIPTION;
+
+    // Reset the modal footer
+    itemModal.querySelector("#item-modal-footer-standard").classList.remove("d-none");
+    itemModal.querySelector("#item-modal-footer-addedtocart").classList.add("d-none");
   }
 
   // Update the Item Modal with a given Variant
   function selectVariant(item, selectedVariant) {
     var itemModal = document.getElementById("itemModal");
+    resetItemModal();
 
-    // Update the details from the selected variant: Price, PriceId, and description
-    itemModal.querySelector("#item-modal-price").textContent = "$" + selectedVariant.price + " each";
-    itemModal.querySelector("#item-modal-purchase").dataset.priceId = selectedVariant.priceId;
+    // Check if the variant is valid
+    if (selectedVariant === null || selectedVariant === undefined) {
+      console.log("Invalid variant selected.");
+      return;
+    }
+
+    // Update the description
     itemModal.querySelector("#item-modal-description").textContent = selectedVariant.description;
 
-    // If there is an item-specific image, use it
+    // Update the price
+    if (selectedVariant.price) {
+      if (isValidPriceId(selectedVariant.priceId)) {
+        itemModal.querySelector("#item-modal-price").textContent = "$" + selectedVariant.price + " each";
+      } else {
+        itemModal.querySelector("#item-modal-price").textContent = "$" + selectedVariant.price + " each (Offsale)";
+      }
+    } else {
+      itemModal.querySelector("#item-modal-price").textContent = NOT_FOR_SALE_DESCRIPTION;
+    }
+
+    // Insert the item info and variant info into the button
+    itemModal.querySelector("#item-modal-addtocart").dataset.itemInfo = JSON.stringify(item);
+    itemModal.querySelector("#item-modal-addtocart").dataset.variantInfo = JSON.stringify(selectedVariant);
+
+    // Update the image in the item modal
     itemModal.querySelector("#item-modal-image").src = item.image;
+    // If there is an item-specific image, use it
     if (selectedVariant.image) {
       itemModal.querySelector("#item-modal-image").src = selectedVariant.image;
     }
@@ -227,7 +297,6 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
 
       // Populate the options list (mcq-options) with the variants
       var optionsList = itemModal.querySelector(".mcq-options");
-      optionsList.innerHTML = ""; // Clear previous options
       for (let variant of item.variants) {
         var button = document.createElement("button");
         button.className = "btn btn-sm btn-secondary me-2";
@@ -243,10 +312,11 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
         // Clicking the button should switch to that variant
         button.addEventListener("click", function() { selectVariant(item, variant) });
       }
-    }  
+    }
   }
 
-  // When a shop item is clicked, fill the Item Modal with the details of the item.
+  // PAGE ACTIONS
+  // Page: When a shop item is clicked, fill the Item Modal with the details of the item.
   document.querySelectorAll(".store-item").forEach(function(button) {
     button.addEventListener("click", function(e) {
       
@@ -256,62 +326,221 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
       // Set up the basic item details
       var itemModal = document.getElementById("itemModal");
       itemModal.querySelector("#itemModalLabel").textContent = item.name;
-      itemModal.querySelector("#item-modal-image").alt = item.name;
-
-      // Reset the item modal
-      resetVariant();
-
-      // Put an initial image into the item modal
       itemModal.querySelector("#item-modal-image").src = item.image;
+      itemModal.querySelector("#item-modal-image").alt = item.name;
 
       // Update the item modal with the variant details
       var firstVariant = item.variants[Object.keys(item.variants)[0]];
       selectVariant(item, firstVariant);
-      
     });
   });
 
-  // Cart Item Quantity
+  // ITEM MODAL ACTIONS
+  // Item Modal: Quantity
   var quantity = document.querySelector("#item-modal-quantity");
-  var quantityUp = document.querySelector("#item-modal-quantity-up");
-  var quantityDown = document.querySelector("#item-modal-quantity-down");
-  quantityUp.addEventListener("click", function() {
+  document.querySelector("#item-modal-quantity-up").addEventListener("click", function() {
     var currentQuantity = parseInt(quantity.textContent);
     quantity.textContent = currentQuantity + 1;
   });
-  quantityDown.addEventListener("click", function() {
+  document.querySelector("#item-modal-quantity-down").addEventListener("click", function() {
     var currentQuantity = parseInt(quantity.textContent);
     if (currentQuantity > 1) {
       quantity.textContent = currentQuantity - 1;
     }
   });
 
-  // Add to Cart Button
+  // Item Modal: Add to Cart Button
+  var addToCartButton = document.querySelector("#item-modal-addtocart");
+  addToCartButton.addEventListener("click", function(e) {
+    // Get the item info and variant info from the button
+    var itemInfo = JSON.parse(addToCartButton.dataset.itemInfo);
+    var variantInfo = JSON.parse(addToCartButton.dataset.variantInfo);
+    if (!itemInfo || !variantInfo) {
+      alert("Oops, we couldn't parse the item data. Please try again and let us know if this error keeps happening.");
+      return;
+    }
 
-  // Purchase Button
-  var purchaseButton = document.querySelector("#item-modal-purchase");
+    var quantity = parseInt(document.querySelector("#item-modal-quantity").textContent, 10);
+
+    // Run sanity checks
+    var validation = validateCartItem({ price: variantInfo.priceId, quantity: quantity, itemInfo: itemInfo, variantInfo: variantInfo });
+    if (!validation.isValid) {
+      alert("Oops, you can't add that to your cart. Please let us know if you think this is a mistake. (Reason: " + validation.reason + ")");
+      return;
+    }
+
+    // No duplicate items are allowed. Check if the item is already in the cart.
+    var isItemAlreadyInCart = false;
+    for (var i = 0; i < userShoppingCart.length; i++) {
+      if (userShoppingCart[i].price === variantInfo.priceId) {
+        isItemAlreadyInCart = true;
+
+        // If item is already in cart, just append the new quantity
+        userShoppingCart[i].quantity += quantity;
+        break;
+      }
+    }
+
+    // If item is not in cart, add it
+    if (!isItemAlreadyInCart) {
+      userShoppingCart.push({ price: variantInfo.priceId, quantity: quantity, itemInfo: itemInfo, variantInfo: variantInfo });
+    }
+
+    // Change the item modal footer to the "Added to cart" state
+    var itemModal = document.getElementById("itemModal");
+    itemModal.querySelector("#item-modal-footer-standard").classList.add("d-none");
+    itemModal.querySelector("#item-modal-footer-addedtocart").classList.remove("d-none");
+  });
+
+  // CART MODAL ACTIONS
+
+  // Open the cart modal
+  function openCartModal() {
+    var cartModal = new bootstrap.Modal(document.getElementById("cartModal"));
+    cartModal.show();
+
+    renderCartModal();
+  }
+
+  // Re-render the contents of the cart
+  function renderCartModal() {
+    // Clear the contents of the cart modal
+    var cartItemList = document.getElementById("cart-modal-item-list");
+    cartItemList.innerHTML = "";
+
+    // Iterate through the user's cart, and add each item to the cart modal
+    var totalPrice = 0;
+    var itemCount = 0;
+    for (var i = 0; i < userShoppingCart.length; i++) {
+      var item = userShoppingCart[i];
+      var priceId = item.price;
+      var quantity = item.quantity;
+      var itemDetails = item.itemInfo;
+      var variantDetails = item.variantInfo;
+
+      // Run sanity checks
+      var validation = validateCartItem(item);
+      if (!validation.isValid) {
+        
+        // Remove the invalid item from the cart
+        userShoppingCart.splice(i, 1);
+        i--; // Decrement i to account for the removed item
+
+        alert("Oops, one of your items is invalid. We've removed it from your cart. Please let us know if you think this is a mistake. (Reason: " + validation.reason + ")");
+        continue; // Skip to the next item
+      }
+
+      // Update the total price and item count
+      var cartItemPrice = parseFloat(variantDetails.price) ? parseFloat(variantDetails.price) : 0;
+      totalPrice += cartItemPrice * quantity;
+      itemCount += quantity;
+
+      // Any last visual changes
+      var itemImage = itemDetails.image;
+      if (variantDetails.image) {itemImage = variantDetails.image;}
+      var variantName = variantDetails.name;
+      if (itemDetails.variants.length <= 1) {variantName = "";}
+
+      // Create the cart item element and add it to the cart modal
+      var cartItem = document.createElement("div");
+      cartItem.className = "cart-item";
+      cartItem.innerHTML = `
+        <img src="${itemImage}">
+        <div class="cart-item-details">
+          <div class="cart-item-header">
+            <p style="flex-grow: 1">${itemDetails.name}</p>
+            <p>$${cartItemPrice} each</p>
+          </div>
+            <p>${variantName}</p>
+          <div class="cart-item-actions mt-2">
+            <button class="btn btn-sm btn-outline-secondary" onclick="updateCartItemQuantity(${i}, -1)">–</button>
+            <span class="cart-item-quantity">${quantity}</span>
+            <button class="btn btn-sm btn-outline-secondary" onclick="updateCartItemQuantity(${i}, 1)">+</button>
+            <button class="btn btn-sm btn-link" style="color: gray" onclick="removeCartItem(${i})">Delete</button>
+          </div>
+        </div>
+      `;
+      cartItemList.appendChild(cartItem);
+    }
+
+    // Update the total price and item count in the cart modal
+    var cartModalTotalPrice = document.getElementById("cart-modal-total-price");
+    cartModalTotalPrice.textContent = "Total: $" + totalPrice;
+    var cartModalItemCount = document.getElementById("cart-modal-item-count");
+    cartModalItemCount.textContent = itemCount + " item" + (itemCount === 1 ? "" : "s");
+  }
+
+  // Cart Modal: Update item quantity
+  function updateCartItemQuantity(index, change) {
+    var item = userShoppingCart[index];
+    var newQuantity = item.quantity + change;
+
+    // Check if the new quantity is valid
+    if (newQuantity < 1) {
+      alert("You can't have less than 1 of that item (Try deleting it instead.)");
+      return;
+    }
+
+    // Update the quantity in the cart
+    item.quantity = newQuantity;
+
+    // Re-render the cart modal
+    renderCartModal();
+  }
+
+  // Cart Modal: Remove item from cart
+  function removeCartItem(index) {
+    // Remove the item from the cart
+    userShoppingCart.splice(index, 1);
+
+    // Re-render the cart modal
+    renderCartModal();
+  }
+
+  // Cart Modal: Purchase Button
+  var purchaseButton = document.querySelector("#cart-modal-checkout");
   purchaseButton.addEventListener("click", function(e) {
     var priceId = purchaseButton.dataset.priceId;
     var quantity = parseInt(document.querySelector("#item-modal-quantity").textContent, 10);
-    var items = [{ price: priceId, quantity: quantity }];
 
     // Run sanity checks on the cart
-    if (items.length === 0) {
+    // Check if the cart is empty
+    if (userShoppingCart.length === 0) {
       alert("Please add an item to your cart before checking out.");
       return;
     }
-    // For each item, check that its quantity is at least 1
-    for (var i = 0; i < items.length; i++) {
-      if (items[i].quantity === null || items[i].quantity < 1) {
-        alert("One of your items has an invalid quantity. Please check your cart and try again.");
-        return;
+    var allItemsAreGood = true;
+    for (var i = 0; i < userShoppingCart.length; i++) {
+      // Run sanity checks on each item
+      var validation = validateCartItem(userShoppingCart[i]);
+      if (!validation.isValid) {
+        allItemsAreGood = false;
+
+        // Remove the invalid item from the cart
+        userShoppingCart.splice(i, 1);
+        i--; // Decrement i to account for the removed item
+
+        alert("Oops, one of your items is invalid. We've removed it from your cart. Please let us know if you think this is a mistake. (Reason: " + validation.reason + ")");
+        continue;
       }
+    }
+
+    // If an item was invalid, return early and re-render the cart modal
+    if (!allItemsAreGood) {
+      renderCartModal();
+      return;
+    }
+
+    // Make a copy of the cart that is acceptable for Stripe.
+    var userShoppingCartCopy = [];
+    for (var i = 0; i < userShoppingCart.length; i++) {
+      userShoppingCartCopy.push({ price: userShoppingCart[i].price, quantity: userShoppingCart[i].quantity }); // No other info is allowed
     }
 
     // Make the call to Stripe.js to redirect to the checkout page
     stripe
       .redirectToCheckout({
-      lineItems: items,
+      lineItems: userShoppingCartCopy,
       mode: "payment",
       successUrl:
         DOMAIN + "?result=success&session_id={CHECKOUT_SESSION_ID}",
@@ -325,18 +554,35 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
       });
   });
 
+  // PAGE EVENTS
   // Handle Success and Failure
   const urlParams = new URLSearchParams(window.location.search);
   const result = urlParams.get('result');
   if (result === 'success') {
+    // Clear the user's saved cart, if they have one.
+    userShoppingCart = [];
+    localStorage.removeItem("userShoppingCart");
     alert('Success! Thank you for your purchase. We\'ll review your order and send you updates as needed.');
   } else if (result === 'canceled') {
     alert('Ah, it looks like you canceled the payment. No worries, you can try again later :3');
   }
 
-  // Show a warning when the user tries to leave the page
+  // Save the cart as a cookie when the page is unloaded
   window.addEventListener("beforeunload", function (event) {
-    event.preventDefault();
-    event.returnValue = ""; // Use the default message (Most modern browsers ignore this for security reasons)
+    // Save the cart to localStorage
+    localStorage.setItem("userShoppingCart", JSON.stringify(userShoppingCart));
+    console.log("Cart saved to localStorage.");
+  });
+
+  // Load the cart (if the user has a saved cart) when the page is first loaded
+  window.addEventListener("load", function (event) {
+    // Load the cart from localStorage
+    var savedCart = localStorage.getItem("userShoppingCart");
+    if (savedCart) {
+      userShoppingCart = JSON.parse(savedCart);
+      console.log("Cart loaded from localStorage.");
+    } else {
+      console.log("No saved cart found.");
+    }
   });
 </script>
