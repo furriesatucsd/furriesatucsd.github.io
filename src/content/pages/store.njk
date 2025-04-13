@@ -74,19 +74,17 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
             <button class="btn btn-outline-secondary" id="item-modal-quantity-down">–</button>
             <span class="cart-item-quantity" id="item-modal-quantity">1</span>
             <button class="btn btn-outline-secondary" id="item-modal-quantity-up">+</button>
-            <button id="item-modal-purchase" class="btn btn-primary" data-bs-dismiss="modal" data-price-id="price_PLACEHOLDER">Buy Now</button>
+            <button id="item-modal-addtocart" class="btn btn-primary" data-bs-dismiss="modal" data-price-id="price_PLACEHOLDER">Add to Cart</button>
           </div>
         </div>
-        <!-- Different footer state for when item is added to cart:
-        <div class="modal-footer" style="display: none;">
+        <!-- Different footer state for when item is added to cart: -->
+        <div class="modal-footer">
           <div style="flex-grow: 1">
-            <p>$25</p>
-            <p style="font-size: small; opacity: 50%;">Sales tax already included</p>
+            <span class="text-success font-weight-bold">Added to cart!</span>
           </div>
-          <span class="me-2">Added to cart!</span>
+          <button class="btn btn-primary" data-bs-dismiss="modal">Continue Shopping</button>
           <button class="btn btn-secondary" data-bs-dismiss="modal">View Cart</button>
         </div>
-        -->
       </div>
     </div>
   </div>
@@ -126,7 +124,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
             <p style="font-size: small; opacity: 50%;">Taxes &amp; fees already included</p>
           </div>
           <button class="btn btn-secondary" data-bs-dismiss="modal">Continue Shopping</button>
-          <a class="btn btn-primary" href="/pages/store/store-order-details.html">Checkout</a>
+          <button class="btn btn-primary" id="cart-modal-checkout" data-bs-dismiss="modal">Checkout</button>
         </div>
       </div>
     </div>
@@ -141,7 +139,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
             <h2>Club Store</h2>
             <p>Get exclusive merch, membership, materials, and more!</p>
           </div>
-          <!-- <button class="button primary" data-bs-toggle="modal" data-bs-target="#cartModal">Cart (0)</button> -->
+          <button class="button primary" data-bs-toggle="modal" data-bs-target="#cartModal">Cart (0)</button>
         </div>
         {% for collection in store.collections %}  
           <div class="store-aisle">
@@ -287,6 +285,8 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
       quantity.textContent = currentQuantity - 1;
     }
   });
+
+  // Add to Cart Button
 
   // Purchase Button
   var purchaseButton = document.querySelector("#item-modal-purchase");
