@@ -217,12 +217,12 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
 
     // Check if the item has a valid priceId
     if (!isValidPriceId(cartItem.price)) {
-      return {isValid: false, reason: "Item is offsale or Invalid priceId "+cartItem.price};
+      return {isValid: false, reason: "Item is offsale or Invalid priceId."+cartItem.price};
     }
 
     // Check if the item has a valid quantity
     if (cartItem.quantity === null || cartItem.quantity < 1) {
-      return {isValid: false, reason: "Invalid quantity "+cartItem.quantity};
+      return {isValid: false, reason: "Invalid quantity."+cartItem.quantity};
     }
 
     // Make sure it has a valid itemInfo and variantInfo
@@ -365,7 +365,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
     // Run sanity checks
     var validation = validateCartItem({ price: variantInfo.priceId, quantity: quantity, itemInfo: itemInfo, variantInfo: variantInfo });
     if (!validation.isValid) {
-      alert("Oops, you can't add that to your cart. Please let us know if you think this is a mistake. (Reason: " + validation.reason + ")");
+      alert("Oops, you can't add that to your cart. Please let us know if you think this is a mistake. (" + validation.reason + ")");
       return;
     }
 
@@ -426,7 +426,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
         userShoppingCart.splice(i, 1);
         i--; // Decrement i to account for the removed item
 
-        alert("Oops, one of your items is invalid. We've removed it from your cart. Please let us know if you think this is a mistake. (Reason: " + validation.reason + ")");
+        alert("Oops, one of your items is invalid. We've removed it from your cart. Please let us know if you think this is a mistake. (" + validation.reason + ")");
         continue; // Skip to the next item
       }
 
@@ -520,7 +520,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
         userShoppingCart.splice(i, 1);
         i--; // Decrement i to account for the removed item
 
-        alert("Oops, one of your items is invalid. We've removed it from your cart. Please let us know if you think this is a mistake. (Reason: " + validation.reason + ")");
+        alert("Oops, one of your items is invalid. We've removed it from your cart. Please let us know if you think this is a mistake. (" + validation.reason + ")");
         continue;
       }
     }
