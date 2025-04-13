@@ -24,6 +24,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
             <li>Order turnaround and pickup times are subject to change.</li>
             <li>All sales are final (No refunds, but we allow some changes.)</li>
           </ul>
+          <p>If you have any questions, please don't hesitate to ask :3</p>
         </div>
         <div class="modal-footer">
           <button class="btn btn-primary" data-bs-dismiss="modal">Agree and continue</button>
@@ -190,9 +191,9 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
 <!-- Stripe Code -->
 <script src="https://js.stripe.com/v3/"></script>
 <script>
-  // Replace with your own publishable key: https://dashboard.stripe.com/test/apikeys
+  // Your own publishable key: https://dashboard.stripe.com/test/apikeys
   var PUBLISHABLE_KEY = "pk_test_51RCftNPQmYquuuIRN5HV3rb461GA119I3cb4PSgXE2iM2ObtvdkpkpAhBSyHknEvRTo22y2vAUcdJrwKiPCQ221f00CuHKc72G";
-  // Replace with the domain you want your users to be redirected back to after payment
+  // The domain you want your users to be redirected back to after payment
   var DOMAIN = location.href.replace(/[^/]*$/, "");
 
   var stripe = Stripe(PUBLISHABLE_KEY);
@@ -201,7 +202,6 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
   function resetVariant() {
     var itemModal = document.getElementById("itemModal");
     itemModal.querySelector(".mcq").style.display = "none";
-
     itemModal.querySelector("#item-modal-price").textContent = "$-- each";
     itemModal.querySelector("#item-modal-purchase").dataset.priceId = "Item is not yet for sale";
     itemModal.querySelector("#item-modal-description").textContent = "Item is not yet for sale";
@@ -291,14 +291,8 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
   // Purchase Button
   var purchaseButton = document.querySelector("#item-modal-purchase");
   purchaseButton.addEventListener("click", function(e) {
-
-    // Read the price ID
     var priceId = purchaseButton.dataset.priceId;
-
-    // Read the desired quantity
     var quantity = parseInt(document.querySelector("#item-modal-quantity").textContent, 10);
-
-    // Here is the cart:
     var items = [{ price: priceId, quantity: quantity }];
 
     // Run sanity checks on the cart
@@ -306,9 +300,12 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
       alert("Please add an item to your cart before checking out.");
       return;
     }
-    if (items[0].quantity === null || items[0].quantity < 1) {
-      alert("Please select a quantity of at least 1.");
-      return;
+    // For each item, check that its quantity is at least 1
+    for (var i = 0; i < items.length; i++) {
+      if (items[i].quantity === null || items[i].quantity < 1) {
+        alert("One of your items has an invalid quantity. Please check your cart and try again.");
+        return;
+      }
     }
 
     // Make the call to Stripe.js to redirect to the checkout page
@@ -331,9 +328,8 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
   // Handle Success and Failure
   const urlParams = new URLSearchParams(window.location.search);
   const result = urlParams.get('result');
-
   if (result === 'success') {
-    alert('Payment was successful! Thank you for your purchase.');
+    alert('Success! Thank you for your purchase. We\'ll review your order and send you updates as needed.');
   } else if (result === 'canceled') {
     alert('Ah, it looks like you canceled the payment. No worries, you can try again later :3');
   }
