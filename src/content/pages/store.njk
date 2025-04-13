@@ -9,24 +9,29 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
 <div id="wrapper" class="divided">
 
   <!-- OnLoad Modal (when the user first lands on the page) -->
-  {# <div class="modal fade onload-modal" tabindex="-1" aria-labelledby="onloadModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal fade onload-modal" tabindex="-1" aria-labelledby="onloadModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <div>
-            <h4 class="modal-title" id="onloadModalLabel">Heads up!</h4>
+            <h4 class="modal-title" id="onloadModalLabel">Welcome to our Club Store!</h4>
           </div>
         </div>
         <div class="modal-body">
-          <p>You can't purchase any items yet. This page is under construction. You can poke around this sneak peek, but please stay tuned while it's being set up.</p>
+          <p>By using the Club Store, you agree to our <a href="https://docs.google.com/document/d/1pGtIp7QoiZ7fPP1KXVEw85TiWYM2SDL1Vo1zUNRaqHU/edit?usp=sharing" target="_blank">Terms of Service and Privacy Policy</a>. Here are some key points:</p>
+          <ul>
+            <li>Physical items are usually only for in-person pickup at UCSD, SDF, or IBFM.</li>
+            <li>Order turnaround and pickup times are subject to change.</li>
+            <li>All sales are final (No refunds, but we allow some changes.)</li>
+          </ul>
         </div>
         <div class="modal-footer">
-          <button class="btn btn-danger" data-bs-dismiss="modal">Continue anyway</button>
+          <button class="btn btn-primary" data-bs-dismiss="modal">Agree and continue</button>
           <a class="btn btn-secondary" href="javascript:history.back()">Go back</a>
         </div>
       </div>
     </div>
-  </div> #}
+  </div>
 
   <!-- Item Modal -->
   <div class="modal fade" id="itemModal" tabindex="-1" aria-labelledby="itemModalLabel" aria-hidden="true">
@@ -62,7 +67,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
         <div class="modal-footer">
           <div style="flex-grow: 1">
             <p id="item-modal-price">$Price</p>
-            <p style="font-size: small; opacity: 50%;">Sales tax already included</p>
+            <p style="font-size: small; opacity: 50%;">Taxes &amp; fees already included</p>
           </div>
           <div class="cart-item-actions">
             <button class="btn btn-outline-secondary" id="item-modal-quantity-down">–</button>
@@ -117,7 +122,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
         <div class="modal-footer">
           <div style="flex-grow: 1">
             <p>Total: $Price</p>
-            <p style="font-size: small; opacity: 50%;">Sales tax already included</p>
+            <p style="font-size: small; opacity: 50%;">Taxes &amp; fees already included</p>
           </div>
           <button class="btn btn-secondary" data-bs-dismiss="modal">Continue Shopping</button>
           <a class="btn btn-primary" href="/pages/store/store-order-details.html">Checkout</a>
