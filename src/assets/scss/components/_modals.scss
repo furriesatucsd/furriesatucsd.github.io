@@ -24,6 +24,12 @@
     align-self: stretch;
 }
 
+.modal-footer-price-display {
+    flex-grow: 1;
+    text-align: right;
+    margin-right: 8px;
+}
+
 /* Expand footer when small */
 @media (max-width: 600px) {
     .modal-footer {
@@ -31,9 +37,17 @@
         flex-direction: column;
         gap: 8px;
     }
-    .modal-footer div,
-    .modal-footer a,
-    .modal-footer button {
+    .modal-footer > div,
+    .modal-footer > a,
+    .modal-footer > button {
         width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+    .modal-footer > * {
+        margin:0;
+    }
+    .modal-footer-price-display {
+        margin-right: 0px;
     }
 }
