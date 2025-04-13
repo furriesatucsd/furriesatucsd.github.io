@@ -18,13 +18,13 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
           </div>
         </div>
         <div class="modal-body">
-          <p>By using the Club Store, you agree to our <a href="https://docs.google.com/document/d/1pGtIp7QoiZ7fPP1KXVEw85TiWYM2SDL1Vo1zUNRaqHU/edit?usp=sharing" target="_blank">Terms of Service and Privacy Policy</a>. Here are some key points:</p>
+          <p>Important Reminders:</p>
           <ul>
-            <li>Physical items are usually only for in-person pickup at UCSD, SDF, or IBFM.</li>
-            <li>Order turnaround and pickup times are subject to change.</li>
-            <li>All sales are final (No refunds, but we allow some exchanges.)</li>
+            <li>Physical items are usually only for <span class="text-danger">in-person pickup at UCSD, SDF, or IBFM.</span></li>
+            <li>All sales are final (Sorry -- No refunds, but we allow exchanges within 7 days.)</li>
+            <li>By using the Club Store, you agree to our <a href="https://docs.google.com/document/d/1pGtIp7QoiZ7fPP1KXVEw85TiWYM2SDL1Vo1zUNRaqHU/edit?usp=sharing" target="_blank">Terms of Service</a>.</li>
           </ul>
-          <p>If you have any questions, please don't hesitate to ask :3</p>
+          <p>If you have any questions, please reach out to us via Discord :3</p>
         </div>
         <div class="modal-footer">
           <button class="btn btn-primary" data-bs-dismiss="modal" onclick="saveAcknowledgementOfTerms()">Agree and continue</button>
@@ -587,7 +587,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
   // When the page is first loaded
   window.addEventListener("load", function (event) {
     // Check if the user has acknowledged the terms
-    var acknowledgedTerms = localStorage.getItem("acknowledgedTerms");
+    var acknowledgedTerms = false; //localStorage.getItem("acknowledgedTerms");
     if (acknowledgedTerms !== CURRENT_TERMS_VERSION) {
       // Show the onload modal
       var onloadModal = new bootstrap.Modal(document.querySelector("#terms-modal"));
