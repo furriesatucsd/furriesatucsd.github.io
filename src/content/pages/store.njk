@@ -610,7 +610,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
       var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
       console.log("Last session was on " + lastSession.toISOString() + ", which was " + diffDays + " days ago.");
       if (diffDays > RESET_AFTER_N_DAYS) {
-        console.log("This is higher than the reset threshold, so the user's stored data is being reset.");
+        console.log("This is higher than the reset threshold ("+RESET_AFTER_N_DAYS+" days), so the user's stored data is being reset.");
         resetSession(); return;
       }
     } else {
