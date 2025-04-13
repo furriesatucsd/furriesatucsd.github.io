@@ -8,7 +8,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
 <!-- Wrapper -->
 <div id="wrapper" class="divided">
 
-  <!-- OnLoad Modal (when the user first lands on the page) -->
+  <!-- Terms Modal -->
   <div class="modal fade" id="terms-modal" tabindex="-1" aria-labelledby="onloadModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -30,6 +30,62 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
           <button class="btn btn-primary" data-bs-dismiss="modal">Agree and continue</button>
           <a class="btn btn-secondary" href="javascript:history.back()">Go back</a>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Post-Payment Form Modal -->
+  <div class="modal fade" id="ppform-modal" tabindex="-1" aria-labelledby="ppformModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form id="post-payment-form" onsubmit="event.preventDefault(); submitPPForm();">
+          <div class="modal-header">
+            <div>
+              <h4 class="modal-title" id="ppformModalLabel">Success, thank you!</h4>
+            </div>
+          </div>
+          <div class="modal-body">
+            <p>Last step - To help expedite delivery, please fill out the following:</p>
+
+            <!-- Form with Email, Discord/Telegram, Desired Pickup Location (dropdown), and Tshirt Size (dropdown) -->
+            <div class="mb-3">
+              <label for="ppform-email" class="form-label">Email Address</label>
+              <input type="email" class="form-control" id="ppform-email" required>
+            </div>
+            <div class="mb-3">
+              <label for="ppform-contact" class="form-label">Preferred Contact Info (Discord, Telegram, or Phone #)</label>
+              <input type="text" class="form-control" id="ppform-contact" placeholder="@username or Phone #" required>
+            </div>
+            <div class="mb-3">
+              <label for="ppform-pickup-location" class="form-label">Desired Pickup Location</label>
+              <select class="form-select" id="ppform-pickup-location" required>
+                <option value="" disabled selected></option>
+                <option value="UCSD">UCSD</option>
+                <option value="SDF">SDF</option>
+                <option value="IBFM">IBFM</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="ppform-tshirt-size" class="form-label">Shirt Size</label>
+              <select class="form-select" id="ppform-tshirt-size">
+                <option value="" disabled selected></option>
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+                <option value="XXL">2XL</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="ppform-comments" class="form-label">Any comments or special requests</label>
+              <textarea class="form-control" id="ppform-comments" rows="3"></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-link" style="color: gray" data-bs-dismiss="modal">Skip</button>
+            <button class="btn btn-primary" type="submit">Submit</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
@@ -202,6 +258,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
   // VARIABLES
   var stripe = Stripe(PUBLISHABLE_KEY);
   var userShoppingCart = []; // The cart is an array of items, each with a priceId and quantity
+  var ppformModal = null; // The post-payment form modal, to be instantiated when the page loads
 
   // HELPER FUNCTIONS
   // Check if a priceId is valid
@@ -335,6 +392,29 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
       selectVariant(item, firstVariant);
     });
   });
+
+  // Post Payment Form: Submit the form
+  function submitPPForm() {
+    var email = document.getElementById("ppform-email").value;
+    var contact = document.getElementById("ppform-contact").value;
+    var pickupLocation = document.getElementById("ppform-pickup-location").value;
+    var tshirtSize = document.getElementById("ppform-tshirt-size").value;
+    var comments = document.getElementById("ppform-comments").value;
+
+    // Validate the form
+    if (!email || !pickupLocation) {
+      alert("Please fill out all required fields.");
+      return;
+    }
+
+    // Send the form data to the server
+    // (You can use fetch or XMLHttpRequest to send the data to your server)
+    console.log("Post-payment form submitted:", { email, contact, pickupLocation, tshirtSize, comments });
+
+    // Close the modal
+    ppformModal.hide();
+    alert("You're all set! If you have any questions, please reach out to us via Discord :3");
+  }
 
   // ITEM MODAL ACTIONS
   // Item Modal: Quantity
@@ -559,17 +639,6 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
   });
 
   // PAGE EVENTS
-  // Handle Success and Failure
-  const urlParams = new URLSearchParams(window.location.search);
-  const result = urlParams.get('result');
-  if (result === 'success') {
-    // Clear the user's saved cart, if they have one.
-    userShoppingCart = [];
-    localStorage.removeItem("userShoppingCart");
-    alert('Success! Thank you for your purchase. We\'ll review your order and coordinate with you soon. If you have any questions, please reach out to us via Discord :3');
-  } else if (result === 'canceled') {
-    alert('Ah, it looks like you canceled the payment. No worries, you can try again later :3');
-  }
 
   // Save any user data before redirecting to a new page.
   function saveSession() {
@@ -601,6 +670,23 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
 
   // Load any user data from localStorage
   function loadSession() {
+    // Handle Payment Success and Failure
+    const urlParams = new URLSearchParams(window.location.search);
+    const result = urlParams.get('result');
+    if (result === 'success') {
+      // Clear the user's saved cart, if they have one.
+      userShoppingCart = [];
+      localStorage.removeItem("userShoppingCart");
+
+      // Show the post-payment form modal
+      ppformModal = new bootstrap.Modal(document.querySelector("#ppform-modal"));
+      ppformModal.show();
+      
+      // alert('Success! Thank you for your purchase. We\'ll review your order and coordinate with you soon. If you have any questions, please reach out to us via Discord :3');
+    } else if (result === 'canceled') {
+      alert('Ah, it looks like you canceled the payment. No worries, you can try again later :3');
+    }
+
     // Check if the user was here in the last N days
     var lastSessionDate = localStorage.getItem("lastSessionDate");
     if (lastSessionDate) {
