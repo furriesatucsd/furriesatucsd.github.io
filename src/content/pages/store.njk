@@ -27,7 +27,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
           <p>If you have any questions, please reach out to us via Discord :3</p>
         </div>
         <div class="modal-footer">
-          <button class="btn btn-primary" data-bs-dismiss="modal" onclick="saveAcknowledgementOfTerms()">Agree and continue</button>
+          <button class="btn btn-primary" data-bs-dismiss="modal">Agree and continue</button>
           <a class="btn btn-secondary" href="javascript:history.back()">Go back</a>
         </div>
       </div>
@@ -197,7 +197,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
   var PUBLISHABLE_KEY = "pk_test_51RCftNPQmYquuuIRN5HV3rb461GA119I3cb4PSgXE2iM2ObtvdkpkpAhBSyHknEvRTo22y2vAUcdJrwKiPCQ221f00CuHKc72G"; // Your own publishable key: https://dashboard.stripe.com/test/apikeys
   var DOMAIN = location.href.replace(/[^/]*$/, ""); // The domain you want your users to be redirected back to after payment
   var NOT_FOR_SALE_DESCRIPTION = "Item is not yet for sale"; // The ID and description to show when an item is not for sale
-  var CURRENT_TERMS_VERSION = "2025-04-13"; // The current version of the terms of service. This is used to check if the user has acknowledged the most current terms.
+  var RESET_AFTER_N_DAYS = 7; // The number of days after which the cart and terms of service will be reset (0 = always, 1 = 1 day, etc.)
 
   // VARIABLES
   var stripe = Stripe(PUBLISHABLE_KEY);
@@ -335,12 +335,6 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
       selectVariant(item, firstVariant);
     });
   });
-
-  function saveAcknowledgementOfTerms() {
-    // Save the user's acknowledgement of the terms to localStorage
-    localStorage.setItem("acknowledgedTerms", CURRENT_TERMS_VERSION);
-    console.log("User has acknowledged the terms. (Saved)");
-  }
 
   // ITEM MODAL ACTIONS
   // Item Modal: Quantity
@@ -544,8 +538,8 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
       userShoppingCartCopy.push({ price: userShoppingCart[i].price, quantity: userShoppingCart[i].quantity }); // No other info is allowed
     }
 
-    // Save the cart before redirecting to a new page.
-    saveCart();
+    // Save any user data before redirecting to a new page.
+    saveSession();
 
     // Make the call to Stripe.js to redirect to the checkout page
     stripe
@@ -577,25 +571,51 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
     alert('Ah, it looks like you canceled the payment. No worries, you can try again later :3');
   }
 
-  // Save the cart to localStorage
-  function saveCart() {
+  // Save any user data before redirecting to a new page.
+  function saveSession() {
+    // Save the cart to localStorage
     localStorage.setItem("userShoppingCart", JSON.stringify(userShoppingCart));
     console.log("Cart saved to localStorage. ("+userShoppingCart.length+" items)");
-  }
-  window.addEventListener("beforeunload", saveCart);
 
-  // When the page is first loaded
-  window.addEventListener("load", function (event) {
-    // Check if the user has acknowledged the terms
-    var acknowledgedTerms = false; //localStorage.getItem("acknowledgedTerms");
-    if (acknowledgedTerms !== CURRENT_TERMS_VERSION) {
-      // Show the onload modal
-      var onloadModal = new bootstrap.Modal(document.querySelector("#terms-modal"));
-      onloadModal.show();
+    // Save the last session date to localStorage, but only if the cart is not empty
+    if (userShoppingCart.length >= 1) {
+      var currentDate = new Date();
+      localStorage.setItem("lastSessionDate", currentDate.toISOString());
+      console.log("Session date saved to localStorage: " + currentDate.toISOString());
     } else {
-      // If the user has already acknowledged the terms, save it again
-      saveAcknowledgementOfTerms();
-      console.log("User has already acknowledged the terms, no need to show them again.");
+      console.log("Not counting this session, since the cart is empty.");
+    }
+  }
+  window.addEventListener("beforeunload", saveSession);
+
+  // Reset any user data and render a fresh start.
+  function resetSession() {
+    // Reset the cart
+    userShoppingCart = [];
+    localStorage.removeItem("userShoppingCart");
+
+    // Show the terms modal
+    var termsModal = new bootstrap.Modal(document.querySelector("#terms-modal"));
+    termsModal.show();
+  }
+
+  // Load any user data from localStorage
+  function loadSession() {
+    // Check if the user was here in the last N days
+    var lastSessionDate = localStorage.getItem("lastSessionDate");
+    if (lastSessionDate) {
+      var lastSession = new Date(lastSessionDate);
+      var currentDate = new Date();
+      var timeDiff = Math.abs(currentDate - lastSession);
+      var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+      console.log("Last session was on " + lastSession.toISOString() + ", which was " + diffDays + " days ago.");
+      if (diffDays > RESET_AFTER_N_DAYS) {
+        console.log("This is higher than the reset threshold, so the user's stored data is being reset.");
+        resetSession(); return;
+      }
+    } else {
+      console.log("No last session date found. This is the user's first visit.");
+      resetSession(); return;
     }
 
     // Load the cart from localStorage
@@ -606,5 +626,6 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
     } else {
       console.log("No saved cart found.");
     }
-  });
+  }
+  window.addEventListener("load", loadSession);
 </script>
