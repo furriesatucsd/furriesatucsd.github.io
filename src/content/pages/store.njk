@@ -335,6 +335,12 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
   if (result === 'success') {
     alert('Payment was successful! Thank you for your purchase.');
   } else if (result === 'canceled') {
-    alert('Looks like you canceled the payment. No worries, you can try again later.');
+    alert('Ah, it looks like you canceled the payment. No worries, you can try again later :3');
   }
+
+  // Show a warning when the user tries to leave the page
+  window.addEventListener("beforeunload", function (event) {
+    event.preventDefault();
+    event.returnValue = ""; // Use the default message (Most modern browsers ignore this for security reasons)
+  });
 </script>
