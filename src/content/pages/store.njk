@@ -537,6 +537,9 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
       userShoppingCartCopy.push({ price: userShoppingCart[i].price, quantity: userShoppingCart[i].quantity }); // No other info is allowed
     }
 
+    // Save the cart before redirecting to a new page.
+    saveCart();
+
     // Make the call to Stripe.js to redirect to the checkout page
     stripe
       .redirectToCheckout({
@@ -567,12 +570,12 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
     alert('Ah, it looks like you canceled the payment. No worries, you can try again later :3');
   }
 
-  // Save the cart as a cookie when the page is unloaded
-  window.addEventListener("beforeunload", function (event) {
-    // Save the cart to localStorage
+  // Save the cart to localStorage
+  function saveCart() {
     localStorage.setItem("userShoppingCart", JSON.stringify(userShoppingCart));
-    console.log("Cart saved to localStorage.");
-  });
+    console.log("Cart saved to localStorage. ("+userShoppingCart.length+" items)");
+  }
+  window.addEventListener("beforeunload", saveCart);
 
   // Load the cart (if the user has a saved cart) when the page is first loaded
   window.addEventListener("load", function (event) {
@@ -580,7 +583,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
     var savedCart = localStorage.getItem("userShoppingCart");
     if (savedCart) {
       userShoppingCart = JSON.parse(savedCart);
-      console.log("Cart loaded from localStorage.");
+      console.log("Cart loaded from localStorage. ("+userShoppingCart.length+" items)");
     } else {
       console.log("No saved cart found.");
     }
