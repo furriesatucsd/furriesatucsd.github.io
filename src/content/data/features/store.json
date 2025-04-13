@@ -108,6 +108,30 @@
                     "variants": [
                         {"name":"default", "price":null, "priceId":"", "description":""}
                     ]
+                },
+                {
+                    "name": "Coming soon...",
+                    "shortDesc": null,
+                    "image": "/assets/images/store/wolf_1.png",
+                    "variants": [
+                        {"name":"default", "price":null, "priceId":"", "description":""}
+                    ]
+                },
+                {
+                    "name": "Coming soon...",
+                    "shortDesc": null,
+                    "image": "/assets/images/store/wolf_1.png",
+                    "variants": [
+                        {"name":"default", "price":null, "priceId":"", "description":""}
+                    ]
+                },
+                {
+                    "name": "Coming soon...",
+                    "shortDesc": null,
+                    "image": "/assets/images/store/wolf_1.png",
+                    "variants": [
+                        {"name":"default", "price":null, "priceId":"", "description":""}
+                    ]
                 }
             ]
         },
