@@ -158,7 +158,6 @@ function initEventCalendar() {
   window.addEventListener('resize', updateCalendarVisibility);
 }
 
-
 /**
  * Display any onload modals
  */
