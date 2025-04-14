@@ -373,6 +373,50 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
     }
   }
 
+  // Submit the given form data into the specified google form
+  function submitDataToGoogleForm(formData, formId) {
+
+    // Sanity Checks
+    if (!formData || formData.length === 0) {
+      return {success: false, message: "Error when trying to submit form - Form data is empty or invalid."};
+    }
+    if (!formId || formId === "") {
+      return {success: false, message: "Error when trying to submit form - Form ID is empty or invalid."};
+    }
+
+    // Prepare the target url
+    const host = "https://docs.google.com/forms/d/e/";
+    const targetUrl = `${host}${formId}/formResponse`;
+
+    // Prepare the form data (Format the data as URL-encoded key-value pairs)
+    const formattedData = new URLSearchParams();
+    formData.forEach(data => {
+      if (data.entry && data.value) {
+        formattedData.append(`entry.${data.entry}`, data.value);
+      }
+    });
+
+    // Send the HTTP POST request
+    fetch(targetUrl, {
+      method: "POST",
+      mode: "no-cors", // We cannot use CORS here because we're trying to post to a different domain from the front-end. Reading the response requires a backend proxy.
+      headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: formattedData.toString(),
+    })
+      /*.then(response => {
+        if (response.ok) {
+          return {success: true, message: "Form submitted successfully!"};
+        } else {
+          return {success: false, message: "Failed to submit the form. "+response.statusText};
+        }
+      })
+      .catch(error => {
+        return {success: false, message: "Error submitting form. "+error.type+error.message};
+      });*/
+  }
+
   // PAGE ACTIONS
   // Page: When a shop item is clicked, fill the Item Modal with the details of the item.
   document.querySelectorAll(".store-item").forEach(function(button) {
@@ -394,6 +438,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
   });
 
   // Post Payment Form: Submit the form
+  const ppformGoogleId = "1FAIpQLScD-LzhUBFRwoxNNT4jOAK7KZ9WdKwwENPRQED-h7YXKA0M_w"; // The ID of the Google Form to submit the data to
   function submitPPForm() {
     var email = document.getElementById("ppform-email").value;
     var contact = document.getElementById("ppform-contact").value;
@@ -401,15 +446,28 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
     var tshirtSize = document.getElementById("ppform-tshirt-size").value;
     var comments = document.getElementById("ppform-comments").value;
 
-    // Validate the form
-    if (!email || !pickupLocation) {
+    // Validate the responses
+    if (!email || !contact || !pickupLocation) {
       alert("Please fill out all required fields.");
       return;
     }
+    
+    console.log("Post-payment form responses:", { email, contact, pickupLocation, tshirtSize, comments });
 
-    // Send the form data to the server
-    // (You can use fetch or XMLHttpRequest to send the data to your server)
-    console.log("Post-payment form submitted:", { email, contact, pickupLocation, tshirtSize, comments });
+    // Send the form data via an HTTP Request
+    const formData = [
+      { entry: "1166393659", value: email },
+      { entry: "188858730", value: contact },
+      { entry: "139409841", value: pickupLocation },
+      { entry: "82496741", value: tshirtSize },
+      { entry: "750103793", value: comments }
+    ]
+    var ppformSubmissionResult = submitDataToGoogleForm(formData, ppformGoogleId)
+
+    // Unable to check the result status because we're not using a backend proxy
+    /*if (!ppformSubmissionResult.success) {
+      alert("Error when trying to submit the form. Please try again and let us know if this error keeps happening. ("+ppformSubmissionResult.message+")");
+    }*/
 
     // Close the modal
     ppformModal.hide();
