@@ -333,7 +333,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
     'pk_test_51RCftNPQmYquuuIRN5HV3rb461GA119I3cb4PSgXE2iM2ObtvdkpkpAhBSyHknEvRTo22y2vAUcdJrwKiPCQ221f00CuHKc72G'; // Your own publishable key: https://dashboard.stripe.com/test/apikeys
   var DOMAIN = location.href.replace(/[^/]*$/, ''); // The domain you want your users to be redirected back to after payment
   var NOT_FOR_SALE_DESCRIPTION = 'Item is not yet for sale'; // The ID and description to show when an item is not for sale
-  var RESET_AFTER_N_DAYS = 3; // The number of days after which the cart and terms of service will be reset (0 = always, 1 = 1 day, etc.)
+  var RESET_AFTER_N_DAYS = 1; // The number of days after which the cart and terms of service will be reset (0 = always, 1 = 1 day, etc.)
 
   // VARIABLES
   var stripe = Stripe(PUBLISHABLE_KEY);
