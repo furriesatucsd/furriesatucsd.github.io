@@ -72,7 +72,6 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
             </div>
           </div>
           <div class="modal-body">
-            <p>Your order ID is: <b id="ppform-order-id">placeholder</b></p>
             <p>Last step&mdash;to help expedite delivery, please fill out the following:</p>
 
             <!-- Form with Email, Discord/Telegram, Desired Pickup Location (dropdown), and Tshirt Size (dropdown) -->
@@ -907,8 +906,6 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
       } else {
         console.log('No saved order ID found.');
       }
-
-      document.getElementById('ppform-order-id').textContent = userOrderId;
 
       localStorage.removeItem('userOrderId');
 
