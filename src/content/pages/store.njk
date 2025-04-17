@@ -75,11 +75,11 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
             <p>Last step&mdash;to help expedite delivery, please fill out the following:</p>
 
             <!-- Form with Email, Discord/Telegram, Desired Pickup Location (dropdown), and Tshirt Size (dropdown) -->
-            <div class="mb-3" style="width: 100%; max-width: 466px">
+            <div class="mb-3 form-input">
               <label for="ppform-email" class="form-label">Email Address</label>
               <input type="email" class="form-control" id="ppform-email" required/>
             </div>
-            <div class="mb-3" style="width: 100%; max-width: 466px">
+            <div class="mb-3 form-input">
               <label for="ppform-contact" class="form-label"
                 >Preferred Contact Info (Discord, Telegram, or Phone #)</label
               >
@@ -91,18 +91,18 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
                 required
               />
             </div>
-            <div class="mb-3" style="width: 100%; max-width: 466px">
+            <div class="mb-3 form-input">
               <label for="ppform-pickup-location" class="form-label">Desired Pickup Location</label>
-              <select class="form-select" id="ppform-pickup-location" style="width: 100%; max-width: 100px" required>
+              <select class="form-select form-input-dropdown" id="ppform-pickup-location" required>
                 <option value="" disabled selected></option>
                 <option value="UCSD">UCSD</option>
                 <option value="SDF">SDF</option>
                 <option value="IBFM">IBFM</option>
               </select>
             </div>
-            <div class="mb-3" style="width: 100%; max-width: 466px">
+            <div class="mb-3 form-input">
               <label for="ppform-tshirt-size" class="form-label">Shirt Size</label>
-              <select class="form-select" id="ppform-tshirt-size" style="width: 100%; max-width: 100px">
+              <select class="form-select form-input-dropdown" id="ppform-tshirt-size">
                 <option value="" disabled selected></option>
                 <option value="S">S</option>
                 <option value="M">M</option>
@@ -111,7 +111,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
                 <option value="XXL">2XL</option>
               </select>
             </div>
-            <div class="mb-3" style="width: 100%; max-width: 466px">
+            <div class="mb-3 form-input">
               <label for="ppform-comments" class="form-label"
                 >Any comments or special requests</label
               >
