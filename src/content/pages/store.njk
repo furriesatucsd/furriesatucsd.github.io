@@ -266,14 +266,23 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
   <!-- Store Area -->
   <section class="wrapper style1">
     <div class="inner">
-      <div class="store-area">
-        <div class="store-header">
-          <div class="store-header-text">
-            <h2>Club Store</h2>
-            <p>Get exclusive merch, membership, materials, and more!</p>
-          </div>
-          <button class="button primary" onclick="openCartModal()" type="button">Cart</button>
+      <div class="store-header">
+        <div class="store-header-text">
+          <h2>Club Store</h2>
+          <p>Get exclusive merch, membership, materials, and more!</p>
         </div>
+        <button class="button primary" onclick="openCartModal()" type="button">Cart</button>
+      </div>
+    </div>
+    <img
+      id="store-banner"
+      src="/assets/images/store/store_banner.jpeg"
+      alt="Store Banner"
+    >
+  </section>
+  <section class="wrapper style1">
+    <div class="inner">
+      <div class="store-area">
         {% for collection in store.collections %}
         <div class="store-aisle">
           <div>

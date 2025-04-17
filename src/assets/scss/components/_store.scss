@@ -8,11 +8,23 @@
 }
 
 /* Store header */
+#store-banner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  opacity: 0.25;
+}
 .store-header {
   display: flex;
   align-items: center;
   align-self: stretch;
   gap: 16px;
+  position: relative;
+  z-index: 2;
 }
 .store-header-text {
   display: flex;
