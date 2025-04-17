@@ -11,22 +11,11 @@
           "image": "/assets/images/store/featured_1.png",
           "variants": [
             {
-              "name": "Non-Student",
-              "price": 25,
+              "name": "default",
+              "price": null,
               "priceId": "",
-              "description": "Non-Student Badge for High Tide - the premier rave festival happening at UC San Diego!"
-            },
-            {
-              "name": "Student",
-              "price": 15,
-              "priceId": "",
-              "description": "Student Badge for High Tide - the premier rave festival happening at UC San Diego!"
-            },
-            {
-              "name": "VIP/Sponsor",
-              "price": 50,
-              "priceId": "",
-              "description": "Exclusive VIP/Sponsor badge with additional perks! Deck out with exclusive merch from our friends at FurFlux: Get a Sponsor Badge, custom High Tide x Russelbuck Shirt, sticker pack, and hand-crafted kandi bracelets."
+              "description": "Register for High Tide - the premier rave festival happening at UC San Diego!",
+              "externalUrl": "https://tinyurl.com/TT-high-tide"
             }
           ]
         },

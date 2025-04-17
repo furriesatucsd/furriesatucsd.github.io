@@ -415,17 +415,41 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
     // Update the description
     itemModal.querySelector('#item-modal-description').textContent = selectedVariant.description;
 
-    // Update the price
-    if (selectedVariant.price) {
-      if (isValidPriceId(selectedVariant.priceId)) {
-        itemModal.querySelector('#item-modal-price').textContent =
-          '$' + selectedVariant.price + ' each';
-      } else {
-        itemModal.querySelector('#item-modal-price').textContent =
-          '$' + selectedVariant.price + ' each (Offsale)';
-      }
+    // Check if it's an external URL or handled by the club store
+    if (selectedVariant.externalUrl) {
+      itemModal.querySelector('#item-modal-addtocart').textContent = 'Link to website';
+      itemModal.querySelector('#item-modal-addtocart').classList.add('btn-primary');
+      itemModal.querySelector('#item-modal-addtocart').classList.remove('btn-secondary');
+
+      // Hide price and quantity buttons
+      itemModal.querySelector('.modal-footer-price-display').classList.add('d-none');
+      itemModal.querySelector('#item-modal-quantity').classList.add('d-none');
+      itemModal.querySelector('#item-modal-quantity-up').classList.add('d-none');
+      itemModal.querySelector('#item-modal-quantity-down').classList.add('d-none');
     } else {
-      itemModal.querySelector('#item-modal-price').textContent = NOT_FOR_SALE_DESCRIPTION;
+      // Show price and quantity buttons
+      itemModal.querySelector('.modal-footer-price-display').classList.remove('d-none');
+      itemModal.querySelector('#item-modal-quantity').classList.remove('d-none');
+      itemModal.querySelector('#item-modal-quantity-up').classList.remove('d-none');
+      itemModal.querySelector('#item-modal-quantity-down').classList.remove('d-none');
+
+      // Update the price
+      if (selectedVariant.price) {
+        itemModal.querySelector('#item-modal-price').textContent = '$' + selectedVariant.price + ' each';
+      } else {
+        itemModal.querySelector('#item-modal-price').textContent = NOT_FOR_SALE_DESCRIPTION;
+      }
+
+      // Update the checkout button
+      if (!isValidPriceId(selectedVariant.priceId)) {
+        itemModal.querySelector('#item-modal-addtocart').textContent = 'Item is offsale';
+        itemModal.querySelector('#item-modal-addtocart').classList.remove('btn-primary');
+        itemModal.querySelector('#item-modal-addtocart').classList.add('btn-secondary');
+      } else {
+        itemModal.querySelector('#item-modal-addtocart').textContent = 'Add to Cart';
+        itemModal.querySelector('#item-modal-addtocart').classList.add('btn-primary');
+        itemModal.querySelector('#item-modal-addtocart').classList.remove('btn-secondary');
+      }
     }
 
     // Insert the item info and variant info into the button
@@ -606,6 +630,12 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
     }
 
     var quantity = parseInt(document.querySelector('#item-modal-quantity').textContent, 10);
+
+    // If there is an external site, open it in a new tab and return early
+    if (variantInfo.externalUrl) {
+      window.open(variantInfo.externalUrl, '_blank');
+      return;
+    }
 
     // Run sanity checks
     var validation = validateCartItem({
