@@ -72,14 +72,15 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
             </div>
           </div>
           <div class="modal-body">
-            <p>Last step - To help expedite delivery, please fill out the following:</p>
+            <p>Your order ID is: <b id="ppform-order-id">placeholder</b></p>
+            <p>Last step&mdash;to help expedite delivery, please fill out the following:</p>
 
             <!-- Form with Email, Discord/Telegram, Desired Pickup Location (dropdown), and Tshirt Size (dropdown) -->
-            <div class="mb-3">
+            <div class="mb-3" style="width: 100%; max-width: 466px">
               <label for="ppform-email" class="form-label">Email Address</label>
-              <input type="email" class="form-control" id="ppform-email" required />
+              <input type="email" class="form-control" id="ppform-email" required/>
             </div>
-            <div class="mb-3">
+            <div class="mb-3" style="width: 100%; max-width: 466px">
               <label for="ppform-contact" class="form-label"
                 >Preferred Contact Info (Discord, Telegram, or Phone #)</label
               >
@@ -91,18 +92,18 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
                 required
               />
             </div>
-            <div class="mb-3">
+            <div class="mb-3" style="width: 100%; max-width: 466px">
               <label for="ppform-pickup-location" class="form-label">Desired Pickup Location</label>
-              <select class="form-select" id="ppform-pickup-location" required>
+              <select class="form-select" id="ppform-pickup-location" style="width: 100%; max-width: 100px" required>
                 <option value="" disabled selected></option>
                 <option value="UCSD">UCSD</option>
                 <option value="SDF">SDF</option>
                 <option value="IBFM">IBFM</option>
               </select>
             </div>
-            <div class="mb-3">
+            <div class="mb-3" style="width: 100%; max-width: 466px">
               <label for="ppform-tshirt-size" class="form-label">Shirt Size</label>
-              <select class="form-select" id="ppform-tshirt-size">
+              <select class="form-select" id="ppform-tshirt-size" style="width: 100%; max-width: 100px">
                 <option value="" disabled selected></option>
                 <option value="S">S</option>
                 <option value="M">M</option>
@@ -111,9 +112,9 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
                 <option value="XXL">2XL</option>
               </select>
             </div>
-            <div class="mb-3">
+            <div class="mb-3" style="width: 100%; max-width: 466px">
               <label for="ppform-comments" class="form-label"
-                >Any comments or special requests</label
+                >Comments/Special Requests</label
               >
               <textarea class="form-control" id="ppform-comments" rows="3"></textarea>
             </div>
@@ -338,6 +339,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
   // VARIABLES
   var stripe = Stripe(PUBLISHABLE_KEY);
   var userShoppingCart = []; // The cart is an array of items, each with a priceId and quantity
+  var userOrderId = ''; // The unique identifier for a user's purchase, format YYYYMMDDHHMMSS-{random 7 chars}
   var ppformModal = null; // The post-payment form modal, to be instantiated when the page loads
 
   // HELPER FUNCTIONS
@@ -458,6 +460,26 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
     }
   }
 
+  // Generate a new ID for the order/overwrite the old one
+  function generateOrderId() {
+    const pad = (n) => n.toString().padStart(2, '0'); // Helper to ensure order IDs are always the same format/length
+
+    // Get date and time string in local timezone
+    const now = new Date();
+    const ymd = `${now.getFullYear()}${pad(now.getMonth() + 1)}${pad(now.getDate())}`;
+    const hms = `${pad(now.getHours())}${pad(now.getMinutes())}${pad(now.getSeconds())}`;
+
+    // Construct random string of size 7
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    let randomChars = '';
+
+    for (let i = 0; i < 7; i++) {
+      randomChars += chars[Math.floor(Math.random() * chars.length)];
+    }
+
+    return `${ymd}${hms}-${randomChars}`;
+  }
+
   // Submit the given form data into the specified google form
   function submitDataToGoogleForm(formData, formId) {
     // Sanity Checks
@@ -547,6 +569,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
       pickupLocation,
       tshirtSize,
       comments,
+      userOrderId,
     });
 
     // Send the form data via an HTTP Request
@@ -556,6 +579,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
       { entry: '139409841', value: pickupLocation },
       { entry: '82496741', value: tshirtSize },
       { entry: '750103793', value: comments },
+      { entry: '866682780', value: userOrderId },
     ];
     var ppformSubmissionResult = submitDataToGoogleForm(formData, ppformGoogleId);
 
@@ -801,6 +825,9 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
       }); // No other info is allowed
     }
 
+    // Generate a new ID associated w/ this order
+    userOrderId = generateOrderId();
+
     // Save any user data before redirecting to a new page.
     saveSession();
 
@@ -811,6 +838,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
         mode: 'payment',
         successUrl: DOMAIN + '?result=success&session_id={CHECKOUT_SESSION_ID}',
         cancelUrl: DOMAIN + '?result=canceled&session_id={CHECKOUT_SESSION_ID}',
+        clientReferenceId: userOrderId,
       })
       .then()
       .catch(function (error) {
@@ -832,6 +860,10 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
     // Save the cart to localStorage
     localStorage.setItem('userShoppingCart', JSON.stringify(userShoppingCart));
     console.log('Cart saved to localStorage. (' + userShoppingCart.length + ' items)');
+
+    // Save the order ID to localStorage
+    localStorage.setItem('userOrderId', userOrderId);
+    console.log('Order ID saved to localStorage.');
 
     // Save the last session date to localStorage, but only if the cart is not empty
     if (userShoppingCart.length >= 1) {
@@ -864,6 +896,21 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
       // Clear the user's saved cart, if they have one.
       userShoppingCart = [];
       localStorage.removeItem('userShoppingCart');
+
+      // Load order ID so we can send to post-payment form
+      var savedOrderId = localStorage.getItem('userOrderId');
+
+      if (savedOrderId) {
+        userOrderId = savedOrderId;
+        // Insert order ID into the post-payment form modal so the user can save it, if desired
+        console.log('Order ID loaded from localStorage.');
+      } else {
+        console.log('No saved order ID found.');
+      }
+
+      document.getElementById('ppform-order-id').textContent = userOrderId;
+
+      localStorage.removeItem('userOrderId');
 
       // Show the post-payment form modal
       ppformModal = new bootstrap.Modal(document.querySelector('#ppform-modal'));
