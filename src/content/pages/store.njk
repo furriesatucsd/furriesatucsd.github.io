@@ -172,7 +172,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
         <div class="modal-footer" id="item-modal-footer-standard">
           <div class="modal-footer-price-display">
             <p id="item-modal-price">$Price</p>
-            <p class="modal-footer-price-display-detail">Fees already included</p>
+            <p class="modal-footer-price-display-detail">Taxes already included</p>
           </div>
           <div class="cart-item-actions">
             <button class="btn btn-outline-secondary" id="item-modal-quantity-down" type="button">
@@ -245,7 +245,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
         <div class="modal-footer">
           <div class="modal-footer-price-display">
             <p id="cart-modal-total-price">Total: $Price</p>
-            <p class="modal-footer-price-display-detail">Fees already included</p>
+            <p class="modal-footer-price-display-detail">Taxes already included</p>
           </div>
           <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">
             Continue Shopping
@@ -339,7 +339,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
 <script>
   // SETTINGS
   var PUBLISHABLE_KEY =
-    'pk_test_51RCftNPQmYquuuIRN5HV3rb461GA119I3cb4PSgXE2iM2ObtvdkpkpAhBSyHknEvRTo22y2vAUcdJrwKiPCQ221f00CuHKc72G'; // Your own publishable key: https://dashboard.stripe.com/test/apikeys
+    'pk_live_51R7VbOAQOudYnc4yVnTuem7H7BqF3rfDTOLrfCisXO5GSN3MT71rblkmZwkjTVhYiMMJawTIFS4i5iYXTuvbPlur00ThuzJT03'; // Your own publishable key: https://dashboard.stripe.com/test/apikeys
   var DOMAIN = location.href.replace(/[^/]*$/, ''); // The domain you want your users to be redirected back to after payment
   var NOT_FOR_SALE_DESCRIPTION = 'Item is not yet for sale'; // The ID and description to show when an item is not for sale
   var RESET_AFTER_N_DAYS = 1; // The number of days after which the cart and terms of service will be reset (0 = always, 1 = 1 day, etc.)
@@ -784,7 +784,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
 
     // Update the total price and item count in the cart modal
     var cartModalTotalPrice = document.getElementById('cart-modal-total-price');
-    cartModalTotalPrice.textContent = 'Total: $' + totalPrice;
+    cartModalTotalPrice.textContent = 'Total: $' + totalPrice.toFixed(2);
     var cartModalItemCount = document.getElementById('cart-modal-item-count');
     cartModalItemCount.textContent = itemCount + ' item' + (itemCount === 1 ? '' : 's');
   }
