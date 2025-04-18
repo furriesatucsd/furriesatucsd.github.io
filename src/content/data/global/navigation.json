@@ -5,6 +5,10 @@
       "url": "/"
     },
     {
+      "title": "Club Store",
+      "url": "/store/"
+    },
+    {
       "title": "Upcoming Events",
       "type": "dropdown",
       "items": [

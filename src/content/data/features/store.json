@@ -1,0 +1,237 @@
+{
+  "collections": [
+    {
+      "title": "Featured",
+      "description": "Our latest releases and most popular items!",
+      "isFeatured": true,
+      "items": [
+        {
+          "name": "High Tide - Rave Festival",
+          "shortDesc": "Get tickets for our massive rave festival on May 25!",
+          "image": "/assets/images/store/featured_1.png",
+          "variants": [
+            {
+              "name": "default",
+              "price": null,
+              "priceId": "",
+              "description": "Register for High Tide - the premier rave festival happening at UC San Diego! Get ready to dance the night away with an insane lineup of DJs, PLUS headliners you won't want to miss! Nightclub-style rave vibes, epic beats, and high energy all night long!",
+              "externalUrl": "https://tinyurl.com/TT-high-tide"
+            }
+          ]
+        },
+        {
+          "name": "Membership Cards",
+          "shortDesc": "Get exclusive perks and discounts across campus!",
+          "image": "/assets/images/store/card_spring2025.png",
+          "variants": [
+            {
+              "name": "Spring (current)",
+              "price": 9.99,
+              "priceId": "price_1RBvYfAQOudYnc4y7Mm8UZg5",
+              "description": "Get a membership card to score exclusive discounts and perks this season! Perks include: 10% off at most restaurants on-campus, 10% off all Club Merch, and Priority for Fursuit Workshops."
+            },
+            {
+              "name": "Winter 2025",
+              "price": 2.99,
+              "priceId": "price_1RCHyoAQOudYnc4yfRo7yDMG",
+              "description": "Missed our previous membership card? No worries! You can still get this previous card to keep the art as a souvenir and show your support for the club. (The card will not be valid for discounts.)",
+              "image": "/assets/images/store/card_winter2025.png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "The Beach Vibes Collection",
+      "description": "Catch the waves with our mascot -- Tide the Raccoon!",
+      "isFeatured": false,
+      "items": [
+        {
+          "name": "San Diego Beach Tee",
+          "shortDesc": null,
+          "image": "/assets/images/store/beach_1.png",
+          "variants": [
+            {
+              "name": "default",
+              "price": 24.99,
+              "priceId": "price_1RBvZ0AQOudYnc4yY07WfvwH",
+              "description": "Ride the waves in style with our San Diego Beach Tee! Featuring Tide the Raccoon, this shirt is perfect for sunny days and coastal vibes."
+            }
+          ]
+        },
+        {
+          "name": "Tropical Drink Sticker",
+          "shortDesc": null,
+          "image": "/assets/images/store/beach_2.png",
+          "variants": [
+            {
+              "name": "default",
+              "price": 2.99,
+              "priceId": "price_1RCHzqAQOudYnc4yG9H9sMJA",
+              "description": "Add a splash of tropical vibes to your collection with this vibrant Tropical Drink Sticker, featuring a refreshing design perfect for summer!"
+            }
+          ]
+        },
+        {
+          "name": "Tide Sticker",
+          "shortDesc": null,
+          "image": "/assets/images/store/beach_3.png",
+          "variants": [
+            {
+              "name": "default",
+              "price": 2.99,
+              "priceId": "price_1RCI0CAQOudYnc4y6De8bIll",
+              "description": "Show your love for Tide the Raccoon with this adorable Tide Sticker, a must-have for fans of our beach mascot!"
+            }
+          ]
+        },
+        {
+          "name": "Ummm uhhhh",
+          "shortDesc": null,
+          "image": "/assets/images/store/beach_4.png",
+          "variants": [
+            {
+              "name": "default",
+              "price": 2.99,
+              "priceId": "price_1RCI0bAQOudYnc4ytlmNaoaZ",
+              "description": "A quirky and fun sticker to add to your collection lol. It's best not to ask too many questions."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "The High Tide Collection",
+      "description": "To be revealed soon...",
+      "isFeatured": false,
+      "items": [
+        {
+          "name": "Coming soon...",
+          "shortDesc": null,
+          "image": "/assets/images/store/high_1.png",
+          "variants": [
+            {
+              "name": "default",
+              "price": 4.99,
+              "priceId": "",
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "Coming soon...",
+          "shortDesc": null,
+          "image": "/assets/images/store/high_2.png",
+          "variants": [
+            {
+              "name": "default",
+              "price": 9.99,
+              "priceId": "",
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "Coming soon...",
+          "shortDesc": null,
+          "image": "/assets/images/store/high_3.png",
+          "variants": [
+            {
+              "name": "default",
+              "price": 24.99,
+              "priceId": "",
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "Coming soon...",
+          "shortDesc": null,
+          "image": "/assets/images/store/high_3.png",
+          "variants": [
+            {
+              "name": "default",
+              "price": 59.99,
+              "priceId": "",
+              "description": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "The Wolf Sanctuary Collection",
+      "description": "Awoo! Proceeds go toward supporting the California Wolf Center, to help save endangered wolf populations in the U.S.",
+      "isFeatured": false,
+      "items": [
+        {
+          "name": "Coming soon...",
+          "shortDesc": null,
+          "image": "/assets/images/store/wolf_1.png",
+          "variants": [{ "name": "default", "price": null, "priceId": "", "description": "" }]
+        },
+        {
+          "name": "Coming soon...",
+          "shortDesc": null,
+          "image": "/assets/images/store/wolf_1.png",
+          "variants": [{ "name": "default", "price": null, "priceId": "", "description": "" }]
+        },
+        {
+          "name": "Coming soon...",
+          "shortDesc": null,
+          "image": "/assets/images/store/wolf_1.png",
+          "variants": [{ "name": "default", "price": null, "priceId": "", "description": "" }]
+        },
+        {
+          "name": "Coming soon...",
+          "shortDesc": null,
+          "image": "/assets/images/store/wolf_1.png",
+          "variants": [{ "name": "default", "price": null, "priceId": "", "description": "" }]
+        }
+      ]
+    },
+    {
+      "title": "The Fursuit Workshop Collection",
+      "description": "Get materials and learn to make your own fursuit at our workshops!",
+      "isFeatured": false,
+      "items": [
+        {
+          "name": "Coming soon...",
+          "shortDesc": null,
+          "image": "/assets/images/store/fur_1.png",
+          "variants": [{ "name": "default", "price": null, "priceId": "", "description": "" }]
+        },
+        {
+          "name": "Coming soon...",
+          "shortDesc": null,
+          "image": "/assets/images/store/fur_2.png",
+          "variants": [{ "name": "default", "price": null, "priceId": "", "description": "" }]
+        },
+        {
+          "name": "Coming soon...",
+          "shortDesc": null,
+          "image": "/assets/images/store/fur_3.png",
+          "variants": [{ "name": "default", "price": null, "priceId": "", "description": "" }]
+        },
+        {
+          "name": "Coming soon...",
+          "shortDesc": null,
+          "image": "/assets/images/store/fur_4.png",
+          "variants": [{ "name": "default", "price": null, "priceId": "", "description": "" }]
+        },
+        {
+          "name": "Coming soon...",
+          "shortDesc": null,
+          "image": "/assets/images/store/fur_5.png",
+          "variants": [{ "name": "default", "price": null, "priceId": "", "description": "" }]
+        },
+        {
+          "name": "Coming soon...",
+          "shortDesc": null,
+          "image": "/assets/images/store/fur_6.png",
+          "variants": [{ "name": "default", "price": null, "priceId": "", "description": "" }]
+        }
+      ]
+    }
+  ]
+}

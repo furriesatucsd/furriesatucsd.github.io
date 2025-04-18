@@ -1,0 +1,58 @@
+/* MODALS */
+.modal p {
+  margin-bottom: 0;
+}
+
+/* Expand the modal on large screens */
+@media (min-width: 1024px) {
+  .modal-dialog {
+    max-width: 1000px;
+  }
+}
+@media (min-width: 1680px) {
+  .modal-dialog {
+    max-width: 1280px;
+  }
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  flex: 1 0 0;
+  align-self: stretch;
+}
+
+.modal-footer-price-display {
+  flex-grow: 1;
+  text-align: right;
+  margin-right: 8px;
+}
+
+.modal-footer-price-display-detail {
+  font-size: small;
+  opacity: 50%;
+}
+
+/* Expand footer when small */
+@media (max-width: 600px) {
+  .modal-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .modal-footer > div,
+  .modal-footer > a,
+  .modal-footer > button {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+  .modal-footer > * {
+    margin: 0;
+  }
+  .modal-footer-price-display {
+    margin-right: 0px;
+  }
+}

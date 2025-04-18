@@ -16,6 +16,9 @@
 @use './components/team';
 @use './components/error';
 @use './components/googlecal';
+@use './components/modals';
+@use './components/store';
+@use './components/forms';
 
 // Layouts
 @use './layouts/container';

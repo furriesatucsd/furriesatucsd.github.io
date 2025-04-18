@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCarouselThumbnails();
   initSmoothScrolling();
   initEventCalendar();
+  initOnloadModals();
 });
 
 /**
@@ -155,4 +156,15 @@ function initEventCalendar() {
 
   updateCalendarVisibility();
   window.addEventListener('resize', updateCalendarVisibility);
+}
+
+/**
+ * Display any onload modals
+ */
+function initOnloadModals() {
+  const onloadModal = document.querySelector('.onload-modal');
+  if (onloadModal) {
+    const modal = new bootstrap.Modal(onloadModal);
+    modal.show();
+  }
 }
