@@ -77,7 +77,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
             <!-- Form with Email, Discord/Telegram, Desired Pickup Location (dropdown), and Tshirt Size (dropdown) -->
             <div class="mb-3 form-input">
               <label for="ppform-email" class="form-label">Email Address</label>
-              <input type="email" class="form-control" id="ppform-email" required/>
+              <input type="email" class="form-control" id="ppform-email" required />
             </div>
             <div class="mb-3 form-input">
               <label for="ppform-contact" class="form-label"
@@ -274,11 +274,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
         <button class="button primary" onclick="openCartModal()" type="button">Cart</button>
       </div>
     </div>
-    <img
-      id="store-banner"
-      src="/assets/images/store/store_banner.jpeg"
-      alt="Store Banner"
-    >
+    <img id="store-banner" src="/assets/images/store/store_banner.jpeg" alt="Store Banner" />
   </section>
   <section class="wrapper style1">
     <div class="inner">
@@ -436,7 +432,8 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
 
       // Update the price
       if (selectedVariant.price) {
-        itemModal.querySelector('#item-modal-price').textContent = '$' + selectedVariant.price + ' each';
+        itemModal.querySelector('#item-modal-price').textContent =
+          '$' + selectedVariant.price + ' each';
       } else {
         itemModal.querySelector('#item-modal-price').textContent = NOT_FOR_SALE_DESCRIPTION;
       }
@@ -502,7 +499,7 @@ googleAnalyticsId: { { site.googleAnalyticsId } }
     const hms = `${pad(now.getHours())}${pad(now.getMinutes())}${pad(now.getSeconds())}`;
 
     // Construct random string of size 7
-    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     let randomChars = '';
 
     for (let i = 0; i < 7; i++) {
