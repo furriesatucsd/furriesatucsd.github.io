@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Page Not Found • Triton Tails</title>
+    <title>Members Only • Triton Tails</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <meta name="description" content="The page you&#39;re looking for doesn&#39;t exist." />
+    <meta name="description" content="This page is for Triton Tails Members only, please enter the password to view." />
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
@@ -182,18 +182,70 @@
 
     <!-- Main Content -->
     <main>
+<script>
+  async function hash(input) {
+    // Hash the input using SHA-256
+    const encoder = new TextEncoder();
+    const data = encoder.encode(input);
+    const buffer = await crypto.subtle.digest('SHA-256', data);
+    const result = Array.from(new Uint8Array(buffer))
+      .map((b) => b.toString(16).padStart(2, '0'))
+      .join('');
+
+    console.log(result);
+    return result;
+  }
+  async function checkIfPasswordCorrect() {
+    // Get the input value
+    const input = document.getElementById('password-input-box').value;
+    // Hash the input
+    const hashedInput = await hash(input);
+    // Using an http request, check if /[the hashed input].html is a valid website and returns 200 OK
+    fetch('/' + hashedInput + '.html')
+      .then((response) => {
+        if (response.ok) {
+          // If the response is OK, redirect to the page
+          window.location.href = '/' + hashedInput + '.html';
+        } else {
+          // If the response is not OK, show an error message
+          alert("Oops, that's not right. Please try again or ask an officer.");
+        }
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        alert('An error occurred. Please try again later.');
+      });
+  }
+</script>
+
 <section class="wrapper style1 align-center">
   <div class="inner">
-    <h1>Oops</h1>
-    <p>That page doesn't exist.</p>
-    <ul class="actions justify-content-center">
-      <li>
-        <button type="button" class="button primary" onclick="history.back()">Go Back</button>
-      </li>
-      <li>
-        <a href="/" class="button">Return Home</a>
-      </li>
-    </ul>
+    <h1>Members Only</h1>
+    <p>
+      This page is for Triton Tails Members only. To access it, please enter the name &amp; species
+      of our mascot (e.g. "tony tiger"). If you're a new member, you should join our Discord to stay
+      updated on events!
+    </p>
+    <form onsubmit="event.preventDefault(); checkIfPasswordCorrect();">
+      <ul class="actions justify-content-center">
+        <li>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter password"
+            id="password-input-box"
+          />
+        </li>
+      </ul>
+      <ul class="actions justify-content-center">
+        <li>
+          <button type="button" class="button secondary" onclick="history.back()">Go Back</button>
+        </li>
+        <li>
+          <button type="submit" class="button primary">Submit</button>
+        </li>
+      </ul>
+    </form>
     <br />
     <img src="/assets/images/stickers/oops.webp" alt="404" class="error-image" />
   </div>
