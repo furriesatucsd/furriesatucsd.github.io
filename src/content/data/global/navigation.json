@@ -14,7 +14,7 @@
       "items": [
         {
           "title": "High Tide - Rave Festival",
-          "url": "https://tinyurl.com/high-tide",
+          "url": "https://tinyurl.com/TT-high-tide",
           "external": true
         },
         {
@@ -27,10 +27,6 @@
       "title": "About Us",
       "type": "dropdown",
       "items": [
-        {
-          "title": "For Non-Furries",
-          "url": "/non-furries/"
-        },
         {
           "title": "Our Traditions",
           "url": "/traditions/"
