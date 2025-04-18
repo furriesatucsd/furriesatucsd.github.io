@@ -34,10 +34,10 @@
     />
 
     <!-- GA4 -->
-    {% if googleAnalyticsId %}
+    {% if site.googleAnalyticsId %}
     <script
       async
-      src="https://www.googletagmanager.com/gtag/js?id={{ googleAnalyticsId }}"
+      src="https://www.googletagmanager.com/gtag/js?id={{ site.googleAnalyticsId }}"
     ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -45,7 +45,7 @@
         dataLayer.push(arguments);
       }
       gtag('js', new Date());
-      gtag('config', '{{ googleAnalyticsId }}');
+      gtag('config', '{{ site.googleAnalyticsId }}');
     </script>
     {% endif %}
   </head>
