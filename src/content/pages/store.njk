@@ -44,10 +44,10 @@ description: Get exclusive merch, membership, materials, and more!
           <p>If you have any questions, please reach out to us via Discord :3</p>
         </div>
         <div class="modal-footer">
-          <button class="btn btn-primary" data-bs-dismiss="modal" type="button">
-            Agree and continue
+          <button class="btn btn-primary" data-bs-dismiss="modal" type="button" onclick="fireGAEvent({ eventName: 'button_click', category: 'store_terms', text: 'Terms Accepted' })">
+          Agree and continue
           </button>
-          <a class="btn btn-secondary" href="javascript:history.back()">Go back</a>
+          <a class="btn btn-secondary" href="javascript:history.back()" onclick="fireGAEvent({ eventName: 'button_click', category: 'store_terms', text: 'Terms Declined' })">Go back</a>
         </div>
       </div>
     </div>
@@ -118,10 +118,10 @@ description: Get exclusive merch, membership, materials, and more!
             </div>
           </div>
           <div class="modal-footer">
-            <button class="btn btn-link text-secondary" data-bs-dismiss="modal" type="button">
+            <button class="btn btn-link text-secondary" data-bs-dismiss="modal" type="button" onclick="fireGAEvent({ eventName: 'button_click', category: 'post_payment_form', text: 'PPForm Skipped' })">
               Skip
             </button>
-            <button class="btn btn-primary" type="submit">Submit</button>
+            <button class="btn btn-primary" type="submit" onclick="fireGAEvent({ eventName: 'button_click', category: 'post_payment_form', text: 'PPForm Submitted' })">Submit</button>
           </div>
         </form>
       </div>
@@ -181,7 +181,7 @@ description: Get exclusive merch, membership, materials, and more!
             <button class="btn btn-outline-secondary" id="item-modal-quantity-up" type="button">
               +
             </button>
-            <button id="item-modal-addtocart" class="btn btn-primary" type="button">
+            <button id="item-modal-addtocart" class="btn btn-primary" type="button" onclick="fireGAEvent({ eventName: 'button_click', category: 'item_modal', text: 'Add to Cart - {{ item.name }} - {{ selectedVariant.name }}' })">
               Add to Cart
             </button>
           </div>
@@ -191,17 +191,17 @@ description: Get exclusive merch, membership, materials, and more!
           <div class="modal-footer-price-display">
             <span class="text-success font-weight-bold">Added to Cart!</span>
           </div>
-          <button
+            <button
             class="btn btn-link text-secondary"
             data-bs-dismiss="modal"
-            onclick="openCartModal()"
+            onclick="openCartModal(); fireGAEvent({ eventName: 'button_click', category: 'item_modal', text: 'View Cart' })"
             type="button"
-          >
+            >
             View Cart
-          </button>
-          <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">
+            </button>
+            <button class="btn btn-secondary" data-bs-dismiss="modal" type="button" onclick="fireGAEvent({ eventName: 'button_click', category: 'item_modal', text: 'Continue Shopping' })">
             Continue Shopping
-          </button>
+            </button>
         </div>
       </div>
     </div>
@@ -246,17 +246,18 @@ description: Get exclusive merch, membership, materials, and more!
             <p id="cart-modal-total-price">Total: $Price</p>
             <p class="modal-footer-price-display-detail">Taxes already included</p>
           </div>
-          <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">
+            <button class="btn btn-secondary" data-bs-dismiss="modal" type="button" onclick="fireGAEvent({ eventName: 'button_click', category: 'cart_modal', text: 'Continue Shopping' })">
             Continue Shopping
-          </button>
-          <button
+            </button>
+            <button
             class="btn btn-primary"
             id="cart-modal-checkout"
             data-bs-dismiss="modal"
             type="button"
-          >
+            onclick="fireGAEvent({ eventName: 'button_click', category: 'cart_modal', text: 'Checkout' })"
+            >
             Checkout
-          </button>
+            </button>
         </div>
       </div>
     </div>
@@ -301,13 +302,14 @@ description: Get exclusive merch, membership, materials, and more!
             >
               <div class="scroll-edge-overlay"></div>
               {% for item in collection.items %}
-              <button
+                <button
                 class="store-item"
                 data-bs-toggle="modal"
                 data-bs-target="#itemModal"
                 data-item-info="{{ item | dump }}"
                 type="button"
-              >
+                onclick="fireGAEvent({ eventName: 'item_click', category: 'store_item_selected', text: 'Selected {{ item.name }}' })"
+                >
                 <img src="{{ item.image }}" alt="{{ item.name }}" />
                 <b>{{ item.name }}</b>
                 {% if item.shortDesc %}
@@ -374,6 +376,17 @@ description: Get exclusive merch, membership, materials, and more!
     }
 
     return { isValid: true, reason: 'Valid cart item' };
+  }
+
+  // Fire a Google Analytics event with the given text argument
+  // Example: fireGAEvent({ eventName: 'button_click', category: 'store_terms', text: 'Terms Accepted' });
+  function fireGAEvent({ eventName, category, text }) {
+    if (typeof gtag === 'function') {
+      gtag('event', eventName, {
+        event_category: category,
+        event_label: text,
+      });
+    }
   }
 
   // Clear the Item Modal data that would be populated from a variant
@@ -865,6 +878,9 @@ description: Get exclusive merch, membership, materials, and more!
     // Save any user data before redirecting to a new page.
     saveSession();
 
+    // Fire GA Cart Data
+    fireGACartData({ store_status: 'checkoutStarted' });
+
     // Make the call to Stripe.js to redirect to the checkout page
     stripe
       .redirectToCheckout({
@@ -889,11 +905,26 @@ description: Get exclusive merch, membership, materials, and more!
 
   // PAGE EVENTS
 
+  // Fire a Google Analytics event containing the cart contents, number of products, total price, and store status
+  // Store Status: reloadOrQuit, checkoutStarted, checkoutCompleted, checkoutCanceled, loadReturningCustomer
+  function fireGACartData({store_status}) {
+    if (typeof gtag === 'function') {
+      gtag('event', 'cart_data', {
+        event_category: 'cart',
+        event_label: 'Cart Contents',
+        products: JSON.stringify(userShoppingCart.map(item => ({ title: item.itemInfo.name, quantity: item.quantity }))),
+        product_count: userShoppingCart.length,
+        total_price: userShoppingCart.reduce((total, item) => total + parseFloat(item.variantInfo.price) * item.quantity, 0).toFixed(2),
+        store_status: store_status,
+      });
+    }
+  }
+
   // Save any user data before redirecting to a new page.
   function saveSession() {
     // Save the cart to localStorage
     localStorage.setItem('userShoppingCart', JSON.stringify(userShoppingCart));
-    console.log('Cart saved to localStorage. (' + userShoppingCart.length + ' items)');
+    console.log('Cart saved to localStorage. (' + userShoppingCart.length + ' products)');
 
     // Save the order ID to localStorage
     localStorage.setItem('userOrderId', userOrderId);
@@ -908,7 +939,13 @@ description: Get exclusive merch, membership, materials, and more!
       console.log('Not counting this session, since the cart is empty.');
     }
   }
-  window.addEventListener('beforeunload', saveSession);
+  window.addEventListener('beforeunload', () => {
+    // Save the session data before leaving the page
+    saveSession();
+
+    // Fire GA Cart Data
+    fireGACartData({ store_status: 'reloadOrQuit' });
+  });
 
   // Reset any user data and render a fresh start.
   function resetSession() {
@@ -949,8 +986,14 @@ description: Get exclusive merch, membership, materials, and more!
       ppformModal.show();
 
       // alert('Success! Thank you for your purchase. We\'ll review your order and coordinate with you soon. If you have any questions, please reach out to us via Discord :3');
+
+      // Fire GA Cart Data
+      fireGACartData({ store_status: 'checkoutCompleted' });
     } else if (result === 'canceled') {
       alert('Ah, it looks like you canceled the payment. No worries, you can try again later :3');
+
+      // Fire GA Cart Data
+      fireGACartData({ store_status: 'checkoutCanceled' });
     }
 
     // Check if the user was here in the last N days
@@ -967,6 +1010,14 @@ description: Get exclusive merch, membership, materials, and more!
           diffDays +
           ' days ago.'
       );
+
+      // Fire Google Analytics: Time since last session
+      fireGAEvent({
+        eventName: 'retention',
+        category: 'store_retention',
+        text: diffDays + ' days since last session',
+      });
+
       if (diffDays > RESET_AFTER_N_DAYS) {
         console.log(
           'This is higher than the reset threshold (' +
@@ -979,6 +1030,14 @@ description: Get exclusive merch, membership, materials, and more!
     } else {
       console.log("No last session date found. This is the user's first visit.");
       resetSession();
+
+      // Fire Google Analytics: First time user
+      fireGAEvent({
+        eventName: 'retention',
+        category: 'store_retention',
+        text: 'First time user',
+      });
+
       return;
     }
 
@@ -986,10 +1045,13 @@ description: Get exclusive merch, membership, materials, and more!
     var savedCart = localStorage.getItem('userShoppingCart');
     if (savedCart) {
       userShoppingCart = JSON.parse(savedCart);
-      console.log('Cart loaded from localStorage. (' + userShoppingCart.length + ' items)');
+      console.log('Cart loaded from localStorage. (' + userShoppingCart.length + ' products)');
     } else {
       console.log('No saved cart found.');
     }
+
+    // Fire GA Cart Data
+    fireGACartData({ store_status: 'loadReturningCustomer' });
   }
   window.addEventListener('load', loadSession);
 </script>
