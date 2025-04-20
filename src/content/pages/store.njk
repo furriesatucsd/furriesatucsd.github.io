@@ -44,10 +44,20 @@ description: Get exclusive merch, membership, materials, and more!
           <p>If you have any questions, please reach out to us via Discord :3</p>
         </div>
         <div class="modal-footer">
-          <button class="btn btn-primary" data-bs-dismiss="modal" type="button" onclick="fireGAEvent('Store Terms Accepted')">
-          Agree and continue
+          <button
+            class="btn btn-primary"
+            data-bs-dismiss="modal"
+            type="button"
+            onclick="fireGAEvent('Store Terms Accepted')"
+          >
+            Agree and continue
           </button>
-          <a class="btn btn-secondary" href="javascript:history.back()" onclick="fireGAEvent('Store Terms Declined')">Go back</a>
+          <a
+            class="btn btn-secondary"
+            href="javascript:history.back()"
+            onclick="fireGAEvent('Store Terms Declined')"
+            >Go back</a
+          >
         </div>
       </div>
     </div>
@@ -118,10 +128,17 @@ description: Get exclusive merch, membership, materials, and more!
             </div>
           </div>
           <div class="modal-footer">
-            <button class="btn btn-link text-secondary" data-bs-dismiss="modal" type="button" onclick="fireGAEvent('PPForm Skipped')">
+            <button
+              class="btn btn-link text-secondary"
+              data-bs-dismiss="modal"
+              type="button"
+              onclick="fireGAEvent('PPForm Skipped')"
+            >
               Skip
             </button>
-            <button class="btn btn-primary" type="submit" onclick="fireGAEvent('PPForm Submitted')">Submit</button>
+            <button class="btn btn-primary" type="submit" onclick="fireGAEvent('PPForm Submitted')">
+              Submit
+            </button>
           </div>
         </form>
       </div>
@@ -191,17 +208,22 @@ description: Get exclusive merch, membership, materials, and more!
           <div class="modal-footer-price-display">
             <span class="text-success font-weight-bold">Added to Cart!</span>
           </div>
-            <button
+          <button
             class="btn btn-link text-secondary"
             data-bs-dismiss="modal"
             onclick="openCartModal(); fireGAEvent('Clicked View Cart After Adding to Cart')"
             type="button"
-            >
+          >
             View Cart
-            </button>
-            <button class="btn btn-secondary" data-bs-dismiss="modal" type="button" onclick="fireGAEvent('Clicked Continue Shopping After Adding to Cart')">
+          </button>
+          <button
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+            type="button"
+            onclick="fireGAEvent('Clicked Continue Shopping After Adding to Cart')"
+          >
             Continue Shopping
-            </button>
+          </button>
         </div>
       </div>
     </div>
@@ -246,18 +268,23 @@ description: Get exclusive merch, membership, materials, and more!
             <p id="cart-modal-total-price">Total: $Price</p>
             <p class="modal-footer-price-display-detail">Taxes already included</p>
           </div>
-            <button class="btn btn-secondary" data-bs-dismiss="modal" type="button" onclick="fireGAEvent('Clicked Continue Shopping From Cart')">
+          <button
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+            type="button"
+            onclick="fireGAEvent('Clicked Continue Shopping From Cart')"
+          >
             Continue Shopping
-            </button>
-            <button
+          </button>
+          <button
             class="btn btn-primary"
             id="cart-modal-checkout"
             data-bs-dismiss="modal"
             type="button"
             onclick="fireGAEvent('Clicked Checkout')"
-            >
+          >
             Checkout
-            </button>
+          </button>
         </div>
       </div>
     </div>
@@ -302,14 +329,14 @@ description: Get exclusive merch, membership, materials, and more!
             >
               <div class="scroll-edge-overlay"></div>
               {% for item in collection.items %}
-                <button
+              <button
                 class="store-item"
                 data-bs-toggle="modal"
                 data-bs-target="#itemModal"
                 data-item-info="{{ item | dump }}"
                 type="button"
                 onclick="fireGAEvent('Selected Store Item', { selected_item_name:'{{ item.name }}',})"
-                >
+              >
                 <img src="{{ item.image }}" alt="{{ item.name }}" />
                 <b>{{ item.name }}</b>
                 {% if item.shortDesc %}
@@ -709,7 +736,9 @@ description: Get exclusive merch, membership, materials, and more!
     itemModal.querySelector('#item-modal-footer-addedtocart').classList.remove('d-none');
 
     // Send to GA
-    fireGAEvent('Clicked Add to Cart', {added_item_name: itemInfo.name + " - " + variantInfo.name})
+    fireGAEvent('Clicked Add to Cart', {
+      added_item_name: itemInfo.name + ' - ' + variantInfo.name,
+    });
   });
 
   // CART MODAL ACTIONS
@@ -910,10 +939,12 @@ description: Get exclusive merch, membership, materials, and more!
     var params = {
       cart_product_count: userShoppingCart.length,
       cart_item_count: userShoppingCart.reduce((total, item) => total + item.quantity, 0),
-      cart_total_price: userShoppingCart.reduce((total, item) => total + parseFloat(item.variantInfo.price) * item.quantity, 0).toFixed(2),
-    }
+      cart_total_price: userShoppingCart
+        .reduce((total, item) => total + parseFloat(item.variantInfo.price) * item.quantity, 0)
+        .toFixed(2),
+    };
 
-    fireGAEvent(userContext, params)
+    fireGAEvent(userContext, params);
   }
 
   // Save any user data before redirecting to a new page.
