@@ -181,7 +181,7 @@ description: Get exclusive merch, membership, materials, and more!
             <button class="btn btn-outline-secondary" id="item-modal-quantity-up" type="button">
               +
             </button>
-            <button id="item-modal-addtocart" class="btn btn-primary" type="button" onclick="fireGAEvent('Clicked Add to Cart', {added_item_name:{{ item.name }}, added_variant_name:{{ selectedVariant.name }},})">
+            <button id="item-modal-addtocart" class="btn btn-primary" type="button">
               Add to Cart
             </button>
           </div>
@@ -308,7 +308,7 @@ description: Get exclusive merch, membership, materials, and more!
                 data-bs-target="#itemModal"
                 data-item-info="{{ item | dump }}"
                 type="button"
-                onclick="fireGAEvent('Selected Store Item', { selected_item_name:{{ item.name }},})"
+                onclick="fireGAEvent('Selected Store Item', { selected_item_name:'{{ item.name }}',})"
                 >
                 <img src="{{ item.image }}" alt="{{ item.name }}" />
                 <b>{{ item.name }}</b>
@@ -707,6 +707,9 @@ description: Get exclusive merch, membership, materials, and more!
     var itemModal = document.getElementById('itemModal');
     itemModal.querySelector('#item-modal-footer-standard').classList.add('d-none');
     itemModal.querySelector('#item-modal-footer-addedtocart').classList.remove('d-none');
+
+    // Send to GA
+    fireGAEvent('Clicked Add to Cart', {added_item_name: itemInfo.name + " - " + variantInfo.name})
   });
 
   // CART MODAL ACTIONS
