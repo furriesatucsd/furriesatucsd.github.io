@@ -222,10 +222,20 @@
           <p>If you have any questions, please reach out to us via Discord :3</p>
         </div>
         <div class="modal-footer">
-          <button class="btn btn-primary" data-bs-dismiss="modal" type="button">
+          <button
+            class="btn btn-primary"
+            data-bs-dismiss="modal"
+            type="button"
+            onclick="fireGAEvent('Store Terms Accepted')"
+          >
             Agree and continue
           </button>
-          <a class="btn btn-secondary" href="javascript:history.back()">Go back</a>
+          <a
+            class="btn btn-secondary"
+            href="javascript:history.back()"
+            onclick="fireGAEvent('Store Terms Declined')"
+            >Go back</a
+          >
         </div>
       </div>
     </div>
@@ -296,10 +306,17 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button class="btn btn-link text-secondary" data-bs-dismiss="modal" type="button">
+            <button
+              class="btn btn-link text-secondary"
+              data-bs-dismiss="modal"
+              type="button"
+              onclick="fireGAEvent('PPForm Skipped')"
+            >
               Skip
             </button>
-            <button class="btn btn-primary" type="submit">Submit</button>
+            <button class="btn btn-primary" type="submit" onclick="fireGAEvent('PPForm Submitted')">
+              Submit
+            </button>
           </div>
         </form>
       </div>
@@ -370,12 +387,17 @@
           <button
             class="btn btn-link text-secondary"
             data-bs-dismiss="modal"
-            onclick="openCartModal()"
+            onclick="openCartModal(); fireGAEvent('Clicked View Cart After Adding to Cart')"
             type="button"
           >
             View Cart
           </button>
-          <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">
+          <button
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+            type="button"
+            onclick="fireGAEvent('Clicked Continue Shopping After Adding to Cart')"
+          >
             Continue Shopping
           </button>
         </div>
@@ -422,7 +444,12 @@
             <p id="cart-modal-total-price">Total: $Price</p>
             <p class="modal-footer-price-display-detail">Taxes already included</p>
           </div>
-          <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">
+          <button
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+            type="button"
+            onclick="fireGAEvent('Clicked Continue Shopping From Cart')"
+          >
             Continue Shopping
           </button>
           <button
@@ -430,6 +457,7 @@
             id="cart-modal-checkout"
             data-bs-dismiss="modal"
             type="button"
+            onclick="fireGAEvent('Clicked Checkout')"
           >
             Checkout
           </button>
@@ -474,6 +502,7 @@
                 data-bs-target="#itemModal"
                 data-item-info="{&quot;name&quot;:&quot;High Tide - Rave Festival&quot;,&quot;shortDesc&quot;:&quot;Get tickets for our massive rave festival on May 25!&quot;,&quot;image&quot;:&quot;/assets/images/store/featured_1.png&quot;,&quot;variants&quot;:[{&quot;name&quot;:&quot;default&quot;,&quot;price&quot;:null,&quot;priceId&quot;:&quot;&quot;,&quot;description&quot;:&quot;Register for High Tide - the premier rave festival happening at UC San Diego! Get ready to dance the night away with an insane lineup of DJs, PLUS headliners you won&#39;t want to miss! Nightclub-style rave vibes, epic beats, and high energy all night long!&quot;,&quot;externalUrl&quot;:&quot;https://tinyurl.com/TT-high-tide&quot;}]}"
                 type="button"
+                onclick="fireGAEvent('Selected Store Item', { selected_item_name:'High Tide - Rave Festival',})"
               >
                 <img src="/assets/images/store/featured_1.png" alt="High Tide - Rave Festival" />
                 <b>High Tide - Rave Festival</b>
@@ -488,6 +517,7 @@
                 data-bs-target="#itemModal"
                 data-item-info="{&quot;name&quot;:&quot;Membership Cards&quot;,&quot;shortDesc&quot;:&quot;Get exclusive perks and discounts across campus!&quot;,&quot;image&quot;:&quot;/assets/images/store/card_spring2025.png&quot;,&quot;variants&quot;:[{&quot;name&quot;:&quot;Spring (current)&quot;,&quot;price&quot;:9.99,&quot;priceId&quot;:&quot;price_1RBvYfAQOudYnc4y7Mm8UZg5&quot;,&quot;description&quot;:&quot;Get a membership card to score exclusive discounts and perks this season! Perks include: 10% off at most restaurants on-campus, 10% off all Club Merch, and Priority for Fursuit Workshops.&quot;},{&quot;name&quot;:&quot;Winter 2025&quot;,&quot;price&quot;:2.99,&quot;priceId&quot;:&quot;price_1RCHyoAQOudYnc4yfRo7yDMG&quot;,&quot;description&quot;:&quot;Missed our previous membership card? No worries! You can still get this previous card to keep the art as a souvenir and show your support for the club. (The card will not be valid for discounts.)&quot;,&quot;image&quot;:&quot;/assets/images/store/card_winter2025.png&quot;}]}"
                 type="button"
+                onclick="fireGAEvent('Selected Store Item', { selected_item_name:'Membership Cards',})"
               >
                 <img src="/assets/images/store/card_spring2025.png" alt="Membership Cards" />
                 <b>Membership Cards</b>
@@ -519,6 +549,7 @@
                 data-bs-target="#itemModal"
                 data-item-info="{&quot;name&quot;:&quot;San Diego Beach Tee&quot;,&quot;shortDesc&quot;:null,&quot;image&quot;:&quot;/assets/images/store/beach_1.png&quot;,&quot;variants&quot;:[{&quot;name&quot;:&quot;default&quot;,&quot;price&quot;:24.99,&quot;priceId&quot;:&quot;price_1RBvZ0AQOudYnc4yY07WfvwH&quot;,&quot;description&quot;:&quot;Ride the waves in style with our San Diego Beach Tee! Featuring Tide the Raccoon, this shirt is perfect for sunny days and coastal vibes.&quot;}]}"
                 type="button"
+                onclick="fireGAEvent('Selected Store Item', { selected_item_name:'San Diego Beach Tee',})"
               >
                 <img src="/assets/images/store/beach_1.png" alt="San Diego Beach Tee" />
                 <b>San Diego Beach Tee</b>
@@ -533,6 +564,7 @@
                 data-bs-target="#itemModal"
                 data-item-info="{&quot;name&quot;:&quot;Tropical Drink Sticker&quot;,&quot;shortDesc&quot;:null,&quot;image&quot;:&quot;/assets/images/store/beach_2.png&quot;,&quot;variants&quot;:[{&quot;name&quot;:&quot;default&quot;,&quot;price&quot;:2.99,&quot;priceId&quot;:&quot;price_1RCHzqAQOudYnc4yG9H9sMJA&quot;,&quot;description&quot;:&quot;Add a splash of tropical vibes to your collection with this vibrant Tropical Drink Sticker, featuring a refreshing design perfect for summer!&quot;}]}"
                 type="button"
+                onclick="fireGAEvent('Selected Store Item', { selected_item_name:'Tropical Drink Sticker',})"
               >
                 <img src="/assets/images/store/beach_2.png" alt="Tropical Drink Sticker" />
                 <b>Tropical Drink Sticker</b>
@@ -547,6 +579,7 @@
                 data-bs-target="#itemModal"
                 data-item-info="{&quot;name&quot;:&quot;Tide Sticker&quot;,&quot;shortDesc&quot;:null,&quot;image&quot;:&quot;/assets/images/store/beach_3.png&quot;,&quot;variants&quot;:[{&quot;name&quot;:&quot;default&quot;,&quot;price&quot;:2.99,&quot;priceId&quot;:&quot;price_1RCI0CAQOudYnc4y6De8bIll&quot;,&quot;description&quot;:&quot;Show your love for Tide the Raccoon with this adorable Tide Sticker, a must-have for fans of our beach mascot!&quot;}]}"
                 type="button"
+                onclick="fireGAEvent('Selected Store Item', { selected_item_name:'Tide Sticker',})"
               >
                 <img src="/assets/images/store/beach_3.png" alt="Tide Sticker" />
                 <b>Tide Sticker</b>
@@ -561,6 +594,7 @@
                 data-bs-target="#itemModal"
                 data-item-info="{&quot;name&quot;:&quot;Ummm uhhhh&quot;,&quot;shortDesc&quot;:null,&quot;image&quot;:&quot;/assets/images/store/beach_4.png&quot;,&quot;variants&quot;:[{&quot;name&quot;:&quot;default&quot;,&quot;price&quot;:2.99,&quot;priceId&quot;:&quot;price_1RCI0bAQOudYnc4ytlmNaoaZ&quot;,&quot;description&quot;:&quot;A quirky and fun sticker to add to your collection lol. It&#39;s best not to ask too many questions.&quot;}]}"
                 type="button"
+                onclick="fireGAEvent('Selected Store Item', { selected_item_name:'Ummm uhhhh',})"
               >
                 <img src="/assets/images/store/beach_4.png" alt="Ummm uhhhh" />
                 <b>Ummm uhhhh</b>
@@ -592,6 +626,7 @@
                 data-bs-target="#itemModal"
                 data-item-info="{&quot;name&quot;:&quot;Coming soon...&quot;,&quot;shortDesc&quot;:null,&quot;image&quot;:&quot;/assets/images/store/high_1.png&quot;,&quot;variants&quot;:[{&quot;name&quot;:&quot;default&quot;,&quot;price&quot;:4.99,&quot;priceId&quot;:&quot;&quot;,&quot;description&quot;:&quot;&quot;}]}"
                 type="button"
+                onclick="fireGAEvent('Selected Store Item', { selected_item_name:'Coming soon...',})"
               >
                 <img src="/assets/images/store/high_1.png" alt="Coming soon..." />
                 <b>Coming soon...</b>
@@ -606,6 +641,7 @@
                 data-bs-target="#itemModal"
                 data-item-info="{&quot;name&quot;:&quot;Coming soon...&quot;,&quot;shortDesc&quot;:null,&quot;image&quot;:&quot;/assets/images/store/high_2.png&quot;,&quot;variants&quot;:[{&quot;name&quot;:&quot;default&quot;,&quot;price&quot;:9.99,&quot;priceId&quot;:&quot;&quot;,&quot;description&quot;:&quot;&quot;}]}"
                 type="button"
+                onclick="fireGAEvent('Selected Store Item', { selected_item_name:'Coming soon...',})"
               >
                 <img src="/assets/images/store/high_2.png" alt="Coming soon..." />
                 <b>Coming soon...</b>
@@ -620,6 +656,7 @@
                 data-bs-target="#itemModal"
                 data-item-info="{&quot;name&quot;:&quot;Coming soon...&quot;,&quot;shortDesc&quot;:null,&quot;image&quot;:&quot;/assets/images/store/high_3.png&quot;,&quot;variants&quot;:[{&quot;name&quot;:&quot;default&quot;,&quot;price&quot;:24.99,&quot;priceId&quot;:&quot;&quot;,&quot;description&quot;:&quot;&quot;}]}"
                 type="button"
+                onclick="fireGAEvent('Selected Store Item', { selected_item_name:'Coming soon...',})"
               >
                 <img src="/assets/images/store/high_3.png" alt="Coming soon..." />
                 <b>Coming soon...</b>
@@ -634,6 +671,7 @@
                 data-bs-target="#itemModal"
                 data-item-info="{&quot;name&quot;:&quot;Coming soon...&quot;,&quot;shortDesc&quot;:null,&quot;image&quot;:&quot;/assets/images/store/high_3.png&quot;,&quot;variants&quot;:[{&quot;name&quot;:&quot;default&quot;,&quot;price&quot;:59.99,&quot;priceId&quot;:&quot;&quot;,&quot;description&quot;:&quot;&quot;}]}"
                 type="button"
+                onclick="fireGAEvent('Selected Store Item', { selected_item_name:'Coming soon...',})"
               >
                 <img src="/assets/images/store/high_3.png" alt="Coming soon..." />
                 <b>Coming soon...</b>
@@ -665,6 +703,7 @@
                 data-bs-target="#itemModal"
                 data-item-info="{&quot;name&quot;:&quot;Coming soon...&quot;,&quot;shortDesc&quot;:null,&quot;image&quot;:&quot;/assets/images/store/wolf_1.png&quot;,&quot;variants&quot;:[{&quot;name&quot;:&quot;default&quot;,&quot;price&quot;:null,&quot;priceId&quot;:&quot;&quot;,&quot;description&quot;:&quot;&quot;}]}"
                 type="button"
+                onclick="fireGAEvent('Selected Store Item', { selected_item_name:'Coming soon...',})"
               >
                 <img src="/assets/images/store/wolf_1.png" alt="Coming soon..." />
                 <b>Coming soon...</b>
@@ -677,6 +716,7 @@
                 data-bs-target="#itemModal"
                 data-item-info="{&quot;name&quot;:&quot;Coming soon...&quot;,&quot;shortDesc&quot;:null,&quot;image&quot;:&quot;/assets/images/store/wolf_1.png&quot;,&quot;variants&quot;:[{&quot;name&quot;:&quot;default&quot;,&quot;price&quot;:null,&quot;priceId&quot;:&quot;&quot;,&quot;description&quot;:&quot;&quot;}]}"
                 type="button"
+                onclick="fireGAEvent('Selected Store Item', { selected_item_name:'Coming soon...',})"
               >
                 <img src="/assets/images/store/wolf_1.png" alt="Coming soon..." />
                 <b>Coming soon...</b>
@@ -689,6 +729,7 @@
                 data-bs-target="#itemModal"
                 data-item-info="{&quot;name&quot;:&quot;Coming soon...&quot;,&quot;shortDesc&quot;:null,&quot;image&quot;:&quot;/assets/images/store/wolf_1.png&quot;,&quot;variants&quot;:[{&quot;name&quot;:&quot;default&quot;,&quot;price&quot;:null,&quot;priceId&quot;:&quot;&quot;,&quot;description&quot;:&quot;&quot;}]}"
                 type="button"
+                onclick="fireGAEvent('Selected Store Item', { selected_item_name:'Coming soon...',})"
               >
                 <img src="/assets/images/store/wolf_1.png" alt="Coming soon..." />
                 <b>Coming soon...</b>
@@ -701,6 +742,7 @@
                 data-bs-target="#itemModal"
                 data-item-info="{&quot;name&quot;:&quot;Coming soon...&quot;,&quot;shortDesc&quot;:null,&quot;image&quot;:&quot;/assets/images/store/wolf_1.png&quot;,&quot;variants&quot;:[{&quot;name&quot;:&quot;default&quot;,&quot;price&quot;:null,&quot;priceId&quot;:&quot;&quot;,&quot;description&quot;:&quot;&quot;}]}"
                 type="button"
+                onclick="fireGAEvent('Selected Store Item', { selected_item_name:'Coming soon...',})"
               >
                 <img src="/assets/images/store/wolf_1.png" alt="Coming soon..." />
                 <b>Coming soon...</b>
@@ -730,6 +772,7 @@
                 data-bs-target="#itemModal"
                 data-item-info="{&quot;name&quot;:&quot;Coming soon...&quot;,&quot;shortDesc&quot;:null,&quot;image&quot;:&quot;/assets/images/store/fur_1.png&quot;,&quot;variants&quot;:[{&quot;name&quot;:&quot;default&quot;,&quot;price&quot;:null,&quot;priceId&quot;:&quot;&quot;,&quot;description&quot;:&quot;&quot;}]}"
                 type="button"
+                onclick="fireGAEvent('Selected Store Item', { selected_item_name:'Coming soon...',})"
               >
                 <img src="/assets/images/store/fur_1.png" alt="Coming soon..." />
                 <b>Coming soon...</b>
@@ -742,6 +785,7 @@
                 data-bs-target="#itemModal"
                 data-item-info="{&quot;name&quot;:&quot;Coming soon...&quot;,&quot;shortDesc&quot;:null,&quot;image&quot;:&quot;/assets/images/store/fur_2.png&quot;,&quot;variants&quot;:[{&quot;name&quot;:&quot;default&quot;,&quot;price&quot;:null,&quot;priceId&quot;:&quot;&quot;,&quot;description&quot;:&quot;&quot;}]}"
                 type="button"
+                onclick="fireGAEvent('Selected Store Item', { selected_item_name:'Coming soon...',})"
               >
                 <img src="/assets/images/store/fur_2.png" alt="Coming soon..." />
                 <b>Coming soon...</b>
@@ -754,6 +798,7 @@
                 data-bs-target="#itemModal"
                 data-item-info="{&quot;name&quot;:&quot;Coming soon...&quot;,&quot;shortDesc&quot;:null,&quot;image&quot;:&quot;/assets/images/store/fur_3.png&quot;,&quot;variants&quot;:[{&quot;name&quot;:&quot;default&quot;,&quot;price&quot;:null,&quot;priceId&quot;:&quot;&quot;,&quot;description&quot;:&quot;&quot;}]}"
                 type="button"
+                onclick="fireGAEvent('Selected Store Item', { selected_item_name:'Coming soon...',})"
               >
                 <img src="/assets/images/store/fur_3.png" alt="Coming soon..." />
                 <b>Coming soon...</b>
@@ -766,6 +811,7 @@
                 data-bs-target="#itemModal"
                 data-item-info="{&quot;name&quot;:&quot;Coming soon...&quot;,&quot;shortDesc&quot;:null,&quot;image&quot;:&quot;/assets/images/store/fur_4.png&quot;,&quot;variants&quot;:[{&quot;name&quot;:&quot;default&quot;,&quot;price&quot;:null,&quot;priceId&quot;:&quot;&quot;,&quot;description&quot;:&quot;&quot;}]}"
                 type="button"
+                onclick="fireGAEvent('Selected Store Item', { selected_item_name:'Coming soon...',})"
               >
                 <img src="/assets/images/store/fur_4.png" alt="Coming soon..." />
                 <b>Coming soon...</b>
@@ -778,6 +824,7 @@
                 data-bs-target="#itemModal"
                 data-item-info="{&quot;name&quot;:&quot;Coming soon...&quot;,&quot;shortDesc&quot;:null,&quot;image&quot;:&quot;/assets/images/store/fur_5.png&quot;,&quot;variants&quot;:[{&quot;name&quot;:&quot;default&quot;,&quot;price&quot;:null,&quot;priceId&quot;:&quot;&quot;,&quot;description&quot;:&quot;&quot;}]}"
                 type="button"
+                onclick="fireGAEvent('Selected Store Item', { selected_item_name:'Coming soon...',})"
               >
                 <img src="/assets/images/store/fur_5.png" alt="Coming soon..." />
                 <b>Coming soon...</b>
@@ -790,6 +837,7 @@
                 data-bs-target="#itemModal"
                 data-item-info="{&quot;name&quot;:&quot;Coming soon...&quot;,&quot;shortDesc&quot;:null,&quot;image&quot;:&quot;/assets/images/store/fur_6.png&quot;,&quot;variants&quot;:[{&quot;name&quot;:&quot;default&quot;,&quot;price&quot;:null,&quot;priceId&quot;:&quot;&quot;,&quot;description&quot;:&quot;&quot;}]}"
                 type="button"
+                onclick="fireGAEvent('Selected Store Item', { selected_item_name:'Coming soon...',})"
               >
                 <img src="/assets/images/store/fur_6.png" alt="Coming soon..." />
                 <b>Coming soon...</b>
@@ -850,6 +898,13 @@
     }
 
     return { isValid: true, reason: 'Valid cart item' };
+  }
+
+  // Fire a Google Analytics event with the given event name and parameters
+  function fireGAEvent(eventName, params) {
+    if (typeof gtag === 'function') {
+      gtag('event', eventName, params);
+    }
   }
 
   // Clear the Item Modal data that would be populated from a variant
@@ -1174,6 +1229,11 @@
     var itemModal = document.getElementById('itemModal');
     itemModal.querySelector('#item-modal-footer-standard').classList.add('d-none');
     itemModal.querySelector('#item-modal-footer-addedtocart').classList.remove('d-none');
+
+    // Send to GA
+    fireGAEvent('Clicked Add to Cart', {
+      added_item_name: itemInfo.name + ' - ' + variantInfo.name,
+    });
   });
 
   // CART MODAL ACTIONS
@@ -1341,6 +1401,9 @@
     // Save any user data before redirecting to a new page.
     saveSession();
 
+    // Fire GA Cart Data
+    fireGACartData('store_checkoutStarted');
+
     // Make the call to Stripe.js to redirect to the checkout page
     stripe
       .redirectToCheckout({
@@ -1365,11 +1428,25 @@
 
   // PAGE EVENTS
 
+  // Fire a Google Analytics event containing the cart contents, number of products, total price, and store status
+  // userContext: reloadOrQuit, checkoutStarted, checkoutCompleted, checkoutCanceled, loadReturningCustomer
+  function fireGACartData(userContext) {
+    var params = {
+      cart_product_count: userShoppingCart.length,
+      cart_item_count: userShoppingCart.reduce((total, item) => total + item.quantity, 0),
+      cart_total_price: userShoppingCart
+        .reduce((total, item) => total + parseFloat(item.variantInfo.price) * item.quantity, 0)
+        .toFixed(2),
+    };
+
+    fireGAEvent(userContext, params);
+  }
+
   // Save any user data before redirecting to a new page.
   function saveSession() {
     // Save the cart to localStorage
     localStorage.setItem('userShoppingCart', JSON.stringify(userShoppingCart));
-    console.log('Cart saved to localStorage. (' + userShoppingCart.length + ' items)');
+    console.log('Cart saved to localStorage. (' + userShoppingCart.length + ' products)');
 
     // Save the order ID to localStorage
     localStorage.setItem('userOrderId', userOrderId);
@@ -1384,7 +1461,13 @@
       console.log('Not counting this session, since the cart is empty.');
     }
   }
-  window.addEventListener('beforeunload', saveSession);
+  window.addEventListener('beforeunload', () => {
+    // Save the session data before leaving the page
+    saveSession();
+
+    // Fire GA Cart Data
+    fireGACartData('store_reloadOrQuit');
+  });
 
   // Reset any user data and render a fresh start.
   function resetSession() {
@@ -1425,8 +1508,14 @@
       ppformModal.show();
 
       // alert('Success! Thank you for your purchase. We\'ll review your order and coordinate with you soon. If you have any questions, please reach out to us via Discord :3');
+
+      // Fire GA Cart Data
+      fireGACartData('store_checkoutCompleted');
     } else if (result === 'canceled') {
       alert('Ah, it looks like you canceled the payment. No worries, you can try again later :3');
+
+      // Fire GA Cart Data
+      fireGACartData('store_checkoutCanceled');
     }
 
     // Check if the user was here in the last N days
@@ -1443,6 +1532,12 @@
           diffDays +
           ' days ago.'
       );
+
+      // Fire Google Analytics: Time since last session
+      fireGAEvent('Returning store customer', {
+        days_since_last_store: diffDays,
+      });
+
       if (diffDays > RESET_AFTER_N_DAYS) {
         console.log(
           'This is higher than the reset threshold (' +
@@ -1455,6 +1550,10 @@
     } else {
       console.log("No last session date found. This is the user's first visit.");
       resetSession();
+
+      // Fire Google Analytics: First time user
+      fireGAEvent('First time store user');
+
       return;
     }
 
@@ -1462,10 +1561,13 @@
     var savedCart = localStorage.getItem('userShoppingCart');
     if (savedCart) {
       userShoppingCart = JSON.parse(savedCart);
-      console.log('Cart loaded from localStorage. (' + userShoppingCart.length + ' items)');
+      console.log('Cart loaded from localStorage. (' + userShoppingCart.length + ' products)');
     } else {
       console.log('No saved cart found.');
     }
+
+    // Fire GA Cart Data
+    fireGACartData('store_loadReturningCustomer');
   }
   window.addEventListener('load', loadSession);
 </script>
