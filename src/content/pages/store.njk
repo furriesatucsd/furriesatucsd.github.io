@@ -23,7 +23,7 @@ description: Get exclusive merch, membership, materials, and more!
           </div>
         </div>
         <div class="modal-body">
-          <p>Important Reminders:</p>
+          <p>Here's some important info:</p>
           <ul>
             <li>
               Physical items are usually only for
@@ -856,9 +856,6 @@ description: Get exclusive merch, membership, materials, and more!
   // Cart Modal: Purchase Button
   var purchaseButton = document.querySelector('#cart-modal-checkout');
   purchaseButton.addEventListener('click', function (e) {
-    var priceId = purchaseButton.dataset.priceId;
-    var quantity = parseInt(document.querySelector('#item-modal-quantity').textContent, 10);
-
     // Run sanity checks on the cart
     // Check if the cart is empty
     if (userShoppingCart.length === 0) {
@@ -890,6 +887,13 @@ description: Get exclusive merch, membership, materials, and more!
       renderCartModal();
       return;
     }
+
+    // --- All checks have been run, so now we can proceed with checkout ---
+
+    // Show a quick notice
+    alert(
+      "We're sending you to Checkout! The club store is owned and run exclusively by Robin Ocampo, a member of Triton Tails. Your order may appear on your credit card statement as 'Robin O Merch' or 'RO-Merch'."
+    );
 
     // Make a copy of the cart that is acceptable for Stripe.
     var userShoppingCartCopy = [];
