@@ -201,7 +201,7 @@
           </div>
         </div>
         <div class="modal-body">
-          <p>Important Reminders:</p>
+          <p>Here's some important info:</p>
           <ul>
             <li>
               Physical items are usually only for
@@ -1351,9 +1351,6 @@
   // Cart Modal: Purchase Button
   var purchaseButton = document.querySelector('#cart-modal-checkout');
   purchaseButton.addEventListener('click', function (e) {
-    var priceId = purchaseButton.dataset.priceId;
-    var quantity = parseInt(document.querySelector('#item-modal-quantity').textContent, 10);
-
     // Run sanity checks on the cart
     // Check if the cart is empty
     if (userShoppingCart.length === 0) {
@@ -1385,6 +1382,13 @@
       renderCartModal();
       return;
     }
+
+    // --- All checks have been run, so now we can proceed with checkout ---
+
+    // Show a quick notice
+    alert(
+      "We're sending you to Checkout! The store is owned and run by Robin Ocampo, a member of Triton Tails. Your order may appear on your statement as 'Robin O Merch' or 'RO-Merch'."
+    );
 
     // Make a copy of the cart that is acceptable for Stripe.
     var userShoppingCartCopy = [];
