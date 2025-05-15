@@ -106,54 +106,204 @@
       "isFeatured": false,
       "items": [
         {
-          "name": "Coming soon...",
+          "name": "High Tide Mega Pack",
           "shortDesc": null,
-          "image": "/assets/images/store/high_1.png",
+          "image": "/assets/images/store/Tile_HighTideMegaPack.png",
           "variants": [
             {
               "name": "default",
-              "price": 4.99,
+              "price": 49.99,
               "priceId": "",
-              "description": ""
+              "description": "Get everything in the High Tide collection at a 30% discount! This pack includes: 1x High Tide Graffiti Tee, 2x High Tide Kandi Bracelets, all 6 High Tide Stickers, and all 3 High Tide Posters."
             }
           ]
         },
         {
-          "name": "Coming soon...",
+          "name": "High Tide Graffiti Tee",
           "shortDesc": null,
-          "image": "/assets/images/store/high_2.png",
-          "variants": [
-            {
-              "name": "default",
-              "price": 9.99,
-              "priceId": "",
-              "description": ""
-            }
-          ]
-        },
-        {
-          "name": "Coming soon...",
-          "shortDesc": null,
-          "image": "/assets/images/store/high_3.png",
+          "image": "/assets/images/store/Tile_Shirt_Graffiti.png",
           "variants": [
             {
               "name": "default",
               "price": 24.99,
               "priceId": "",
-              "description": ""
+              "description": "Unleash your inner rave spirit with our High Tide Graffiti Tee! Featuring a vibrant design inspired by the energy of the ocean and festival vibes, this shirt is perfect for beach days and unforgettable nights."
             }
           ]
         },
         {
-          "name": "Coming soon...",
+          "name": "High Tide Kandi Bracelets",
           "shortDesc": null,
-          "image": "/assets/images/store/high_3.png",
+          "image": "/assets/images/store/Tile_Bracelets_HighTide.png",
+          "variants": [
+            {
+              "name": "1 Bracelet",
+              "price": 2.99,
+              "priceId": "",
+              "description": "Get ready to rave with our High Tide Kandi Bracelets! These colorful and fun accessories are perfect for adding a pop of color to your outfit and showing off your love for the beach and festival culture."
+            },
+            {
+              "name": "2 Bracelets (Save $1)",
+              "price": 4.99,
+              "priceId": "",
+              "description": "Get ready to rave with our High Tide Kandi Bracelets! These colorful and fun accessories are perfect for adding a pop of color to your outfit and showing off your love for the beach and festival culture."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "The High Tide Poster Collection",
+      "description": "To be revealed soon...",
+      "isFeatured": false,
+      "items": [
+        {
+          "name": "High Tide Poster Pack",
+          "shortDesc": null,
+          "image": "/assets/images/store/Tile_Print_HighTidePack.png",
           "variants": [
             {
               "name": "default",
-              "price": 59.99,
+              "price": 18.99,
               "priceId": "",
-              "description": ""
+              "description": "Get all 3 posters in the High Tide collection at a 20% discount!"
+            }
+          ]
+        },
+        {
+          "name": "Lizzy x Russel Debut Poster",
+          "shortDesc": null,
+          "image": "/assets/images/store/Tile_Print_HighTide3.png",
+          "variants": [
+            {
+              "name": "default",
+              "price": 7.99,
+              "priceId": "",
+              "description": "Celebrate the debut of Lizzy and Russel with this stunning poster! Featuring vibrant colors and a unique design, this poster is perfect for any fan of our DJs."
+            }
+          ]
+        },
+        {
+          "name": "Lizzy x Russel DJ Poster",
+          "shortDesc": null,
+          "image": "/assets/images/store/Tile_Print_HighTide2.png",
+          "variants": [
+            {
+              "name": "default",
+              "price": 7.99,
+              "priceId": "",
+              "description": "Get ready to party with our Lizzy x Russel DJ Poster! This eye-catching design captures the energy of the rave scene and is perfect for any fan of our DJs."
+            }
+          ]
+        },
+        {
+          "name": "High Tide Debut Poster",
+          "shortDesc": null,
+          "image": "/assets/images/store/Tile_Print_HighTide1.png",
+          "variants": [
+            {
+              "name": "default",
+              "price": 7.99,
+              "priceId": "",
+              "description": "Celebrate the debut of High Tide with this stunning poster! Featuring vibrant colors and a unique design, this poster is perfect for any fan of our mascot."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "The High Tide Sticker Collection",
+      "description": "To be revealed soon...",
+      "isFeatured": false,
+      "items": [
+        {
+          "name": "High Tide Sticker Pack",
+          "shortDesc": null,
+          "image": "/assets/images/store/Tile_Sticker_HighTidePack.png",
+          "variants": [
+            {
+              "name": "default",
+              "price": 13.99,
+              "priceId": "",
+              "description": "Get all 6 stickers in the High Tide collection at a 20% discount!"
+            }
+          ]
+        },
+        {
+          "name": "Lizzy x Russel Debut Sticker",
+          "shortDesc": null,
+          "image": "/assets/images/store/Tile_Sticker_HighTide6.png",
+          "variants": [
+            {
+              "name": "default",
+              "price": 2.99,
+              "priceId": "",
+              "description": "Celebrate the debut of Lizzy and Russel with this stunning sticker! Featuring vibrant colors and a unique design, this sticker is perfect for any fan of our DJs."
+            }
+          ]
+        },
+        {
+          "name": "Triton Tails Graffiti Sticker",
+          "shortDesc": null,
+          "image": "/assets/images/store/Tile_Sticker_HighTide5.png",
+          "variants": [
+            {
+              "name": "default",
+              "price": 2.99,
+              "priceId": "",
+              "description": "Add a splash of Triton Tails to your collection with this vibrant Graffiti Sticker, featuring a unique design that captures the spirit of our club!"
+            }
+          ]
+        },
+        {
+          "name": "High Tide x Russel Sticker",
+          "shortDesc": null,
+          "image": "/assets/images/store/Tile_Sticker_HighTide4.png",
+          "variants": [
+            {
+              "name": "default",
+              "price": 2.99,
+              "priceId": "",
+              "description": "Show your love for High Tide and Russel with this sticker!"
+            }
+          ]
+        },
+        {
+          "name": "Russel Tamagotchi Sticker",
+          "shortDesc": null,
+          "image": "/assets/images/store/Tile_Sticker_HighTide3.png",
+          "variants": [
+            {
+              "name": "default",
+              "price": 2.99,
+              "priceId": "",
+              "description": "Show your love for Russel with this adorable Tamagotchi sticker, perfect for fans of our DJ!"
+            }
+          ]
+        },
+        {
+          "name": "Lizzy Tamagotchi Sticker",
+          "shortDesc": null,
+          "image": "/assets/images/store/Tile_Sticker_HighTide2.png",
+          "variants": [
+            {
+              "name": "default",
+              "price": 2.99,
+              "priceId": "",
+              "description": "Show your love for Lizzy with this adorable Tamagotchi sticker, perfect for fans of our DJ!"
+            }
+          ]
+        },
+        {
+          "name": "High Tide Balloon Sticker",
+          "shortDesc": null,
+          "image": "/assets/images/store/Tile_Sticker_HighTide1.png",
+          "variants": [
+            {
+              "name": "default",
+              "price": 2.99,
+              "priceId": "",
+              "description": "Show your love for High Tide with this silly balloon sticker!"
             }
           ]
         }
