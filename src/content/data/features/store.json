@@ -55,7 +55,7 @@
               "name": "default",
               "price": 49.99,
               "priceId": "price_1RPExVAQOudYnc4yafsYwazY",
-              "description": "Get everything in the High Tide collection at a 30% discount! This pack includes: 1x High Tide Graffiti Tee, 2x High Tide Kandi Bracelets, all 6 High Tide Stickers, and all 3 High Tide Posters."
+              "description": "Get everything in the High Tide collection at a 30% discount! This pack includes: 1x High Tide Graffiti Tee, 2x High Tide Kandi Bracelets, all 6 High Tide Stickers, and all 3 High Tide Posters. (Shirts are available in sizes S-XL, stickers are 3\", and posters are 11\" x 17\" :3)"
             }
           ]
         },
@@ -68,7 +68,7 @@
               "name": "default",
               "price": 24.99,
               "priceId": "price_1RPEZtAQOudYnc4y1Yl4Bmbq",
-              "description": "Unleash your inner rave spirit with our High Tide Graffiti Tee! Featuring a vibrant design inspired by the energy of the ocean and festival vibes, this shirt is perfect for beach days and unforgettable nights."
+              "description": "Unleash your inner rave spirit with our High Tide Graffiti Tee! Featuring a vibrant design inspired by the energy of the ocean and festival vibes, this shirt is perfect for beach days and unforgettable nights. (We carry sizes S-XL; after payment, you'll be able to specify which shirt size you would like :3)"
             }
           ]
         },
@@ -107,7 +107,7 @@
               "name": "default",
               "price": 18.99,
               "priceId": "price_1RPEgwAQOudYnc4yOT3UkbAX",
-              "description": "Get all 3 posters in the High Tide collection at a 20% discount!"
+              "description": "Get all 3 posters in the High Tide collection at a 20% discount! All posters are 11\" x 17\"."
             }
           ]
         },
@@ -120,7 +120,7 @@
               "name": "default",
               "price": 7.99,
               "priceId": "price_1RPEdVAQOudYnc4y6MeYFMbp",
-              "description": "Celebrate the debut of Lizzy and Russel with this stunning poster! Featuring vibrant colors and a unique design, this poster is perfect for any fan of our DJs."
+              "description": "Celebrate the debut of Lizzy and Russel with this stunning 11\" x 17\" poster! Featuring vibrant colors and a unique design, this poster is perfect for any fan of our DJs."
             }
           ]
         },
@@ -133,7 +133,7 @@
               "name": "default",
               "price": 7.99,
               "priceId": "price_1RPEegAQOudYnc4yIcjhsuYd",
-              "description": "Get ready to party with our Russel Headliner Reveal Poster! This eye-catching design captures the energy of the rave scene and is perfect for any fan of our DJs."
+              "description": "Get ready to party with our Russel Headliner Reveal Poster! This eye-catching 11\" x 17\" design captures the energy of the rave scene and is perfect for any fan of our DJs."
             }
           ]
         },
@@ -146,7 +146,7 @@
               "name": "default",
               "price": 7.99,
               "priceId": "price_1RPEffAQOudYnc4yV4Ccpqme",
-              "description": "Celebrate the debut of High Tide with this stunning poster! Featuring vibrant colors and a unique design, this poster is perfect for any fan of our mascot."
+              "description": "Celebrate the debut of High Tide with this stunning 11\" x 17\" poster! Featuring vibrant colors and a unique design, this poster is perfect for any fan of our mascot."
             }
           ]
         }
@@ -166,7 +166,7 @@
               "name": "default",
               "price": 13.99,
               "priceId": "price_1RPEvFAQOudYnc4yQS4AdSgp",
-              "description": "Get all 6 stickers in the High Tide collection at a 20% discount!"
+              "description": "Get all 6 stickers in the High Tide collection at a 20% discount! All stickers are 3\"."
             }
           ]
         },
@@ -179,7 +179,7 @@
               "name": "default",
               "price": 2.99,
               "priceId": "price_1RPEqqAQOudYnc4yGkkigQTb",
-              "description": "Celebrate the debut of Lizzy and Russel with this stunning sticker! Featuring vibrant colors and a unique design, this sticker is perfect for any fan of our DJs."
+              "description": "Celebrate the debut of Lizzy and Russel with this stunning 3\" sticker! Featuring vibrant colors and a unique design, this sticker is perfect for any fan of our DJs."
             }
           ]
         },
@@ -192,7 +192,7 @@
               "name": "default",
               "price": 2.99,
               "priceId": "price_1RPErVAQOudYnc4y7vK3o6uX",
-              "description": "Add a splash of Triton Tails to your collection with this vibrant Graffiti Sticker, featuring a unique design that captures the spirit of our club!"
+              "description": "Add a splash of Triton Tails to your collection with this vibrant 3\" Graffiti Sticker, featuring a unique design that captures the spirit of our club!"
             }
           ]
         },
@@ -205,7 +205,7 @@
               "name": "default",
               "price": 2.99,
               "priceId": "price_1RPEs9AQOudYnc4yoc2hhRNe",
-              "description": "Show your love for High Tide and Russel with this sticker!"
+              "description": "Show your love for High Tide and Russel with this 3\" sticker!"
             }
           ]
         },
@@ -218,7 +218,7 @@
               "name": "default",
               "price": 2.99,
               "priceId": "price_1RPEt4AQOudYnc4yzoWWS5zL",
-              "description": "Show your love for Russel with this adorable Tamagotchi sticker, perfect for fans of our DJ!"
+              "description": "Show your love for Russel with this adorable 3\" Tamagotchi sticker, perfect for fans of our DJ!"
             }
           ]
         },
@@ -231,7 +231,7 @@
               "name": "default",
               "price": 2.99,
               "priceId": "price_1RPEtTAQOudYnc4yg5T3CqtD",
-              "description": "Show your love for Lizzy with this adorable Tamagotchi sticker, perfect for fans of our DJ!"
+              "description": "Show your love for Lizzy with this adorable 3\" Tamagotchi sticker, perfect for fans of our DJ!"
             }
           ]
         },
@@ -244,7 +244,7 @@
               "name": "default",
               "price": 2.99,
               "priceId": "price_1RPEu5AQOudYnc4yk1tW3If9",
-              "description": "Show your love for High Tide with this silly balloon sticker!"
+              "description": "Show your love for High Tide with this silly 3\" balloon sticker!"
             }
           ]
         }
