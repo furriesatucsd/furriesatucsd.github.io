@@ -407,7 +407,7 @@ description: Get exclusive merch, membership, materials, and more!
 
   // Fire a Google Analytics event with the given event name and parameters
   function fireGAEvent(eventName, params) {
-    if (typeof gtag === 'function') {
+    if (DOMAIN === 'https://furriesatucsd.github.io/store/' && typeof gtag === 'function') {
       gtag('event', eventName, params);
     }
   }
