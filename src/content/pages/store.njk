@@ -909,8 +909,6 @@ description: Get exclusive merch, membership, materials, and more!
 
     // Save any user data before redirecting to a new page.
     saveSession();
-
-    // Fire GA Cart Data
     fireGACartData('store_checkoutStarted');
 
     // Make the call to Stripe.js to redirect to the checkout page
@@ -966,13 +964,6 @@ description: Get exclusive merch, membership, materials, and more!
     localStorage.setItem('lastSessionDate', currentDate.toISOString());
     console.log('Session date saved to localStorage: ' + currentDate.toISOString());
   }
-  window.addEventListener('beforeunload', () => {
-    // Save the session data before leaving the page
-    saveSession();
-
-    // Fire GA Cart Data
-    fireGACartData('store_reloadOrQuit');
-  });
 
   // Reset any user data and render a fresh start.
   function resetSession() {
@@ -1014,12 +1005,9 @@ description: Get exclusive merch, membership, materials, and more!
 
       // alert('Success! Thank you for your purchase. We\'ll review your order and coordinate with you soon. If you have any questions, please reach out to us via Discord :3');
 
-      // Fire GA Cart Data
       fireGACartData('store_checkoutCompleted');
     } else if (result === 'canceled') {
       alert('Ah, it looks like you canceled the payment. No worries, you can try again later :3');
-
-      // Fire GA Cart Data
       fireGACartData('store_checkoutCanceled');
     }
 
@@ -1071,8 +1059,27 @@ description: Get exclusive merch, membership, materials, and more!
       console.log('No saved cart found.');
     }
 
-    // Fire GA Cart Data
     fireGACartData('store_loadReturningCustomer');
   }
+
+  // PAGE EVENT CONNECTIONS
+  // Load
   window.addEventListener('load', loadSession);
+  // Save
+  // These are not very reliable depending on the browser / device type so we have to have redundant events...
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') {
+      saveSession();
+      fireGACartData('store_visibilityHidden');
+    }
+  });
+  window.addEventListener('pagehide', () => {
+    saveSession();
+    fireGACartData('store_pageHide');
+  });
+  window.addEventListener('beforeunload', () => {
+    saveSession();
+    fireGACartData('store_beforeUnload');
+  });
+
 </script>
