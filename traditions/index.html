@@ -35,17 +35,28 @@
 
     <!-- GA4 -->
     
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-FL8NYH375F"
-    ></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
+      // Check hostname at runtime
+      if (window.location.hostname === 'furriesatucsd.github.io') {
+        // Load GA4 script dynamically
+        const gaScript = document.createElement('script');
+        gaScript.async = true;
+        gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-FL8NYH375F';
+        document.head.appendChild(gaScript);
+
+        // Initialize GA4
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-FL8NYH375F');
+      } else {
+        console.warn(
+          'Google Analytics is not enabled for this hostname:',
+          window.location.hostname
+        );
       }
-      gtag('js', new Date());
-      gtag('config', 'G-FL8NYH375F');
     </script>
     
   </head>
