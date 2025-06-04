@@ -1067,6 +1067,7 @@ description: Get exclusive merch, membership, materials, and more!
   window.addEventListener('load', loadSession);
   // Save
   // These are not very reliable depending on the browser / device type so we have to have redundant events...
+  // See: https://www.igvita.com/2015/11/20/dont-lose-user-and-app-state-use-page-visibility/
   document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'hidden') {
       saveSession();
