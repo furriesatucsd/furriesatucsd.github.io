@@ -961,14 +961,10 @@ description: Get exclusive merch, membership, materials, and more!
     localStorage.setItem('userOrderId', userOrderId);
     console.log('Order ID saved to localStorage.');
 
-    // Save the last session date to localStorage, but only if the cart is not empty
-    if (userShoppingCart.length >= 1) {
-      var currentDate = new Date();
-      localStorage.setItem('lastSessionDate', currentDate.toISOString());
-      console.log('Session date saved to localStorage: ' + currentDate.toISOString());
-    } else {
-      console.log('Not counting this session, since the cart is empty.');
-    }
+    // Save the last session date to localStorage
+    var currentDate = new Date();
+    localStorage.setItem('lastSessionDate', currentDate.toISOString());
+    console.log('Session date saved to localStorage: ' + currentDate.toISOString());
   }
   window.addEventListener('beforeunload', () => {
     // Save the session data before leaving the page
