@@ -35,26 +35,29 @@
 
     <!-- GA4 -->
     {% if site.googleAnalyticsId %}
-      <script>
-        // Check hostname at runtime
-        if (window.location.hostname === 'furriesatucsd.github.io') {
-          // Load GA4 script dynamically
-          const gaScript = document.createElement('script');
-          gaScript.async = true;
-          gaScript.src = "https://www.googletagmanager.com/gtag/js?id={{ site.googleAnalyticsId }}";
-          document.head.appendChild(gaScript);
+    <script>
+      // Check hostname at runtime
+      if (window.location.hostname === 'furriesatucsd.github.io') {
+        // Load GA4 script dynamically
+        const gaScript = document.createElement('script');
+        gaScript.async = true;
+        gaScript.src = 'https://www.googletagmanager.com/gtag/js?id={{ site.googleAnalyticsId }}';
+        document.head.appendChild(gaScript);
 
-          // Initialize GA4
-          window.dataLayer = window.dataLayer || [];
-          function gtag() {
-            dataLayer.push(arguments);
-          }
-          gtag('js', new Date());
-          gtag('config', '{{ site.googleAnalyticsId }}');
-        } else {
-          console.warn('Google Analytics is not enabled for this hostname:', window.location.hostname);
+        // Initialize GA4
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
         }
-      </script>
+        gtag('js', new Date());
+        gtag('config', '{{ site.googleAnalyticsId }}');
+      } else {
+        console.warn(
+          'Google Analytics is not enabled for this hostname:',
+          window.location.hostname
+        );
+      }
+    </script>
     {% endif %}
   </head>
   <body>
