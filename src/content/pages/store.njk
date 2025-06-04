@@ -364,7 +364,8 @@ description: Get exclusive merch, membership, materials, and more!
   // SETTINGS
   var PUBLISHABLE_KEY =
     'pk_live_51R7VbOAQOudYnc4yVnTuem7H7BqF3rfDTOLrfCisXO5GSN3MT71rblkmZwkjTVhYiMMJawTIFS4i5iYXTuvbPlur00ThuzJT03'; // Your own publishable key: https://dashboard.stripe.com/test/apikeys
-  var DOMAIN = location.href.replace(/[^/]*$/, ''); // The domain you want your users to be redirected back to after payment
+  var GA_HOSTNAME = 'furriesatucsd.github.io'; // The hostname you want to use for Google Analytics tracking. The GA function will sanity check this before firing GA events.
+  var REDIRECT_DOMAIN = location.href.replace(/[^/]*$/, ''); // The domain you want your users to be redirected back to after payment
   var NOT_FOR_SALE_DESCRIPTION = 'Item is not yet for sale'; // The ID and description to show when an item is not for sale
   var RESET_AFTER_N_DAYS = 1; // The number of days after which the cart and terms of service will be reset (0 = always, 1 = 1 day, etc.)
 
@@ -407,9 +408,20 @@ description: Get exclusive merch, membership, materials, and more!
 
   // Fire a Google Analytics event with the given event name and parameters
   function fireGAEvent(eventName, params) {
-    if (typeof gtag === 'function') {
-      gtag('event', eventName, params);
+    // Sanity check: Make sure the user's hostname matches the GA_HOSTNAME.
+    if (location.hostname !== GA_HOSTNAME) {
+      console.warn(
+        'Google Analytics event not fired because the hostname does not match the configured GA_HOSTNAME.'
+      );
+      return;
     }
+
+    // Sanity check: Make sure gtag is defined
+    if (typeof gtag !== 'function') {
+      console.warn('gtag function is not defined. Google Analytics may not be set up correctly.');
+      return;
+    }
+    gtag('event', eventName, params);
   }
 
   // Clear the Item Modal data that would be populated from a variant
@@ -909,8 +921,6 @@ description: Get exclusive merch, membership, materials, and more!
 
     // Save any user data before redirecting to a new page.
     saveSession();
-
-    // Fire GA Cart Data
     fireGACartData('store_checkoutStarted');
 
     // Make the call to Stripe.js to redirect to the checkout page
@@ -918,8 +928,8 @@ description: Get exclusive merch, membership, materials, and more!
       .redirectToCheckout({
         lineItems: userShoppingCartCopy,
         mode: 'payment',
-        successUrl: DOMAIN + '?result=success&session_id={CHECKOUT_SESSION_ID}',
-        cancelUrl: DOMAIN + '?result=canceled&session_id={CHECKOUT_SESSION_ID}',
+        successUrl: REDIRECT_DOMAIN + '?result=success&session_id={CHECKOUT_SESSION_ID}',
+        cancelUrl: REDIRECT_DOMAIN + '?result=canceled&session_id={CHECKOUT_SESSION_ID}',
         clientReferenceId: userOrderId,
       })
       .then()
@@ -961,22 +971,11 @@ description: Get exclusive merch, membership, materials, and more!
     localStorage.setItem('userOrderId', userOrderId);
     console.log('Order ID saved to localStorage.');
 
-    // Save the last session date to localStorage, but only if the cart is not empty
-    if (userShoppingCart.length >= 1) {
-      var currentDate = new Date();
-      localStorage.setItem('lastSessionDate', currentDate.toISOString());
-      console.log('Session date saved to localStorage: ' + currentDate.toISOString());
-    } else {
-      console.log('Not counting this session, since the cart is empty.');
-    }
+    // Save the last session date to localStorage
+    var currentDate = new Date();
+    localStorage.setItem('lastSessionDate', currentDate.toISOString());
+    console.log('Session date saved to localStorage: ' + currentDate.toISOString());
   }
-  window.addEventListener('beforeunload', () => {
-    // Save the session data before leaving the page
-    saveSession();
-
-    // Fire GA Cart Data
-    fireGACartData('store_reloadOrQuit');
-  });
 
   // Reset any user data and render a fresh start.
   function resetSession() {
@@ -1018,12 +1017,9 @@ description: Get exclusive merch, membership, materials, and more!
 
       // alert('Success! Thank you for your purchase. We\'ll review your order and coordinate with you soon. If you have any questions, please reach out to us via Discord :3');
 
-      // Fire GA Cart Data
       fireGACartData('store_checkoutCompleted');
     } else if (result === 'canceled') {
       alert('Ah, it looks like you canceled the payment. No worries, you can try again later :3');
-
-      // Fire GA Cart Data
       fireGACartData('store_checkoutCanceled');
     }
 
@@ -1075,8 +1071,27 @@ description: Get exclusive merch, membership, materials, and more!
       console.log('No saved cart found.');
     }
 
-    // Fire GA Cart Data
     fireGACartData('store_loadReturningCustomer');
   }
+
+  // PAGE EVENT CONNECTIONS
+  // Load
   window.addEventListener('load', loadSession);
+  // Save
+  // These are not very reliable depending on the browser / device type so we have to have redundant events...
+  // See: https://www.igvita.com/2015/11/20/dont-lose-user-and-app-state-use-page-visibility/
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') {
+      saveSession();
+      fireGACartData('store_visibilityHidden');
+    }
+  });
+  window.addEventListener('pagehide', () => {
+    saveSession();
+    fireGACartData('store_pageHide');
+  });
+  window.addEventListener('beforeunload', () => {
+    saveSession();
+    fireGACartData('store_beforeUnload');
+  });
 </script>
