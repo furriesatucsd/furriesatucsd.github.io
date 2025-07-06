@@ -9,6 +9,14 @@
       "alt": "Howloween"
     },
     {
+      "id": "07",
+      "title": "High Tide Rave Festival",
+      "description": "An electrifying night of music, dancing, and fun — featuring an insane lineup of DJs: HYPER., tehT, LizzysPersonalArmy, Hushpuppy, and Russelbuck!",
+      "image": "/assets/images/gallery/fulls/07.jpg",
+      "thumbnail": "/assets/images/gallery/thumbs/07.jpg",
+      "alt": "High Tide Rave Festival"
+    },
+    {
       "id": "02",
       "title": "Cinco de MAWyo",
       "description": "Game Night and Furmeet in collaboration with San Diego Furries",
@@ -39,14 +47,6 @@
       "image": "/assets/images/gallery/fulls/05.jpg",
       "thumbnail": "/assets/images/gallery/thumbs/05.jpg",
       "alt": "San Diego Furmeet"
-    },
-    {
-      "id": "06",
-      "title": "Spring Kickoff",
-      "description": "Mario Kart, Minecraft, and more! Silly game night and fursuiting on campus",
-      "image": "/assets/images/gallery/fulls/06.jpg",
-      "thumbnail": "/assets/images/gallery/thumbs/06.jpg",
-      "alt": "Spring Kickoff"
     }
   ]
 }
