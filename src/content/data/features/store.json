@@ -6,16 +6,16 @@
       "isFeatured": true,
       "items": [
         {
-          "name": "High Tide - Rave Festival",
-          "shortDesc": "Get tickets for our massive rave festival on May 25!",
+          "name": "Howloween 2025: Creature Feature",
+          "shortDesc": "Get tickets for our halloween-themed festival on October 18!",
           "image": "/assets/images/store/featured_1.png",
           "variants": [
             {
               "name": "default",
               "price": null,
               "priceId": "",
-              "description": "Register for High Tide - the premier rave festival happening at UC San Diego! Get ready to dance the night away with an insane lineup of DJs, PLUS headliners you won't want to miss! Nightclub-style rave vibes, epic beats, and high energy all night long!",
-              "externalUrl": "https://tinyurl.com/TT-high-tide"
+              "description": "Register for Howloween, our annual halloween-themed festival, featuring an artist alley, costume contest, and more!",
+              "externalUrl": "https://tinyurl.com/TT-howloween-2025"
             }
           ]
         },
