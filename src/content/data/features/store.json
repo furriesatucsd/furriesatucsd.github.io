@@ -22,13 +22,20 @@
         {
           "name": "Membership Cards",
           "shortDesc": "Get exclusive perks and discounts across campus!",
-          "image": "/assets/images/store/card_spring2025.png",
+          "image": "/assets/images/store/card_fall2025.png",
           "variants": [
             {
-              "name": "Spring (current)",
+              "name": "Fall 2025 (current)",
               "price": 9.99,
-              "priceId": "price_1RBvYfAQOudYnc4y7Mm8UZg5",
+              "priceId": "price_1SHB9AAQOudYnc4yky5q42zo",
               "description": "Get a membership card to score exclusive discounts and perks this season! Perks include: 10% off at most restaurants on-campus, 10% off all Club Merch, and Priority for Fursuit Workshops."
+            },
+            {
+              "name": "Spring 2025",
+              "price": 2.99,
+              "priceId": "price_1SHB7kAQOudYnc4yS3jtdT5D",
+              "description": "Missed our previous membership card? No worries! You can still get this previous card to keep the art as a souvenir and show your support for the club. (The card will not be valid for discounts.)",
+              "image": "/assets/images/store/card_spring2025.png"
             },
             {
               "name": "Winter 2025",
