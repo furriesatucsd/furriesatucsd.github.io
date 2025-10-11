@@ -293,14 +293,15 @@
               <label for="ppform-pickup-location" class="form-label">Desired Pickup Location</label>
               <select class="form-select form-input-dropdown" id="ppform-pickup-location" required>
                 <option value="" disabled selected></option>
-                <option value="UCSD">UCSD</option>
+                <option value="UCSD">UCSD (Tabling)</option>
+                <option value="UCSD">UCSD (Howloween)</option>
                 <option value="SDF">SDF</option>
                 <option value="IBFM">IBFM</option>
               </select>
             </div>
             <div class="mb-3 form-input">
               <label for="ppform-tshirt-size" class="form-label">Shirt Size</label>
-              <select class="form-select form-input-dropdown" id="ppform-tshirt-size">
+              <select class="form-select form-input-dropdown-small" id="ppform-tshirt-size">
                 <option value="" disabled selected></option>
                 <option value="S">S</option>
                 <option value="M">M</option>
@@ -526,11 +527,11 @@
                 class="store-item"
                 data-bs-toggle="modal"
                 data-bs-target="#itemModal"
-                data-item-info="{&quot;name&quot;:&quot;Membership Cards&quot;,&quot;shortDesc&quot;:&quot;Get exclusive perks and discounts across campus!&quot;,&quot;image&quot;:&quot;/assets/images/store/card_spring2025.png&quot;,&quot;variants&quot;:[{&quot;name&quot;:&quot;Spring (current)&quot;,&quot;price&quot;:9.99,&quot;priceId&quot;:&quot;price_1RBvYfAQOudYnc4y7Mm8UZg5&quot;,&quot;description&quot;:&quot;Get a membership card to score exclusive discounts and perks this season! Perks include: 10% off at most restaurants on-campus, 10% off all Club Merch, and Priority for Fursuit Workshops.&quot;},{&quot;name&quot;:&quot;Winter 2025&quot;,&quot;price&quot;:2.99,&quot;priceId&quot;:&quot;price_1RCHyoAQOudYnc4yfRo7yDMG&quot;,&quot;description&quot;:&quot;Missed our previous membership card? No worries! You can still get this previous card to keep the art as a souvenir and show your support for the club. (The card will not be valid for discounts.)&quot;,&quot;image&quot;:&quot;/assets/images/store/card_winter2025.png&quot;}]}"
+                data-item-info="{&quot;name&quot;:&quot;Membership Cards&quot;,&quot;shortDesc&quot;:&quot;Get exclusive perks and discounts across campus!&quot;,&quot;image&quot;:&quot;/assets/images/store/card_fall2025.png&quot;,&quot;variants&quot;:[{&quot;name&quot;:&quot;Fall 2025 (current)&quot;,&quot;price&quot;:9.99,&quot;priceId&quot;:&quot;price_1SHB9AAQOudYnc4yky5q42zo&quot;,&quot;description&quot;:&quot;Get a membership card to score exclusive discounts and perks this season! Perks include: 10% off at most restaurants on-campus, 10% off all Club Merch, and Priority for Fursuit Workshops.&quot;},{&quot;name&quot;:&quot;Spring 2025&quot;,&quot;price&quot;:2.99,&quot;priceId&quot;:&quot;price_1SHB7kAQOudYnc4yS3jtdT5D&quot;,&quot;description&quot;:&quot;Missed our previous membership card? No worries! You can still get this previous card to keep the art as a souvenir and show your support for the club. (The card will not be valid for discounts.)&quot;,&quot;image&quot;:&quot;/assets/images/store/card_spring2025.png&quot;},{&quot;name&quot;:&quot;Winter 2025&quot;,&quot;price&quot;:2.99,&quot;priceId&quot;:&quot;price_1RCHyoAQOudYnc4yfRo7yDMG&quot;,&quot;description&quot;:&quot;Missed our previous membership card? No worries! You can still get this previous card to keep the art as a souvenir and show your support for the club. (The card will not be valid for discounts.)&quot;,&quot;image&quot;:&quot;/assets/images/store/card_winter2025.png&quot;}]}"
                 type="button"
                 onclick="fireGAEvent('Selected Store Item', { selected_item_name:'Membership Cards',})"
               >
-                <img src="/assets/images/store/card_spring2025.png" alt="Membership Cards" />
+                <img src="/assets/images/store/card_fall2025.png" alt="Membership Cards" />
                 <b>Membership Cards</b>
                 
                 <!-- Display the short description, if there is one -->
@@ -544,7 +545,7 @@
         <div class="store-aisle">
           <div>
             <h4 class="mb-1">The High Tide Collection</h4>
-            <p class="mb-1">Our latest merch line for our rave festival!</p>
+            <p class="mb-1">The merch line from our previous rave festival. Shirts are still available!</p>
           </div>
           <div class="scrollable-container-x">
             <div
@@ -553,21 +554,6 @@
               
             >
               <div class="scroll-edge-overlay"></div>
-              
-              <button
-                class="store-item"
-                data-bs-toggle="modal"
-                data-bs-target="#itemModal"
-                data-item-info="{&quot;name&quot;:&quot;High Tide Mega Bundle&quot;,&quot;shortDesc&quot;:null,&quot;image&quot;:&quot;/assets/images/store/Tile_HighTideMegaPack.png&quot;,&quot;variants&quot;:[{&quot;name&quot;:&quot;default&quot;,&quot;price&quot;:49.99,&quot;priceId&quot;:&quot;price_1RPExVAQOudYnc4yafsYwazY&quot;,&quot;description&quot;:&quot;Get everything in the High Tide collection at a 30% discount! This pack includes: 1x High Tide Graffiti Tee, 2x High Tide Kandi Bracelets, all 6 High Tide Stickers, and all 3 High Tide Posters. (Shirts are available in sizes S-XL, stickers are 3&#92;&quot;, and posters are 11&#92;&quot; x 17&#92;&quot; :3)&quot;}]}"
-                type="button"
-                onclick="fireGAEvent('Selected Store Item', { selected_item_name:'High Tide Mega Bundle',})"
-              >
-                <img src="/assets/images/store/Tile_HighTideMegaPack.png" alt="High Tide Mega Bundle" />
-                <b>High Tide Mega Bundle</b>
-                
-                <!-- Display the price, if there is one -->
-                 $49.99  
-              </button>
               
               <button
                 class="store-item"
@@ -588,7 +574,7 @@
                 class="store-item"
                 data-bs-toggle="modal"
                 data-bs-target="#itemModal"
-                data-item-info="{&quot;name&quot;:&quot;High Tide Kandi Bracelets&quot;,&quot;shortDesc&quot;:null,&quot;image&quot;:&quot;/assets/images/store/Tile_Bracelets_HighTide.png&quot;,&quot;variants&quot;:[{&quot;name&quot;:&quot;1 Bracelet&quot;,&quot;price&quot;:2.99,&quot;priceId&quot;:&quot;price_1RP8lCAQOudYnc4ycsH5Lnxp&quot;,&quot;description&quot;:&quot;Get ready to rave with our High Tide Kandi Bracelets! These colorful and fun accessories are perfect for adding a pop of color to your outfit and showing off your love for the beach and festival culture.&quot;},{&quot;name&quot;:&quot;2 Bracelets (Save $1)&quot;,&quot;price&quot;:4.99,&quot;priceId&quot;:&quot;price_1RP8mJAQOudYnc4yOvGPlxyl&quot;,&quot;description&quot;:&quot;Get ready to rave with our High Tide Kandi Bracelets! These colorful and fun accessories are perfect for adding a pop of color to your outfit and showing off your love for the beach and festival culture.&quot;}]}"
+                data-item-info="{&quot;name&quot;:&quot;High Tide Kandi Bracelets&quot;,&quot;shortDesc&quot;:null,&quot;image&quot;:&quot;/assets/images/store/Tile_Bracelets_HighTide.png&quot;,&quot;variants&quot;:[{&quot;name&quot;:&quot;1 Bracelet&quot;,&quot;price&quot;:2.99,&quot;priceId&quot;:null,&quot;description&quot;:&quot;Get ready to rave with our High Tide Kandi Bracelets! These colorful and fun accessories are perfect for adding a pop of color to your outfit and showing off your love for the beach and festival culture.&quot;},{&quot;name&quot;:&quot;2 Bracelets (Save $1)&quot;,&quot;price&quot;:4.99,&quot;priceId&quot;:null,&quot;description&quot;:&quot;Get ready to rave with our High Tide Kandi Bracelets! These colorful and fun accessories are perfect for adding a pop of color to your outfit and showing off your love for the beach and festival culture.&quot;}]}"
                 type="button"
                 onclick="fireGAEvent('Selected Store Item', { selected_item_name:'High Tide Kandi Bracelets',})"
               >
@@ -596,84 +582,7 @@
                 <b>High Tide Kandi Bracelets</b>
                 
                 <!-- Display the price, if there is one -->
-                 $2.99  
-              </button>
-              
-            </div>
-          </div>
-        </div>
-        
-        <div class="store-aisle">
-          <div>
-            <h4 class="mb-1">The High Tide Poster Collection</h4>
-            <p class="mb-1">Decorate your space with our rave festival posters!</p>
-          </div>
-          <div class="scrollable-container-x">
-            <div
-              
-              class="store-row"
-              
-            >
-              <div class="scroll-edge-overlay"></div>
-              
-              <button
-                class="store-item"
-                data-bs-toggle="modal"
-                data-bs-target="#itemModal"
-                data-item-info="{&quot;name&quot;:&quot;High Tide Poster Pack&quot;,&quot;shortDesc&quot;:null,&quot;image&quot;:&quot;/assets/images/store/Tile_Print_HighTidePack.png&quot;,&quot;variants&quot;:[{&quot;name&quot;:&quot;default&quot;,&quot;price&quot;:18.99,&quot;priceId&quot;:&quot;price_1RPEgwAQOudYnc4yOT3UkbAX&quot;,&quot;description&quot;:&quot;Get all 3 posters in the High Tide collection at a 20% discount! All posters are 11&#92;&quot; x 17&#92;&quot;.&quot;}]}"
-                type="button"
-                onclick="fireGAEvent('Selected Store Item', { selected_item_name:'High Tide Poster Pack',})"
-              >
-                <img src="/assets/images/store/Tile_Print_HighTidePack.png" alt="High Tide Poster Pack" />
-                <b>High Tide Poster Pack</b>
-                
-                <!-- Display the price, if there is one -->
-                 $18.99  
-              </button>
-              
-              <button
-                class="store-item"
-                data-bs-toggle="modal"
-                data-bs-target="#itemModal"
-                data-item-info="{&quot;name&quot;:&quot;Lizzy x Russel Debut Poster&quot;,&quot;shortDesc&quot;:null,&quot;image&quot;:&quot;/assets/images/store/Tile_Print_HighTide1.png&quot;,&quot;variants&quot;:[{&quot;name&quot;:&quot;default&quot;,&quot;price&quot;:7.99,&quot;priceId&quot;:&quot;price_1RPEdVAQOudYnc4y6MeYFMbp&quot;,&quot;description&quot;:&quot;Celebrate the debut of Lizzy and Russel with this stunning 11&#92;&quot; x 17&#92;&quot; poster! Featuring vibrant colors and a unique design, this poster is perfect for any fan of our DJs.&quot;}]}"
-                type="button"
-                onclick="fireGAEvent('Selected Store Item', { selected_item_name:'Lizzy x Russel Debut Poster',})"
-              >
-                <img src="/assets/images/store/Tile_Print_HighTide1.png" alt="Lizzy x Russel Debut Poster" />
-                <b>Lizzy x Russel Debut Poster</b>
-                
-                <!-- Display the price, if there is one -->
-                 $7.99  
-              </button>
-              
-              <button
-                class="store-item"
-                data-bs-toggle="modal"
-                data-bs-target="#itemModal"
-                data-item-info="{&quot;name&quot;:&quot;Russel Headliner Reveal Poster&quot;,&quot;shortDesc&quot;:null,&quot;image&quot;:&quot;/assets/images/store/Tile_Print_HighTide3.png&quot;,&quot;variants&quot;:[{&quot;name&quot;:&quot;default&quot;,&quot;price&quot;:7.99,&quot;priceId&quot;:&quot;price_1RPEegAQOudYnc4yIcjhsuYd&quot;,&quot;description&quot;:&quot;Get ready to party with our Russel Headliner Reveal Poster! This eye-catching 11&#92;&quot; x 17&#92;&quot; design captures the energy of the rave scene and is perfect for any fan of our DJs.&quot;}]}"
-                type="button"
-                onclick="fireGAEvent('Selected Store Item', { selected_item_name:'Russel Headliner Reveal Poster',})"
-              >
-                <img src="/assets/images/store/Tile_Print_HighTide3.png" alt="Russel Headliner Reveal Poster" />
-                <b>Russel Headliner Reveal Poster</b>
-                
-                <!-- Display the price, if there is one -->
-                 $7.99  
-              </button>
-              
-              <button
-                class="store-item"
-                data-bs-toggle="modal"
-                data-bs-target="#itemModal"
-                data-item-info="{&quot;name&quot;:&quot;High Tide Debut Poster&quot;,&quot;shortDesc&quot;:null,&quot;image&quot;:&quot;/assets/images/store/Tile_Print_HighTide2.png&quot;,&quot;variants&quot;:[{&quot;name&quot;:&quot;default&quot;,&quot;price&quot;:7.99,&quot;priceId&quot;:&quot;price_1RPEffAQOudYnc4yV4Ccpqme&quot;,&quot;description&quot;:&quot;Celebrate the debut of High Tide with this stunning 11&#92;&quot; x 17&#92;&quot; poster! Featuring vibrant colors and a unique design, this poster is perfect for any fan of our mascot.&quot;}]}"
-                type="button"
-                onclick="fireGAEvent('Selected Store Item', { selected_item_name:'High Tide Debut Poster',})"
-              >
-                <img src="/assets/images/store/Tile_Print_HighTide2.png" alt="High Tide Debut Poster" />
-                <b>High Tide Debut Poster</b>
-                
-                <!-- Display the price, if there is one -->
-                 $7.99  
+                 $2.99 • Offsale  
               </button>
               
             </div>
@@ -697,7 +606,7 @@
                 class="store-item"
                 data-bs-toggle="modal"
                 data-bs-target="#itemModal"
-                data-item-info="{&quot;name&quot;:&quot;High Tide Sticker Pack&quot;,&quot;shortDesc&quot;:null,&quot;image&quot;:&quot;/assets/images/store/Tile_Sticker_HighTidePack.png&quot;,&quot;variants&quot;:[{&quot;name&quot;:&quot;default&quot;,&quot;price&quot;:13.99,&quot;priceId&quot;:&quot;price_1RPEvFAQOudYnc4yQS4AdSgp&quot;,&quot;description&quot;:&quot;Get all 6 stickers in the High Tide collection at a 20% discount! All stickers are 3&#92;&quot;.&quot;}]}"
+                data-item-info="{&quot;name&quot;:&quot;High Tide Sticker Pack&quot;,&quot;shortDesc&quot;:null,&quot;image&quot;:&quot;/assets/images/store/Tile_Sticker_HighTidePack.png&quot;,&quot;variants&quot;:[{&quot;name&quot;:&quot;default&quot;,&quot;price&quot;:9.99,&quot;priceId&quot;:&quot;price_1SHBJLAQOudYnc4ykcReMNVV&quot;,&quot;description&quot;:&quot;Get all 5 stickers in the High Tide collection at a discount! All stickers are 3&#92;&quot;.&quot;}]}"
                 type="button"
                 onclick="fireGAEvent('Selected Store Item', { selected_item_name:'High Tide Sticker Pack',})"
               >
@@ -705,7 +614,7 @@
                 <b>High Tide Sticker Pack</b>
                 
                 <!-- Display the price, if there is one -->
-                 $13.99  
+                 $9.99  
               </button>
               
               <button
@@ -718,21 +627,6 @@
               >
                 <img src="/assets/images/store/Tile_Sticker_HighTide6.png" alt="Lizzy x Russel Debut Sticker" />
                 <b>Lizzy x Russel Debut Sticker</b>
-                
-                <!-- Display the price, if there is one -->
-                 $2.99  
-              </button>
-              
-              <button
-                class="store-item"
-                data-bs-toggle="modal"
-                data-bs-target="#itemModal"
-                data-item-info="{&quot;name&quot;:&quot;Triton Tails Graffiti Sticker&quot;,&quot;shortDesc&quot;:null,&quot;image&quot;:&quot;/assets/images/store/Tile_Sticker_HighTide5.png&quot;,&quot;variants&quot;:[{&quot;name&quot;:&quot;default&quot;,&quot;price&quot;:2.99,&quot;priceId&quot;:&quot;price_1RPErVAQOudYnc4y7vK3o6uX&quot;,&quot;description&quot;:&quot;Add a splash of Triton Tails to your collection with this vibrant 3&#92;&quot; Graffiti Sticker, featuring a unique design that captures the spirit of our club!&quot;}]}"
-                type="button"
-                onclick="fireGAEvent('Selected Store Item', { selected_item_name:'Triton Tails Graffiti Sticker',})"
-              >
-                <img src="/assets/images/store/Tile_Sticker_HighTide5.png" alt="Triton Tails Graffiti Sticker" />
-                <b>Triton Tails Graffiti Sticker</b>
                 
                 <!-- Display the price, if there is one -->
                  $2.99  
@@ -796,6 +690,83 @@
                 
                 <!-- Display the price, if there is one -->
                  $2.99  
+              </button>
+              
+            </div>
+          </div>
+        </div>
+        
+        <div class="store-aisle">
+          <div>
+            <h4 class="mb-1">The High Tide Poster Collection</h4>
+            <p class="mb-1">Decorate your space with our rave festival posters!</p>
+          </div>
+          <div class="scrollable-container-x">
+            <div
+              
+              class="store-row"
+              
+            >
+              <div class="scroll-edge-overlay"></div>
+              
+              <button
+                class="store-item"
+                data-bs-toggle="modal"
+                data-bs-target="#itemModal"
+                data-item-info="{&quot;name&quot;:&quot;High Tide Poster Pack&quot;,&quot;shortDesc&quot;:null,&quot;image&quot;:&quot;/assets/images/store/Tile_Print_HighTidePack.png&quot;,&quot;variants&quot;:[{&quot;name&quot;:&quot;default&quot;,&quot;price&quot;:18.99,&quot;priceId&quot;:null,&quot;description&quot;:&quot;Get all 3 posters in the High Tide collection at a 20% discount! All posters are 11&#92;&quot; x 17&#92;&quot;.&quot;}]}"
+                type="button"
+                onclick="fireGAEvent('Selected Store Item', { selected_item_name:'High Tide Poster Pack',})"
+              >
+                <img src="/assets/images/store/Tile_Print_HighTidePack.png" alt="High Tide Poster Pack" />
+                <b>High Tide Poster Pack</b>
+                
+                <!-- Display the price, if there is one -->
+                 $18.99 • Offsale  
+              </button>
+              
+              <button
+                class="store-item"
+                data-bs-toggle="modal"
+                data-bs-target="#itemModal"
+                data-item-info="{&quot;name&quot;:&quot;Lizzy x Russel Debut Poster&quot;,&quot;shortDesc&quot;:null,&quot;image&quot;:&quot;/assets/images/store/Tile_Print_HighTide1.png&quot;,&quot;variants&quot;:[{&quot;name&quot;:&quot;default&quot;,&quot;price&quot;:7.99,&quot;priceId&quot;:null,&quot;description&quot;:&quot;Celebrate the debut of Lizzy and Russel with this stunning 11&#92;&quot; x 17&#92;&quot; poster! Featuring vibrant colors and a unique design, this poster is perfect for any fan of our DJs.&quot;}]}"
+                type="button"
+                onclick="fireGAEvent('Selected Store Item', { selected_item_name:'Lizzy x Russel Debut Poster',})"
+              >
+                <img src="/assets/images/store/Tile_Print_HighTide1.png" alt="Lizzy x Russel Debut Poster" />
+                <b>Lizzy x Russel Debut Poster</b>
+                
+                <!-- Display the price, if there is one -->
+                 $7.99 • Offsale  
+              </button>
+              
+              <button
+                class="store-item"
+                data-bs-toggle="modal"
+                data-bs-target="#itemModal"
+                data-item-info="{&quot;name&quot;:&quot;Russel Headliner Reveal Poster&quot;,&quot;shortDesc&quot;:null,&quot;image&quot;:&quot;/assets/images/store/Tile_Print_HighTide3.png&quot;,&quot;variants&quot;:[{&quot;name&quot;:&quot;default&quot;,&quot;price&quot;:7.99,&quot;priceId&quot;:null,&quot;description&quot;:&quot;Get ready to party with our Russel Headliner Reveal Poster! This eye-catching 11&#92;&quot; x 17&#92;&quot; design captures the energy of the rave scene and is perfect for any fan of our DJs.&quot;}]}"
+                type="button"
+                onclick="fireGAEvent('Selected Store Item', { selected_item_name:'Russel Headliner Reveal Poster',})"
+              >
+                <img src="/assets/images/store/Tile_Print_HighTide3.png" alt="Russel Headliner Reveal Poster" />
+                <b>Russel Headliner Reveal Poster</b>
+                
+                <!-- Display the price, if there is one -->
+                 $7.99 • Offsale  
+              </button>
+              
+              <button
+                class="store-item"
+                data-bs-toggle="modal"
+                data-bs-target="#itemModal"
+                data-item-info="{&quot;name&quot;:&quot;High Tide Debut Poster&quot;,&quot;shortDesc&quot;:null,&quot;image&quot;:&quot;/assets/images/store/Tile_Print_HighTide2.png&quot;,&quot;variants&quot;:[{&quot;name&quot;:&quot;default&quot;,&quot;price&quot;:7.99,&quot;priceId&quot;:null,&quot;description&quot;:&quot;Celebrate the debut of High Tide with this stunning 11&#92;&quot; x 17&#92;&quot; poster! Featuring vibrant colors and a unique design, this poster is perfect for any fan of our mascot.&quot;}]}"
+                type="button"
+                onclick="fireGAEvent('Selected Store Item', { selected_item_name:'High Tide Debut Poster',})"
+              >
+                <img src="/assets/images/store/Tile_Print_HighTide2.png" alt="High Tide Debut Poster" />
+                <b>High Tide Debut Poster</b>
+                
+                <!-- Display the price, if there is one -->
+                 $7.99 • Offsale  
               </button>
               
             </div>
