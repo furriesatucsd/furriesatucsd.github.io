@@ -49,8 +49,159 @@
       ]
     },
     {
+      "title": "The Howloween: Creature Feature Collection",
+      "description": "The merch line from our Halloween fair!",
+      "isFeatured": false,
+      "items": [
+        {
+          "name": "Creature Feature Tee",
+          "shortDesc": null,
+          "image": "/assets/images/store/Tile_Shirt_Howloween2025.png",
+          "variants": [
+            {
+              "name": "default",
+              "price": 24.99,
+              "priceId": "price_1RPEZtAQOudYnc4y1Yl4Bmbq",
+              "description": "TODO"
+            }
+          ]
+        },
+        {
+          "name": "Howloween Kandi Bracelets",
+          "shortDesc": null,
+          "image": "/assets/images/store/Tile_Shirt_Howloween2025.png",
+          "variants": [
+            {
+              "name": "default",
+              "price": 2.99,
+              "priceId": "price_1RPEZtAQOudYnc4y1Yl4Bmbq",
+              "description": "TODO"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "The Howloween: Creature Feature Poster Collection",
+      "description": "Decorate your space with these posters sold at our Halloween fair!",
+      "isFeatured": false,
+      "items": [
+        {
+          "name": "Howloween Poster 1",
+          "shortDesc": null,
+          "image": "/assets/images/store/Tile_Print_HighTide1.png",
+          "variants": [
+            {
+              "name": "default",
+              "price": 9.99,
+              "priceId": "price_1RPEZtAQOudYnc4y1Yl4Bmbq",
+              "description": "TODO"
+            }
+          ]
+        },
+        {
+          "name": "Howloween Poster 2",
+          "shortDesc": null,
+          "image": "/assets/images/store/Tile_Print_HighTide1.png",
+          "variants": [
+            {
+              "name": "default",
+              "price": 9.99,
+              "priceId": "price_1RPEZtAQOudYnc4y1Yl4Bmbq",
+              "description": "TODO"
+            }
+          ]
+        },
+        {
+          "name": "Howloween Poster 3",
+          "shortDesc": null,
+          "image": "/assets/images/store/Tile_Print_HighTide1.png",
+          "variants": [
+            {
+              "name": "default",
+              "price": 9.99,
+              "priceId": "price_1RPEZtAQOudYnc4y1Yl4Bmbq",
+              "description": "TODO"
+            }
+          ]
+        },
+        {
+          "name": "Howloween Poster 4",
+          "shortDesc": null,
+          "image": "/assets/images/store/Tile_Print_HighTide1.png",
+          "variants": [
+            {
+              "name": "default",
+              "price": 9.99,
+              "priceId": "price_1RPEZtAQOudYnc4y1Yl4Bmbq",
+              "description": "TODO"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "The Howloween: Creature Feature Sticker Collection",
+      "description": "Show your love for Triton Tails and Howloween with this line of stickers sold at our Halloween fair!",
+      "isFeatured": false,
+      "items": [
+        {
+          "name": "Howloween Sticker 1",
+          "shortDesc": null,
+          "image": "/assets/images/store/Tile_Sticker_HighTide1.png",
+          "variants": [
+            {
+              "name": "default",
+              "price": 2.99,
+              "priceId": "price_1RPEZtAQOudYnc4y1Yl4Bmbq",
+              "description": "TODO"
+            }
+          ]
+        },
+        {
+          "name": "Howloween Sticker 2",
+          "shortDesc": null,
+          "image": "/assets/images/store/Tile_Sticker_HighTide1.png",
+          "variants": [
+            {
+              "name": "default",
+              "price": 2.99,
+              "priceId": "price_1RPEZtAQOudYnc4y1Yl4Bmbq",
+              "description": "TODO"
+            }
+          ]
+        },
+        {
+          "name": "Howloween Sticker 3",
+          "shortDesc": null,
+          "image": "/assets/images/store/Tile_Sticker_HighTide1.png",
+          "variants": [
+            {
+              "name": "default",
+              "price": 2.99,
+              "priceId": "price_1RPEZtAQOudYnc4y1Yl4Bmbq",
+              "description": "TODO"
+            }
+          ]
+        },
+        {
+          "name": "Howloween Sticker 4",
+          "shortDesc": null,
+          "image": "/assets/images/store/Tile_Sticker_HighTide1.png",
+          "variants": [
+            {
+              "name": "default",
+              "price": 2.99,
+              "priceId": "price_1RPEZtAQOudYnc4y1Yl4Bmbq",
+              "description": "TODO"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "title": "The High Tide Collection",
-      "description": "The merch line from our previous rave festival. Shirts are still available!",
+      "description": "The merch line from our previous rave festival. Shirts and stickers are still available!",
       "isFeatured": false,
       "items": [
         {
@@ -63,6 +214,25 @@
               "price": 24.99,
               "priceId": "price_1RPEZtAQOudYnc4y1Yl4Bmbq",
               "description": "Unleash your inner rave spirit with our High Tide Graffiti Tee! Featuring a vibrant design inspired by the energy of the ocean and festival vibes, this shirt is perfect for beach days and unforgettable nights. (We carry sizes S-XL; after payment, you'll be able to specify which shirt size you would like :3)"
+            }
+          ]
+        },
+        {
+          "name": "High Tide Sticker Pack",
+          "shortDesc": null,
+          "image": "/assets/images/store/Tile_Sticker_HighTidePack.png",
+          "variants": [
+            {
+              "name": "3pc",
+              "price": 4.99,
+              "priceId": "price_1SHBJLAQOudYnc4ykcReMNVV",
+              "description": "Get 3 stickers from the High Tide collection at a discount! All stickers are 3\"."
+            },
+            {
+              "name": "5pc",
+              "price": 9.99,
+              "priceId": "price_1SHBJLAQOudYnc4ykcReMNVV",
+              "description": "Get all 5 stickers in the High Tide collection at a discount! All stickers are 3\"."
             }
           ]
         },
@@ -82,91 +252,6 @@
               "price": 4.99,
               "priceId": null,
               "description": "Get ready to rave with our High Tide Kandi Bracelets! These colorful and fun accessories are perfect for adding a pop of color to your outfit and showing off your love for the beach and festival culture."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "The High Tide Sticker Collection",
-      "description": "Show your love for High Tide with these adorable stickers!",
-      "isFeatured": false,
-      "items": [
-        {
-          "name": "High Tide Sticker Pack",
-          "shortDesc": null,
-          "image": "/assets/images/store/Tile_Sticker_HighTidePack.png",
-          "variants": [
-            {
-              "name": "default",
-              "price": 9.99,
-              "priceId": "price_1SHBJLAQOudYnc4ykcReMNVV",
-              "description": "Get all 5 stickers in the High Tide collection at a discount! All stickers are 3\"."
-            }
-          ]
-        },
-        {
-          "name": "Lizzy x Russel Debut Sticker",
-          "shortDesc": null,
-          "image": "/assets/images/store/Tile_Sticker_HighTide6.png",
-          "variants": [
-            {
-              "name": "default",
-              "price": 2.99,
-              "priceId": "price_1RPEqqAQOudYnc4yGkkigQTb",
-              "description": "Celebrate the debut of Lizzy and Russel with this stunning 3\" sticker! Featuring vibrant colors and a unique design, this sticker is perfect for any fan of our DJs."
-            }
-          ]
-        },
-        {
-          "name": "High Tide x Russel Sticker",
-          "shortDesc": null,
-          "image": "/assets/images/store/Tile_Sticker_HighTide4.png",
-          "variants": [
-            {
-              "name": "default",
-              "price": 2.99,
-              "priceId": "price_1RPEs9AQOudYnc4yoc2hhRNe",
-              "description": "Show your love for High Tide and Russel with this 3\" sticker!"
-            }
-          ]
-        },
-        {
-          "name": "Russel Tamagotchi Sticker",
-          "shortDesc": null,
-          "image": "/assets/images/store/Tile_Sticker_HighTide3.png",
-          "variants": [
-            {
-              "name": "default",
-              "price": 2.99,
-              "priceId": "price_1RPEt4AQOudYnc4yzoWWS5zL",
-              "description": "Show your love for Russel with this adorable 3\" Tamagotchi sticker, perfect for fans of our DJ!"
-            }
-          ]
-        },
-        {
-          "name": "Lizzy Tamagotchi Sticker",
-          "shortDesc": null,
-          "image": "/assets/images/store/Tile_Sticker_HighTide2.png",
-          "variants": [
-            {
-              "name": "default",
-              "price": 2.99,
-              "priceId": "price_1RPEtTAQOudYnc4yg5T3CqtD",
-              "description": "Show your love for Lizzy with this adorable 3\" Tamagotchi sticker, perfect for fans of our DJ!"
-            }
-          ]
-        },
-        {
-          "name": "High Tide Balloon Sticker",
-          "shortDesc": null,
-          "image": "/assets/images/store/Tile_Sticker_HighTide1.png",
-          "variants": [
-            {
-              "name": "default",
-              "price": 2.99,
-              "priceId": "price_1RPEu5AQOudYnc4yk1tW3If9",
-              "description": "Show your love for High Tide with this silly 3\" balloon sticker!"
             }
           ]
         }
@@ -250,19 +335,6 @@
           ]
         },
         {
-          "name": "Tropical Drink Sticker",
-          "shortDesc": null,
-          "image": "/assets/images/store/beach_2.png",
-          "variants": [
-            {
-              "name": "default",
-              "price": 2.99,
-              "priceId": "price_1RCHzqAQOudYnc4yG9H9sMJA",
-              "description": "Add a splash of tropical vibes to your collection with this vibrant Tropical Drink Sticker, featuring a refreshing design perfect for summer!"
-            }
-          ]
-        },
-        {
           "name": "Tide Sticker",
           "shortDesc": null,
           "image": "/assets/images/store/beach_3.png",
@@ -276,7 +348,7 @@
           ]
         },
         {
-          "name": "Ummm uhhhh",
+          "name": "Tide x Triton Sticker",
           "shortDesc": null,
           "image": "/assets/images/store/beach_4.png",
           "variants": [
@@ -285,6 +357,19 @@
               "price": 2.99,
               "priceId": "price_1RCI0bAQOudYnc4ytlmNaoaZ",
               "description": "A quirky and fun sticker to add to your collection lol. It's best not to ask too many questions."
+            }
+          ]
+        },
+        {
+          "name": "Tropical Drink Sticker",
+          "shortDesc": null,
+          "image": "/assets/images/store/beach_2.png",
+          "variants": [
+            {
+              "name": "default",
+              "price": 2.99,
+              "priceId": null,
+              "description": "Add a splash of tropical vibes to your collection with this vibrant Tropical Drink Sticker, featuring a refreshing design perfect for summer!"
             }
           ]
         }
