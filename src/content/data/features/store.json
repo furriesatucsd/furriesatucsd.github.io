@@ -50,7 +50,7 @@
     },
     {
       "title": "The Howloween: Creature Feature Collection",
-      "description": "The merch line from our Halloween fair!",
+      "description": "The exlusive merch line from our Halloween fair!",
       "isFeatured": false,
       "items": [
         {
@@ -61,21 +61,27 @@
             {
               "name": "default",
               "price": 24.99,
-              "priceId": "price_1RPEZtAQOudYnc4y1Yl4Bmbq",
-              "description": "TODO"
+              "priceId": "price_1SP8JfAQOudYnc4yxTHFMZUZ",
+              "description": "Embrace your inner spookiness with the official tee from Howloween 2025: Creature Feature! With a design featuring our Creature Feature cast that's inspired by a certain virtual band,  this shirt is perfect for showing off some Halloween spirit all year round! (We carry sizes S-XL; after payment, you'll be able to specify which shirt size you would like :3)"
             }
           ]
         },
         {
           "name": "Howloween Kandi Bracelets",
           "shortDesc": null,
-          "image": "/assets/images/store/Tile_Shirt_Howloween2025.png",
+          "image": "/assets/images/store/Tile_Bracelets_Howloween2025.png",
           "variants": [
             {
-              "name": "default",
+              "name": "1 Bracelet",
               "price": 2.99,
-              "priceId": "price_1RPEZtAQOudYnc4y1Yl4Bmbq",
-              "description": "TODO"
+              "priceId": "price_1SP8KoAQOudYnc4yoGvTdfVy",
+              "description": "Wear some Howloween pride on your sleeve (or more likely, on your wrist) with a Howloween Kandi bracelet! These colorful and fun accessories are perfect for adding a pop of color to your outfit and showing off some Halloween spirit."
+            },
+            {
+              "name": "2 Bracelets (Save $1)",
+              "price": 4.99,
+              "priceId": "price_1SP8LYAQOudYnc4yKKkVWfi5",
+              "description": "Wear some Howloween pride on your sleeve (or more likely, on your wrist) with Howloween Kandi bracelets! These colorful and fun accessories are perfect for adding a pop of color to your outfit and showing off some Halloween spirit. This pack of two bracelets also nets you a sweet discount!"
             }
           ]
         }
@@ -87,54 +93,54 @@
       "isFeatured": false,
       "items": [
         {
-          "name": "Howloween Poster 1",
+          "name": "Howloween 2025 Poster",
           "shortDesc": null,
-          "image": "/assets/images/store/Tile_Print_HighTide1.png",
+          "image": "/assets/images/store/Tile_Print_Howloween1.png",
           "variants": [
             {
               "name": "default",
               "price": 9.99,
-              "priceId": "price_1RPEZtAQOudYnc4y1Yl4Bmbq",
-              "description": "TODO"
+              "priceId": "price_1SP8NEAQOudYnc4ymn2P4oZc",
+              "description": "Celebrate Howloween 2025: Creature Feature with this delightfully spooky 8.5\" x 11\" poster! This poster is perfect for repping some Howloween spirit or for anyone who emjoys seeing the Creature Feature cast."
             }
           ]
         },
         {
-          "name": "Howloween Poster 2",
+          "name": "Howloween 2024 Poster",
           "shortDesc": null,
-          "image": "/assets/images/store/Tile_Print_HighTide1.png",
+          "image": "/assets/images/store/Tile_Print_Howloween2.png",
           "variants": [
             {
               "name": "default",
               "price": 9.99,
-              "priceId": "price_1RPEZtAQOudYnc4y1Yl4Bmbq",
-              "description": "TODO"
+              "priceId": "price_1SP8O5AQOudYnc4y0lJOfrN9",
+              "description": "Celebrate the inaugural Howloween with this delightfully spooky 8.5\" x 11\" poster! This poster is perfect for repping some Howloween spirit or for anyone who wants to add a dash of cute spookiness to their wall."
             }
           ]
         },
         {
-          "name": "Howloween Poster 3",
+          "name": "Tide Skateboard Poster",
           "shortDesc": null,
-          "image": "/assets/images/store/Tile_Print_HighTide1.png",
+          "image": "/assets/images/store/Tile_Print_Howloween3.png",
           "variants": [
             {
               "name": "default",
               "price": 9.99,
-              "priceId": "price_1RPEZtAQOudYnc4y1Yl4Bmbq",
-              "description": "TODO"
+              "priceId": "price_1SP8OkAQOudYnc4yHEdtMepV",
+              "description": "Show some love for Triton Tails with a Tide Skateboard Poster! Inspired by comic book covers, this radical 8\" x 11\" design is perfect for any fan of our mascot."
             }
           ]
         },
         {
-          "name": "Howloween Poster 4",
+          "name": "Tide Yogurt Poster",
           "shortDesc": null,
-          "image": "/assets/images/store/Tile_Print_HighTide1.png",
+          "image": "/assets/images/store/Tile_Print_Howloween4.png",
           "variants": [
             {
               "name": "default",
               "price": 9.99,
-              "priceId": "price_1RPEZtAQOudYnc4y1Yl4Bmbq",
-              "description": "TODO"
+              "priceId": "price_1SP8PLAQOudYnc4ys4SVnVJA",
+              "description": "Show some love for Triton Tails with a Tide Yogurt Poster! This delicious 8\" x 8\" design is perfect for any fan of our mascot (or frozen yoggy)!"
             }
           ]
         }
@@ -142,58 +148,45 @@
     },
     {
       "title": "The Howloween: Creature Feature Sticker Collection",
-      "description": "Show your love for Triton Tails and Howloween with this line of stickers sold at our Halloween fair!",
+      "description": "Show your love for Triton Tails and Howloween with this line of stickers sold at our Halloween fair! All stickers are 3\".",
       "isFeatured": false,
       "items": [
         {
-          "name": "Howloween Sticker 1",
+          "name": "Tide Cry Sticker",
           "shortDesc": null,
-          "image": "/assets/images/store/Tile_Sticker_HighTide1.png",
+          "image": "/assets/images/store/Tile_Sticker_Howloween1.png",
           "variants": [
             {
               "name": "default",
               "price": 2.99,
-              "priceId": "price_1RPEZtAQOudYnc4y1Yl4Bmbq",
-              "description": "TODO"
+              "priceId": "price_1SP8QQAQOudYnc4y4PCe31f2",
+              "description": "WAFGFGHHFDFHDFHG (he must have just came out from a midterm or something lol)"
             }
           ]
         },
         {
-          "name": "Howloween Sticker 2",
+          "name": "Tide Skateboard Sticker",
           "shortDesc": null,
-          "image": "/assets/images/store/Tile_Sticker_HighTide1.png",
+          "image": "/assets/images/store/Tile_Sticker_Howloween2.png",
           "variants": [
             {
               "name": "default",
               "price": 2.99,
-              "priceId": "price_1RPEZtAQOudYnc4y1Yl4Bmbq",
-              "description": "TODO"
+              "priceId": "price_1SP8R0AQOudYnc4yK8h2HXRu",
+              "description": "Show some love for Triton Tails with a Tide Skateboard Sticker, featuring just the radical-ness of Tide from the full poster!"
             }
           ]
         },
         {
-          "name": "Howloween Sticker 3",
+          "name": "Triton Tails Graffiti Sticker",
           "shortDesc": null,
-          "image": "/assets/images/store/Tile_Sticker_HighTide1.png",
+          "image": "/assets/images/store/Tile_Sticker_Howloween3.png",
           "variants": [
             {
               "name": "default",
               "price": 2.99,
-              "priceId": "price_1RPEZtAQOudYnc4y1Yl4Bmbq",
-              "description": "TODO"
-            }
-          ]
-        },
-        {
-          "name": "Howloween Sticker 4",
-          "shortDesc": null,
-          "image": "/assets/images/store/Tile_Sticker_HighTide1.png",
-          "variants": [
-            {
-              "name": "default",
-              "price": 2.99,
-              "priceId": "price_1RPEZtAQOudYnc4y1Yl4Bmbq",
-              "description": "TODO"
+              "priceId": "price_1RPErVAQOudYnc4y7vK3o6uX",
+              "description": "Add a splash of Triton Tails to your collection with a vibrant Graffiti Sticker, featuring a unique design that captures the spirit of our club!"
             }
           ]
         }
@@ -213,26 +206,28 @@
               "name": "default",
               "price": 24.99,
               "priceId": "price_1RPEZtAQOudYnc4y1Yl4Bmbq",
-              "description": "Unleash your inner rave spirit with our High Tide Graffiti Tee! Featuring a vibrant design inspired by the energy of the ocean and festival vibes, this shirt is perfect for beach days and unforgettable nights. (We carry sizes S-XL; after payment, you'll be able to specify which shirt size you would like :3)"
+              "description": "Unleash your inner rave spirit with our High Tide Graffiti Tee! Featuring a vibrant design inspired by the energy of the ocean and festival vibes, this shirt is perfect for beach days and unforgettable nights. (NOTE: At this time we only have S and M sizes remaining; after payment, you'll be able to specify which shirt size you would like :3)"
             }
           ]
         },
         {
           "name": "High Tide Sticker Pack",
           "shortDesc": null,
-          "image": "/assets/images/store/Tile_Sticker_HighTidePack.png",
+          "image": "/assets/images/store/Tile_Sticker_HighTide5Pack.png",
           "variants": [
-            {
-              "name": "3pc",
-              "price": 4.99,
-              "priceId": "price_1SHBJLAQOudYnc4ykcReMNVV",
-              "description": "Get 3 stickers from the High Tide collection at a discount! All stickers are 3\"."
-            },
             {
               "name": "5pc",
               "price": 9.99,
               "priceId": "price_1SHBJLAQOudYnc4ykcReMNVV",
-              "description": "Get all 5 stickers in the High Tide collection at a discount! All stickers are 3\"."
+              "description": "Get all 5 stickers in the High Tide collection at a discount! All stickers are 3\".",
+              "image": "/assets/images/store/Tile_Sticker_HighTide5Pack.png"
+            },
+            {
+              "name": "3pc",
+              "price": 4.99,
+              "priceId": "price_1SP8T1AQOudYnc4y5oec3gMg",
+              "description": "Get 3 stickers from the High Tide collection at a discount! All stickers are 3\".",
+              "image": "/assets/images/store/Tile_Sticker_HighTide3Pack.png"
             }
           ]
         },
@@ -330,7 +325,7 @@
               "name": "default",
               "price": 24.99,
               "priceId": "price_1RBvZ0AQOudYnc4yY07WfvwH",
-              "description": "Ride the waves in style with our San Diego Beach Tee! Featuring Tide the Raccoon, this shirt is perfect for sunny days and coastal vibes."
+              "description": "Ride the waves in style with our San Diego Beach Tee! Featuring Tide the Raccoon, this shirt is perfect for sunny days and coastal vibes. (NOTE: At this time we only have S and XL sizes remaining; after payment, you'll be able to specify which shirt size you would like :3)"
             }
           ]
         },
