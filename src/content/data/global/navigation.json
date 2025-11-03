@@ -13,11 +13,6 @@
       "type": "dropdown",
       "items": [
         {
-          "title": "Howloween 2025: Creature Feature",
-          "url": "https://www.eventbrite.com/e/howloween-2025-creature-feature-tickets-1562154198259",
-          "external": true
-        },
-        {
           "title": "Event Calendar",
           "url": "/event-calendar/"
         }
