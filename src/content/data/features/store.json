@@ -6,20 +6,6 @@
       "isFeatured": true,
       "items": [
         {
-          "name": "Howloween 2025: Creature Feature",
-          "shortDesc": "Get tickets for our halloween-themed festival on October 18!",
-          "image": "/assets/images/store/featured_1.png",
-          "variants": [
-            {
-              "name": "default",
-              "price": null,
-              "priceId": "",
-              "description": "Register for Howloween, our annual halloween-themed festival, featuring an artist alley, costume contest, and more!",
-              "externalUrl": "https://www.eventbrite.com/e/howloween-2025-creature-feature-tickets-1562154198259"
-            }
-          ]
-        },
-        {
           "name": "Membership Cards",
           "shortDesc": "Get exclusive perks and discounts across campus!",
           "image": "/assets/images/store/card_fall2025.png",
