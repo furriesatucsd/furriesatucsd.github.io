@@ -74,7 +74,13 @@ description: Get exclusive merch, membership, materials, and more!
   >
     <div class="modal-dialog">
       <div class="modal-content">
-        <form id="post-payment-form" onsubmit="event.preventDefault(); submitPPForm();">
+        <form
+          id="post-payment-form"
+          onsubmit="
+            event.preventDefault();
+            submitPPForm();
+          "
+        >
           <div class="modal-header">
             <div>
               <h4 class="modal-title" id="ppformModalLabel">Success, thank you!</h4>
@@ -210,7 +216,10 @@ description: Get exclusive merch, membership, materials, and more!
           <button
             class="btn btn-link text-secondary"
             data-bs-dismiss="modal"
-            onclick="openCartModal(); fireGAEvent('Clicked View Cart After Adding to Cart')"
+            onclick="
+              openCartModal();
+              fireGAEvent('Clicked View Cart After Adding to Cart');
+            "
             type="button"
           >
             View Cart
