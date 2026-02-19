@@ -252,7 +252,13 @@
   >
     <div class="modal-dialog">
       <div class="modal-content">
-        <form id="post-payment-form" onsubmit="event.preventDefault(); submitPPForm();">
+        <form
+          id="post-payment-form"
+          onsubmit="
+            event.preventDefault();
+            submitPPForm();
+          "
+        >
           <div class="modal-header">
             <div>
               <h4 class="modal-title" id="ppformModalLabel">Success, thank you!</h4>
@@ -386,7 +392,10 @@
           <button
             class="btn btn-link text-secondary"
             data-bs-dismiss="modal"
-            onclick="openCartModal(); fireGAEvent('Clicked View Cart After Adding to Cart')"
+            onclick="
+              openCartModal();
+              fireGAEvent('Clicked View Cart After Adding to Cart');
+            "
             type="button"
           >
             View Cart
@@ -499,11 +508,11 @@
                 class="store-item"
                 data-bs-toggle="modal"
                 data-bs-target="#itemModal"
-                data-item-info="{&quot;name&quot;:&quot;Membership Cards&quot;,&quot;shortDesc&quot;:&quot;Get exclusive perks and discounts across campus!&quot;,&quot;image&quot;:&quot;/assets/images/store/card_fall2025.png&quot;,&quot;variants&quot;:[{&quot;name&quot;:&quot;Fall 2025 (current)&quot;,&quot;price&quot;:9.99,&quot;priceId&quot;:&quot;price_1SHB9AAQOudYnc4yky5q42zo&quot;,&quot;description&quot;:&quot;Get a membership card to score exclusive discounts and perks this season! Perks include: 10% off at most restaurants on-campus, 10% off all Club Merch, and Priority for Fursuit Workshops.&quot;},{&quot;name&quot;:&quot;Spring 2025&quot;,&quot;price&quot;:2.99,&quot;priceId&quot;:&quot;price_1SHB7kAQOudYnc4yS3jtdT5D&quot;,&quot;description&quot;:&quot;Missed our previous membership card? No worries! You can still get this previous card to keep the art as a souvenir and show your support for the club. (The card will not be valid for discounts.)&quot;,&quot;image&quot;:&quot;/assets/images/store/card_spring2025.png&quot;},{&quot;name&quot;:&quot;Winter 2025&quot;,&quot;price&quot;:2.99,&quot;priceId&quot;:&quot;price_1RCHyoAQOudYnc4yfRo7yDMG&quot;,&quot;description&quot;:&quot;Missed our previous membership card? No worries! You can still get this previous card to keep the art as a souvenir and show your support for the club. (The card will not be valid for discounts.)&quot;,&quot;image&quot;:&quot;/assets/images/store/card_winter2025.png&quot;}]}"
+                data-item-info="{&quot;name&quot;:&quot;Membership Cards&quot;,&quot;shortDesc&quot;:&quot;Get exclusive perks and discounts across campus!&quot;,&quot;image&quot;:&quot;/assets/images/store/card_winter2026_disc.png&quot;,&quot;variants&quot;:[{&quot;name&quot;:&quot;Winter 2026&quot;,&quot;price&quot;:4.99,&quot;priceId&quot;:&quot;price_1T2KadAQOudYnc4yzAwtCBhU&quot;,&quot;description&quot;:&quot;Get a membership card to score exclusive discounts and perks this season! Perks include: 10% off at most restaurants on-campus, 10% off all Club Merch, and Priority for Fursuit Workshops.&quot;},{&quot;name&quot;:&quot;Fall 2025&quot;,&quot;price&quot;:2.99,&quot;priceId&quot;:&quot;price_1T2Ka5AQOudYnc4y8zuFswoH&quot;,&quot;description&quot;:&quot;Missed our previous membership card? No worries! You can still get this previous card to keep the art as a souvenir and show your support for the club. (The card will not be valid for discounts.)&quot;,&quot;image&quot;:&quot;/assets/images/store/card_fall2025.png&quot;},{&quot;name&quot;:&quot;Spring 2025&quot;,&quot;price&quot;:2.99,&quot;priceId&quot;:&quot;price_1SHB7kAQOudYnc4yS3jtdT5D&quot;,&quot;description&quot;:&quot;Missed our previous membership card? No worries! You can still get this previous card to keep the art as a souvenir and show your support for the club. (The card will not be valid for discounts.)&quot;,&quot;image&quot;:&quot;/assets/images/store/card_spring2025.png&quot;},{&quot;name&quot;:&quot;Winter 2025&quot;,&quot;price&quot;:2.99,&quot;priceId&quot;:&quot;price_1RCHyoAQOudYnc4yfRo7yDMG&quot;,&quot;description&quot;:&quot;Missed our previous membership card? No worries! You can still get this previous card to keep the art as a souvenir and show your support for the club. (The card will not be valid for discounts.)&quot;,&quot;image&quot;:&quot;/assets/images/store/card_winter2025.png&quot;}]}"
                 type="button"
                 onclick="fireGAEvent('Selected Store Item', { selected_item_name:'Membership Cards',})"
               >
-                <img src="/assets/images/store/card_fall2025.png" alt="Membership Cards" />
+                <img src="/assets/images/store/card_winter2026_disc.png" alt="Membership Cards" />
                 <b>Membership Cards</b>
                 
                 <!-- Display the short description, if there is one -->
@@ -1835,7 +1844,7 @@
     <div>
       <p>Triton Tails - Furries at UC San Diego</p>
       <p class="small">
-        &copy; 2025 Triton Tails. All rights reserved.
+        &copy; 2026 Triton Tails. All rights reserved.
       </p>
     </div>
   </div>
