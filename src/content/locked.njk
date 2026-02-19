@@ -49,7 +49,12 @@ permalink: /locked.html
       of our mascot (e.g. "tony tiger"). If you're a new member, you should join our Discord to stay
       updated on events!
     </p>
-    <form onsubmit="event.preventDefault(); checkIfPasswordCorrect();">
+    <form
+      onsubmit="
+        event.preventDefault();
+        checkIfPasswordCorrect();
+      "
+    >
       <ul class="actions justify-content-center">
         <li>
           <input
