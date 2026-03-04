@@ -198,8 +198,8 @@
             {
               "name": "default",
               "price": 24.99,
-              "priceId": "price_1RPEZtAQOudYnc4y1Yl4Bmbq",
-              "description": "Unleash your inner rave spirit with our High Tide Graffiti Tee! Featuring a vibrant design inspired by the energy of the ocean and festival vibes, this shirt is perfect for beach days and unforgettable nights. (NOTE: At this time we only have S and M sizes remaining; after payment, you'll be able to specify which shirt size you would like :3)"
+              "priceId": null,
+              "description": "Unleash your inner rave spirit with our High Tide Graffiti Tee! Featuring a vibrant design inspired by the energy of the ocean and festival vibes, this shirt is perfect for beach days and unforgettable nights."
             }
           ]
         },
@@ -317,7 +317,7 @@
             {
               "name": "default",
               "price": 24.99,
-              "priceId": "price_1RBvZ0AQOudYnc4yY07WfvwH",
+              "priceId": null,
               "description": "Ride the waves in style with our San Diego Beach Tee! Featuring Tide the Raccoon, this shirt is perfect for sunny days and coastal vibes. (NOTE: At this time we only have S and XL sizes remaining; after payment, you'll be able to specify which shirt size you would like :3)"
             }
           ]
