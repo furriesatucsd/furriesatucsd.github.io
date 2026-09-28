@@ -284,8 +284,9 @@ description: Get exclusive merch, membership, materials, and more!
           >
             Continue Shopping
           </button>
+          <!-- re-add btn-primary once it's back up -->
           <button
-            class="btn btn-primary"
+            class="btn btn-secondary"
             id="cart-modal-checkout"
             data-bs-dismiss="modal"
             type="button"
@@ -876,6 +877,10 @@ description: Get exclusive merch, membership, materials, and more!
   // Cart Modal: Purchase Button
   var purchaseButton = document.querySelector('#cart-modal-checkout');
   purchaseButton.addEventListener('click', function (e) {
+    alert(
+      "Sorry, the Club Store is currently unavailable to purchase things on! Check the announcements channel in our Discord server for updates on when it'll be available again~"
+    );
+    /*
     // Run sanity checks on the cart
     // Check if the cart is empty
     if (userShoppingCart.length === 0) {
@@ -909,7 +914,6 @@ description: Get exclusive merch, membership, materials, and more!
     }
 
     // --- All checks have been run, so now we can proceed with checkout ---
-
     // Show a quick notice
     alert(
       "We're sending you to Checkout! The store is owned and run by Robin Ocampo, a member of Triton Tails. Your order may appear on your statement as 'Robin O Merch' or 'RO-Merch'."
@@ -951,6 +955,7 @@ description: Get exclusive merch, membership, materials, and more!
             ')'
         );
       });
+      */
   });
 
   // PAGE EVENTS
